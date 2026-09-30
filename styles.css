@@ -278,6 +278,8 @@ table { border-collapse: collapse; width: 100%; font-size: var(--t-sm); min-widt
 th, td { text-align: left; padding: .7rem .9rem; border-top: 1px solid var(--line); vertical-align: top; }
 thead th { border-top: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--paper-2); }
 td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* phones: a second price (the founding price) gets its own labelled row instead of overlapping the list price */
+@media (max-width: 599px) { table.stack td.num + td.num { grid-row: 2; } table.stack td.num + td.num::before { content: "Founding "; color: var(--muted); } }
 
 /* packages */
 .plans { display: grid; gap: 1.2rem; }

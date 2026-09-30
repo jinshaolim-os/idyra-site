@@ -77,7 +77,7 @@
         "Hi Idyra, I'd like a quote.",
         `I am: ${val('who')}`,
         `Property: ${val('what')}${area ? `, ${area}` : ''}`,
-        `Built-up area: ${val('size')}`,
+        `Gross floor area: ${val('size')}`,
         `Building-plan drawings: ${val('drawings')}`,
         `Interested in: ${val('want')}`,
       ].join('\n');
