@@ -155,13 +155,13 @@ const afterLoadFrame = fn => {
       openingUi.forEach(element => observer.observe(element));
     } else window.addEventListener('resize', fitOpening);
   }
-  // The concept row is a Tab stop only while it scrolls sideways (800 px and below); above that it is a plain grid.
-  const conceptRow = document.querySelector('.concept-row');
-  if (conceptRow) {
-    const syncConceptStop = () => { if (conceptRow.scrollWidth > conceptRow.clientWidth + 1) conceptRow.setAttribute('tabindex', '0'); else conceptRow.removeAttribute('tabindex'); };
-    syncConceptStop();
-    if ('ResizeObserver' in window) new ResizeObserver(syncConceptStop).observe(conceptRow);
-    else window.addEventListener('resize', syncConceptStop);
+  // The concept row (800 px and below) and the packages' small tiles (599 px and below) are Tab stops only while they
+  // scroll sideways; otherwise they are plain grids.
+  for (const row of document.querySelectorAll('.concept-row, .dl-strip')) {
+    const syncStop = () => { if (row.scrollWidth > row.clientWidth + 1) row.setAttribute('tabindex', '0'); else row.removeAttribute('tabindex'); };
+    syncStop();
+    if ('ResizeObserver' in window) new ResizeObserver(syncStop).observe(row);
+    else window.addEventListener('resize', syncStop);
   }
   const menu = document.querySelector('[data-menu]');
   const nav = document.getElementById('main-nav');

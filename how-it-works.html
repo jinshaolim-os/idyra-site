@@ -40,7 +40,7 @@
   </g>
 </svg></a>
     <nav class="nav" id="main-nav" aria-label="Main">
-      <a href="index.html#experience">Explore</a><a href="how-it-works.html">How it works</a><a href="packages.html">Packages</a><a href="case-study.html">The project</a>
+      <a href="index.html#experience">Explore</a><a href="how-it-works.html">How it works</a><a href="packages.html">Packages</a><a href="case-study.html">Case study</a>
     </nav>
     <button type="button" class="menu-toggle" data-menu aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">+</span></button>
     <a class="btn btn-wa btn-small" href="https://wa.me/60122505150?text=Hi%20Idyra%2C%20I'd%20like%20to%20discuss%20a%20digital%20twin%20for%20a%20factory%20or%20warehouse.%20Property%20type%20and%20area%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.8a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.3 1 2.5.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.4Z"/></svg><span>WhatsApp</span></a>
@@ -48,79 +48,113 @@
 </header>
 <main id="main">
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow"><b>How it works</b><span>Drawings → model → views → link</span><span class="ref">Sheet 2 / 8</span></p>
-    <h1 style="margin-top:.9rem;max-width:20ch">From drawings to a digital twin.</h1>
-    <p class="lead" style="margin-top:1rem">We work from the building-plan drawings, so the building does not need to be finished, empty or tidy. After an order form is signed, you send the drawings, check the preview and approve the result; the rest is our job.</p>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><b>How it works</b><span>Drawings → model → views → link</span><span class="ref">Sheet 2 / 8</span></p>
+      <h1 style="margin-top:.9rem;max-width:20ch">From drawings to a digital twin.</h1>
+      <p class="lead" style="margin-top:1rem">We work from the building-plan drawings, so the building does not need to be finished, empty or tidy. After an order form is signed, you send the drawings, check the preview and approve the result; the rest is our job.</p>
+    </div>
+    <div class="timeline-card">
+      <h2 id="time-h">How long it takes</h2>
+      <ol class="tl-bars" style="--tl-max:15"><li style="--tl-days:5"><span class="tl-name">Plan Twin</span><span class="tl-days">5 working days</span><span class="tl-track" aria-hidden="true"><span class="tl-bar"></span></span></li><li style="--tl-days:15"><span class="tl-name">Showroom</span><span class="tl-days">15 working days</span><span class="tl-track" aria-hidden="true"><span class="tl-bar"></span></span></li></ol>
+      <p class="fine">Working days from complete drawings and the signed order, for our founding customers. We have built one showroom so far, so each job's date is agreed in writing before we start.</p>
+      <p class="fine">Founding pilot: we confirm the delivery date after inspecting your drawings; one active job at a time.</p>
+    </div>
   </div>
 </section>
 
 <section class="section" aria-labelledby="flow-h">
   <div class="wrap">
-    <div class="section-head"><p class="eyebrow"><b>The pipeline</b></p><h2 id="flow-h">Six stages, each checked before the next</h2></div>
-    <ol class="steps">
-      <li><h3>Quote and order</h3><p>Tell us about the building and whether you have the drawings. We quote from the fixed price list. Work starts once the order form is signed and the written licence for the drawings is in place.</p></li>
-      <li><h3>Drawings in</h3><p>After the order form is signed, you send the building-plan PDF. We confirm every sheet is there and readable, note the drawing reference, date and approval status, and ask the owner for a short written go-ahead. We never publish the drawings.</p></li>
-      <li><h3>Facts out of the sheets</h3><p>Every printed dimension, level, door, bay, area and schedule is read into a fact list with its sheet reference. A second pass re-reads the buyer-facing facts on the sheets. Where the drawings disagree with each other, we record it and ask. On PT&nbsp;49665 this gave 1,835 facts, 195 of them buyer-facing and re-checked.</p></li>
-      <li><h3>The to-scale model</h3><p>The model is built from those facts, in metres, with the site, the building and its structure. Then it is checked back against the drawings: on PT&nbsp;49665, all 103 checks passed (101 dimensions within 0.1 m and 2 counts exact), and 5 items that need a site visit were flagged.</p></li>
-      <li><h3>States and views</h3><p>The building as per plan, plus illustrative fit-outs such as logistics or light manufacturing. The model supports walking, state changes and tap-to-measure. A Showroom adds path-traced stills with as-per-plan partners and a vertical video; a longer film is an add-on. In the PT&nbsp;49665 drawing-built renders, AI people are composited only inside non-structural masks and labelled AI-illustrative. Short AI-animated clips made from these renders appear on our home page with their own label.</p></li>
-      <li><h3>Review, then share</h3><p>You get a private preview and one round of revisions. Then the share page goes live with its WhatsApp preview card, the spec sheet PDF and the video files, ready for the listing.</p></li>
+    <div class="section-head"><p class="eyebrow"><b>The pipeline</b></p><h2 id="flow-h">Six stages, each checked before the next</h2><p>PT&nbsp;49665 is our founder's family property, not a paying client, and it is not offered for sale or rent through Idyra.</p></div>
+    <ol class="stages">
+      <li class="stage" id="stage-order">
+        <h3>Quote and order</h3>
+        <div class="stage-diagram">
+          <ol class="flow-chips" aria-label="Before work starts">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6Z"/><path d="M15 3v3h3M9 10h6M9 14h6M9 18h3"/></g></svg><span>Quote</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18H6Z"/><path d="M9 8h6M9 12h6M8.5 17.5c1.2-1.6 2.2-1.6 2.6 0s1.4 1.4 2.6-.3 2 .2 2.8.1"/></g></svg><span>Order form signed</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="m9.2 13.2-1.7 7.8 4.5-2.4 4.5 2.4-1.7-7.8"/></g></svg><span>Drawing licence in writing</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 8.6v6.8l5.4-3.4Z"/></g></svg><span>Work starts</span></li>
+          </ol>
+        </div>
+        <p>We quote from the fixed price list. Work starts once the order form is signed and the written licence for the drawings is in place.</p>
+        <p class="fine">No orders or payments are taken before our business bank account is open and the order form is signed.</p>
+      </li>
+      <li class="stage" id="stage-drawings">
+        <h3>Drawings in</h3>
+        <div class="stage-diagram stage-diagram--sheets"><ul class="sheet-icons" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><p class="sheet-record"><span><b>PT&nbsp;49665</b> <span class="dot">·</span> <span class="nowrap">JPLKSB/49665-2026</span> <span class="dot">·</span> 10 sheets</span> <span>JUN 2026 <span class="dot">·</span> submitted, not yet approved</span></p></div>
+        <p>After the order form is signed, you send the building-plan PDF. We confirm every sheet is there and readable, note the drawing reference, date and approval status, and ask the owner for a short written go-ahead. We never publish the drawings.</p>
+      </li>
+      <li class="stage" id="stage-facts">
+        <h3>Facts out of the sheets</h3>
+        <figure class="stage-fig" data-stage-fig="facts"><div class="stage-media stage-media--sheet"><img src="assets/img/pt49665-spec-sheet-page-1.png" width="1588" height="2246" alt="Part of page 1 of the PT 49665 spec sheet: land area 4,565 m², built-up area 2,616 m², eave height 12.0 m and column-free span 44.8 m, each with its drawing sheet reference" loading="lazy" decoding="async"></div><figcaption><span class="pill pill--doc"><span class="pill-t">Spec sheet <span class="dot">·</span> from building-plan drawings</span></span><span>From page 1 of the PT&nbsp;49665 spec sheet. <a href="assets/pt49665-spec-sheet.pdf" target="_blank" rel="noopener">Open the PDF</a></span></figcaption></figure>
+        <ul class="stage-stats"><li class="stage-stat"><b>1,835</b> facts on PT&nbsp;49665</li><li class="stage-stat"><b>195</b> buyer-facing, re-checked</li></ul>
+        <p>Every printed dimension, level, door, bay, area and schedule is read into a fact list with its sheet reference. A second pass re-reads the buyer-facing facts on the sheets. Where sheets disagree, we record it and ask.</p>
+      </li>
+      <li class="stage" id="stage-model">
+        <h3>The to-scale model</h3>
+        <figure class="stage-fig" data-stage-fig="model"><div class="stage-media"><img src="assets/img/aerial.plan-1200.webp" srcset="assets/img/aerial.plan-800.webp 800w, assets/img/aerial.plan-1200.webp 1200w, assets/img/aerial.plan-1600.webp 1600w" sizes="(min-width: 1440px) 640px, (min-width: 1101px) calc(50vw - 80px), (min-width: 801px) calc(50vw - 56px), calc(100vw - 48px)" width="1600" height="900" alt="Aerial view of the PT 49665 model as per the building plans: the factory hall, the two-storey office, the car park and the site, with no cars or people" loading="lazy" decoding="async"></div><figcaption><span class="pill"><span class="pill-t">Rendered from building-plan drawings</span></span><span>PT&nbsp;49665 as per plan (Showroom still). Lighting differs in the <a href="case-study.html#twin-h">3D model</a>.</span></figcaption></figure>
+        <ul class="stage-stats"><li class="stage-stat"><b>103<em>/103</em></b> checks passed</li></ul>
+        <p>The model is built from those facts, in metres, with the site, the building and its structure, then checked back against the drawings: 20 of 20 random dimensions within 0.1 m; all 103 checks passed <span class="nowrap">(101 dimensions, 2 counts)</span>. It flagged 5 items that need a site visit.</p>
+      </li>
+      <li class="stage" id="stage-views">
+        <h3>States and views</h3>
+        <div class="stage-fig" data-stage-fig="views"><div class="compare" data-compare style="--pos:50%">
+  <img src="assets/img/manufacturing-floor.plan-1200.webp" srcset="assets/img/manufacturing-floor.plan-800.webp 800w, assets/img/manufacturing-floor.plan-1200.webp 1200w, assets/img/manufacturing-floor.plan-1600.webp 1600w" sizes="(min-width: 1440px) 640px, (min-width: 1101px) calc(50vw - 80px), (min-width: 801px) calc(50vw - 56px), calc(100vw - 48px)" width="1600" height="900" alt="The same camera inside the empty hall as per the building plans" loading="lazy" decoding="async">
+  <img src="assets/img/manufacturing-floor-1200.webp" srcset="assets/img/manufacturing-floor-800.webp 800w, assets/img/manufacturing-floor-1200.webp 1200w, assets/img/manufacturing-floor-1600.webp 1600w" sizes="(min-width: 1440px) 640px, (min-width: 1101px) calc(50vw - 80px), (min-width: 801px) calc(50vw - 56px), calc(100vw - 48px)" width="1600" height="900" alt="Assembly lines and workbenches laid out across the factory hall" class="c-top" loading="lazy" decoding="async">
+  <span class="pill c-tag c-tag--l">As per plan</span>
+  <span class="pill c-tag c-tag--r">Fit-out</span>
+  <input type="range" min="0" max="100" value="50" aria-label="Compare the same view as per plan (left) and with an illustrative fit-out (right)">
+  <span class="c-handle" aria-hidden="true"><span class="c-knob"><svg viewBox="0 0 24 24"><path d="M9 6 3 12l6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+</div>
+<div class="compare-labels"><div><span class="k">Left <span class="dot">·</span> as per plan</span><span class="pill" data-side="left"><span class="pill-t">Rendered from building-plan drawings</span></span></div><div><span class="k">Right <span class="dot">·</span> operation-ready: light manufacturing</span><span class="pill" data-side="right"><span class="pill-t">Rendered from building-plan drawings <span class="dot">·</span> fit-out illustrative</span></span></div></div></div>
+        <p>The building as per plan, plus illustrative fit-outs such as logistics or light manufacturing. In the PT&nbsp;49665 drawing-built renders, AI people are composited only inside non-structural masks and labelled AI-illustrative. Short AI-animated clips made from these renders appear on our home page with their own label.</p>
+      </li>
+      <li class="stage" id="stage-share">
+        <h3>Review, then share</h3>
+        <figure class="stage-fig" data-stage-fig="share"><div class="stage-media stage-media--card"><img src="assets/img/og-hero-a-1200x630.jpg" width="1200" height="630" alt="Showroom example: WhatsApp preview card of the PT 49665 demo share page: the day view with its provenance label, a &quot;Demo · not a live listing&quot; tag and a fictional agency and agent" loading="lazy" decoding="async"></div><figcaption><span class="pill"><span class="pill-t">Rendered from building-plan drawings <span class="dot">·</span> fit-out illustrative</span></span><span>Showroom example: PT&nbsp;49665's demo WhatsApp preview card. Fictional agency and agent.</span></figcaption></figure>
+        <p>You get a private preview and one round of revisions. Then the share page goes live with its WhatsApp preview card, the spec sheet PDF and, with a Showroom, the video files, ready for the listing.</p>
+      </li>
     </ol>
   </div>
 </section>
 
-<section class="section band" aria-labelledby="get-h">
+<section class="section band" aria-labelledby="swap-h">
   <div class="wrap">
-    <div class="section-head"><p class="eyebrow"><b>What you get</b></p><h2 id="get-h">The pieces of a showroom</h2><p>Which pieces come with each package is on the <a href="packages.html">packages page</a>.</p></div>
-    <div class="points">
-      <article><span class="ref">3D</span><h3>Walk-in model</h3><p>To scale, in the phone or desktop browser, with nothing to install. Switch between as per plan and the fit-out presets; tap two points to measure to 0.1&nbsp;m (not a survey). The 3D model works better on a desktop; on a phone it can take 10–15 seconds to become interactive.</p></article>
-      <article><span class="ref">Stills</span><h3>Path-traced stills</h3><p>Rendered with Cycles at 1920 × 1080: exteriors by day and dusk, the loading bay, the hall, the office. Each operation-ready still has an as-per-plan partner.</p></article>
-      <article><span class="ref">Film</span><h3>Film and vertical cuts</h3><p>Camera moves through the model, the as-per-plan wipe and a screen capture of the 3D view. A Showroom includes one 20–30&nbsp;s vertical video; the film add-on adds a 45–60&nbsp;s walkthrough with 3 vertical cuts of 15&nbsp;s.</p></article>
-      <article><span class="ref">PDF</span><h3>Spec sheet</h3><p>Areas, heights, doors, parking and finishes, each with its sheet reference. Where the drawings are silent, it says "owner to confirm".</p></article>
-      <article><span class="ref">Link</span><h3>Share page</h3><p>One page for the listing with a WhatsApp preview card, the agency's particulars and clear labels on every visual.</p></article>
-      <article><span class="ref">Not offered yet</span><h3>In development: building-facts assistant</h3><p>Answers questions about the building from the drawings, citing the sheet, in English, Bahasa Melayu and 中文. It is a pilot and not part of any package yet: 80% correct on 50 unseen questions against a 95% target, with no invented figures and no price talk.</p></article>
+    <div class="section-head"><p class="eyebrow"><b>Your part, our part</b></p><h2 id="swap-h">What you send, what you get</h2><p>Which pieces come with each package is on the <a href="packages.html">packages page</a>.</p></div>
+    <div class="swap">
+      <div class="swap-col swap-send">
+        <h3>You send</h3>
+        <ol class="swap-list">
+          <li><h4>The drawings</h4><p>After an order form is signed, the building-plan set as a PDF, all sheets. A scan works if it is legible. Tell us their approval status: the approval reference and date, or that they are only submitted.</p></li>
+          <li><h4>The owner's go-ahead</h4><p>A short written authority from the registered owner, and confirmation that we may use the drawings to make the showroom. We send you the wording.</p></li>
+          <li><h4>What to show</h4><p>Which operation-ready preset suits the buyers you want, and anything the drawings do not cover that the owner can confirm, such as power supply or floor loading.</p></li>
+        </ol>
+      </div>
+      <div class="swap-arrow" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h32M30 14l10 10-10 10"/></g></svg></div>
+      <div class="swap-col swap-get">
+        <h3>You get</h3>
+        <ul class="swap-list">
+          <li><span class="ref">3D</span><h4>Walk-in model</h4><p>To scale, in the browser, nothing to install: as per plan and one operation-ready preset; tap-to-measure to 0.1&nbsp;m (not a survey). The 3D model works better on a desktop; on a phone it can take <span class="nowrap">10–15</span> seconds to become interactive.</p></li>
+          <li><span class="ref">PDF</span><h4>Spec sheet</h4><p>Areas, heights, doors, parking and finishes, each with its sheet reference. Where the drawings are silent, it says "owner to confirm".</p></li>
+          <li><span class="ref">Link</span><h4>Share page</h4><p>One page for the listing with a WhatsApp preview card, the agency's particulars and clear labels on every visual.</p></li>
+          <li><span class="ref">Showroom</span><h4>Stills and video</h4><p>Path-traced stills with as-per-plan partners and a <span class="nowrap">20–30&nbsp;s</span> vertical video. Film add-on: a <span class="nowrap">45–60&nbsp;s</span> walkthrough and 3 vertical cuts of 15&nbsp;s.</p></li>
+          <li class="swap-not"><span class="ref">Not offered yet</span><h4>Building-facts assistant</h4><p>Answers building questions from the drawings, citing the sheet, in English, Bahasa Melayu and <span lang="zh" class="nowrap">中文</span>. It is a pilot and not part of any package yet: 80% correct on 50 unseen questions against a 95% target, with no invented figures and no price talk.</p></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="need-h">
-  <div class="wrap">
-    <div class="section-head"><p class="eyebrow"><b>What we need from you</b></p><h2 id="need-h">Three things before we start</h2></div>
-    <div class="points">
-      <article><h3>The drawings</h3><p>After an order form is signed, the building-plan set as a PDF, all sheets. A scan works if it is legible. Tell us their approval status: the approval reference and date, or that they are only submitted.</p></article>
-      <article><h3>The owner's go-ahead</h3><p>A short written authority from the registered owner, and confirmation that we may use the drawings to make the showroom. We send you the wording.</p></article>
-      <article><h3>What to show</h3><p>Which operation-ready preset suits the buyers you want, and anything the drawings do not cover that the owner can confirm, such as power supply or floor loading.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="time-h">
-  <div class="wrap">
-    <div class="section-head"><p class="eyebrow"><b>Timing</b></p><h2 id="time-h">How long it takes</h2><p>Working days from complete drawings and the signed order, for our founding customers. We have built one showroom so far, so each job's date is agreed in writing before we start.</p></div>
-    <div class="table-wrap">
-      <table class="stack schedule-table">
-        <thead><tr><th>Package</th><th>Founding turnaround</th><th>Includes a revision round</th></tr></thead>
-        <tbody>
-          <tr><td>Plan Twin</td><td data-label="Founding turnaround">5 working days</td><td data-label="Includes a revision round">Yes, one</td></tr>
-          <tr><td>Showroom</td><td data-label="Founding turnaround">15 working days</td><td data-label="Includes a revision round">Yes, one</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="fine" style="margin-top:.9rem">Founding pilot: we confirm the delivery date after inspecting your drawings; one active job at a time.</p>
   </div>
 </section>
 
 <section class="section" aria-labelledby="not-h">
   <div class="wrap">
     <div class="section-head"><p class="eyebrow"><b>Limits</b></p><h2 id="not-h">What&nbsp;a&nbsp;showroom is not</h2></div>
-    <div class="prose">
-      <ul>
-        <li><strong>Not as-built and not a survey.</strong> The model follows the drawings. For existing buildings, what was built can differ from the drawings. We're setting up an on-site check of key dimensions; until then, ask us before ordering.</li>
-        <li><strong>Not an approval.</strong> We say which drawing set we used, its date and its approval status. Our check is of our model against those drawings, and is not a certification by any authority, architect or engineer.</li>
-        <li><strong>Not a promise about use.</strong> Operation-ready presets are illustrative. Whether a use is allowed depends on the land title and planning approval.</li>
-        <li><strong>Not an estate agency.</strong> We prepare showrooms. Registered estate agents and owners market the property.</li>
-      </ul>
-    </div>
+    <ul class="limits">
+      <li><strong>Not as-built and not a survey.</strong> The model follows the drawings. For existing buildings, what was built can differ from the drawings. We're setting up an on-site check of key dimensions; until then, ask us before ordering.</li>
+      <li><strong>Not an approval.</strong> We say which drawing set we used, its date and its approval status. Our check is of our model against those drawings, and is not a certification by any authority, architect or engineer.</li>
+      <li><strong>Not a promise about use.</strong> Operation-ready presets are illustrative. Whether a use is allowed depends on the land title and planning approval.</li>
+      <li><strong>Not an estate agency.</strong> We prepare showrooms. Registered estate agents and owners market the property.</li>
+    </ul>
   </div>
 </section>
 

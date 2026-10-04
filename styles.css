@@ -284,7 +284,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 /* packages */
 .plans { display: grid; gap: 1.2rem; }
 @media (min-width: 900px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.plan { background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: clamp(1.2rem, 1rem + 1vw, 1.8rem); display: grid; gap: 1rem; align-content: start; min-width: 0; }
+.plan { --plan-pad: clamp(1.2rem, 1rem + 1vw, 1.8rem); background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: var(--plan-pad); display: grid; gap: 1rem; align-content: start; min-width: 0; }
 .plan--lead { border-color: var(--ink); box-shadow: var(--shadow); }
 .plan-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .4rem 1rem; }
 .plan h3 { font-size: var(--t-xl); }
@@ -750,3 +750,226 @@ body:not([data-page="index"]) .lead { font-size:17px; color:var(--muted); line-h
    11 px (the 8–9 px overlines, compare keys, step numbers, closing note, hero lot line and footer line were raised). */
 /* The hero intro is one sentence now: on phones its two lines are balanced, never "… people can / explore." */
 .hero-intro { text-wrap:balance; }
+
+/* Packages, made visual (founder, 2 Oct 2026: "How it works and Packages are mainly words"). Each package card shows what
+   it delivers with labelled PT 49665 files the site already publishes; the full scope sits in one comparison table. */
+.jump { display:flex; flex-wrap:wrap; gap:0 28px; margin-top:22px; }
+.jump a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line-strong); }
+.jump a:hover { color:var(--accent); border-color:var(--accent); }
+.plans { align-items:start; }
+.plan .dl-head { font:11px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:-6px; text-wrap:balance; }
+/* the Plan Twin's scope in one line (its preset, preview and revision round are in no tile) */
+.plan .dl-sum { font-size:14px; line-height:1.6; color:var(--ink-2); text-wrap:pretty; }
+/* the PT 49665 disclosure, readable, directly under the two cards whose pictures it explains */
+.sample-note { margin-top:16px; max-width:80ch; }
+.plan .dl { display:grid; gap:18px; min-width:0; }
+/* the small tiles: two columns where they fit (a card's .plan ul/li dashes and padding must not reach them) */
+.plan .dl-strip { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:18px 14px; }
+.plan .dl-strip > li { padding:0; min-width:0; color:inherit; }
+.plan .dl-strip > li::before { content:none; }
+.dl-fig { margin:0; display:grid; gap:8px; align-content:start; min-width:0; }
+.dl-media { position:relative; display:block; aspect-ratio:16 / 9; overflow:hidden; background:#121110; border:1px solid var(--line); color:var(--ink-2); text-decoration:none; }
+.dl-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+a.dl-media:hover { border-color:var(--accent); }
+.dl-fig figcaption { display:grid; gap:4px; font-size:12px; line-height:1.5; color:var(--muted); }
+.dl-fig figcaption strong { font-weight:400; font-size:14px; line-height:1.35; color:var(--ink); }
+/* labels as square chips, as on the concept and presenter cards and the how-it-works stages */
+.dl-fig .pill { justify-self:start; font-weight:400; font-size:11px; margin-top:2px; border-radius:2px; background:transparent; border:1px solid var(--line-strong); color:var(--ink); padding:4px 9px; }
+/* as per plan | operation-ready: the same camera split at the middle (static; the home page has the slider) */
+.dl-media--split .dl-top { clip-path:inset(0 0 0 50%); }
+.dl-media--split::after { content:""; position:absolute; top:0; bottom:0; left:50%; width:2px; margin-left:-1px; background:#f4f1e9; opacity:.9; }
+.dl-tag { position:absolute; top:8px; z-index:1; font-size:11px; line-height:1.3; padding:4px 7px; border-radius:2px; background:rgb(16 17 17 / .82); color:#f4f1e9; }
+.dl-tag--l { left:8px; } .dl-tag--r { right:8px; }
+.dl-side { display:grid; grid-template-columns:3.6em minmax(0,1fr); align-items:center; gap:8px; }
+.dl-side .k { font:11px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+.dl-side .pill { margin-top:0; }
+/* four stills that share one label, uncropped */
+.dl-media--mosaic { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:2px; }
+.dl-media--mosaic img { position:static; width:100%; height:100%; min-height:0; object-fit:contain; }
+/* the spec sheet shows the top of page 1 (disclosure bar, title, fact tiles); the PDF opens on click */
+.dl-media--doc { background:#f4f1e9; }
+.dl-media--doc img { object-fit:cover; object-position:50% 0; }
+/* the vertical video, uncropped, as a phone screen */
+.dl-media--phone img { left:50%; right:auto; top:6%; width:auto; height:88%; aspect-ratio:9 / 16; transform:translateX(-50%); border-radius:8px; outline:2px solid #3a3632; }
+/* one share card per agent, uncropped, with each card's burned-in tag, provenance line and agency/agent band in view: the
+   front card (B, after A in the markup) sits top right and covers only the upper right of the back card (A), where A has
+   no text (positions need the two-class selectors to beat .dl-media img) */
+.dl-media--cards img { inset:auto; width:62%; height:auto; aspect-ratio:1200 / 630; box-shadow:0 8px 20px rgb(0 0 0 / .5); }
+.dl-media--cards .dl-card--b { top:5%; right:4%; }
+.dl-media--cards .dl-card--a { bottom:5%; left:4%; }
+/* the live model (no picture of it is published): a text tile with its link on its own line */
+.dl-live-cta { display:table; margin-top:10px; font-size:12px; color:var(--ink); border-bottom:1px solid var(--line-strong); padding-bottom:3px; }
+a.dl-note--link:hover .dl-live-cta { color:var(--accent); border-color:var(--accent); }
+/* text tiles: the share page (no picture of a Plan Twin's card exists) and the film add-on */
+.dl-note { display:flex; align-items:center; gap:12px; min-height:52px; margin:0; padding:10px 14px; border:1px solid var(--line); background:#1c1a17; font-size:12px; line-height:1.5; color:var(--muted); text-decoration:none; }
+.dl-note svg { width:22px; height:22px; flex:none; color:var(--accent); }
+.dl-note strong { font-weight:400; font-size:14px; color:var(--ink); margin-right:6px; }
+.dl-note--cell { flex-direction:column; align-items:flex-start; justify-content:center; gap:10px; height:100%; padding:16px; }
+.dl-note--cell svg { width:26px; height:26px; }
+.dl-note--cell strong { display:block; margin:0 0 4px; }
+.dl-note--addon { border-style:dashed; border-color:var(--line-strong); background:transparent; }
+a.dl-note:hover { border-color:var(--accent); }
+.dl-plus { width:22px; flex:none; text-align:center; font-size:22px; line-height:1; color:var(--accent); }
+/* comparison table (never the .price or .stack classes: .price is the cards' big figure, .stack carries the bands' phone rules).
+   No minimum width (it overrides the base table's 560 px): the 44/28/28 columns fit the frame and wrap, so at 600-689 px
+   the Showroom column is no longer cut off in a sideways scroll nobody can see. */
+.compare-table { min-width:0; }
+.compare-table td { text-wrap:wrap; text-wrap:pretty; }
+.compare-table col.c-what { width:44%; } .compare-table col.c-pkg { width:28%; }
+.compare-table th, .compare-table td { padding:13px 18px; }
+.compare-table thead th { font-size:11px; letter-spacing:.08em; }
+.compare-table tbody th[scope="row"] { font-weight:400; color:var(--ink-2); }
+.compare-table tr.group th { font:11px var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); padding-top:22px; padding-bottom:8px; border-top-color:var(--line-strong); background:transparent; }
+.compare-table td { color:var(--ink); }
+.compare-table thead th:last-child, .compare-table td:last-child { background:rgb(239 141 104 / .05); }
+.compare-table .tick { width:16px; height:16px; color:var(--accent); vertical-align:-3px; }
+.compare-table .none { color:var(--muted); }
+.compare-table tr.price-row td { font-size:20px; letter-spacing:-.02em; }
+.compare-table tr.price-row .sub { display:block; font-size:12px; letter-spacing:0; color:var(--muted); }
+/* a long label or value carries a short form for phones (.ct-s, aria-hidden) beside its full wording (.ct-l), which wider
+   screens show and screen readers read at every width */
+.compare-table .ct-s { display:none; }
+.notes { display:grid; gap:.4rem; margin-top:1rem; }
+/* add-ons as small cards */
+.addons { display:grid; gap:20px; }
+/* three columns: each card's picture, title-and-price row and description sit on rows shared by all three (subgrid; a
+   browser without it keeps each card's own rows) */
+@media (min-width:760px) { .addons { grid-template-columns:repeat(3,minmax(0,1fr)); } .addon { grid-row:span 3; grid-template-rows:subgrid; } }
+/* the card's one column may not grow past it, and the price drops under the title only when the title's longest word and
+   the price cannot share a line (760-845 px: "Walkthrough film" ran through the card's padding to its border) */
+.addon { display:grid; gap:12px; align-content:start; padding:16px; border:1px solid var(--line-strong); background:var(--sheet); min-width:0; grid-template-columns:minmax(0,1fr); }
+.addon-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; border-top:1px solid var(--line); padding-top:12px; flex-wrap:wrap; }
+.addon h3 { font-size:20px; letter-spacing:-.02em; flex:1 1 0; }
+.addon-price { font-size:20px; letter-spacing:-.02em; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.addon p { font-size:14px; line-height:1.6; color:var(--ink-2); }
+.dl-media--film .dl-cuts { position:absolute; right:4%; bottom:7%; display:flex; gap:5px; height:58%; }
+.dl-media--film .dl-cuts img { position:static; width:auto; height:100%; aspect-ratio:9 / 16; border-radius:4px; outline:2px solid #191714; box-shadow:0 6px 14px rgb(0 0 0 / .5); }
+/* phones: the large picture stays full width; the small tiles scroll sideways in the card (a Tab stop only while they
+   scroll, as the concept row) to the card's edge, not its padding, as the concept row scrolls to the screen edge, and
+   still snap to the padding. The comparison stays a real table (phone round, 2 Oct 2026: stacked into labelled rows it
+   was 1,882 px, about 2.2 screens, at 390 px): the same three columns, every row, ticks, dashes and prices, the short
+   forms, and tighter cells, so it fits its frame with no sideways scroll and is about one screen tall. The frame clips
+   instead of scrolling, so the column heads can stick under the site header (its 68 px row and 1 px rule) while the
+   table is read; a browser without overflow: clip keeps hidden, and the heads simply scroll away. */
+@media (max-width:599px) {
+  .plan .dl-strip { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; padding-bottom:8px; overscroll-behavior-x:contain; margin-inline:calc(-1 * var(--plan-pad)); padding-inline:var(--plan-pad); scroll-padding-inline:var(--plan-pad); }
+  .plan .dl-strip > li { flex:0 0 min(74%, 250px); scroll-snap-align:start; }
+  .compare-wrap { overflow:hidden; overflow:clip; }
+  .compare-table { table-layout:fixed; font-size:13px; line-height:1.3; }
+  .compare-table .ct-l { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .compare-table .ct-s { display:inline; }
+  .compare-table th, .compare-table td { padding:5px 6px; }
+  .compare-table tr > :first-child { padding-left:10px; }
+  .compare-table tr > td:last-child, .compare-table thead th:last-child { padding-right:8px; }
+  .compare-table tbody th[scope="row"] { text-wrap:wrap; text-wrap:pretty; }
+  .compare-table thead th { position:sticky; top:calc(env(safe-area-inset-top, 0px) + 69px); z-index:1; padding-block:8px; letter-spacing:.04em; background-color:var(--paper-2); box-shadow:inset 0 -1px 0 var(--line-strong); }
+  .compare-table thead th:last-child { background-color:var(--paper-2); background-image:linear-gradient(rgb(239 141 104 / .05), rgb(239 141 104 / .05)); }
+  .compare-table tr.group th { padding:9px 10px 2px; line-height:1.2; }
+  .compare-table .tick { width:15px; height:15px; }
+  .compare-table tr.price-row td { font-size:16px; }
+  .compare-table tr.price-row .sub, .compare-table .ct-sub { font-size:11px; }
+  .compare-table .ct-sub { display:block; color:var(--muted); }
+  /* the rest of the page on phones: 48 px between sections (64 elsewhere) and slightly tighter terms cards; every word stays */
+  body[data-page="packages"] .section { padding-block:48px; }
+  body[data-page="packages"] .points > article { padding:1.1rem 1.1rem 1.15rem; }
+}
+/* the narrowest phones (320-359 px): the table's text one size down, so "commercial" and the prices stay inside their cells */
+@media (max-width:359px) {
+  .compare-table { font-size:12px; }
+  .compare-table tr.price-row td { font-size:15px; }
+}
+
+/* How it works (pages-visual, 2 Oct 2026): each of the six stages shows what it produces (a labelled asset or a small
+   HTML diagram, never the drawings); a founding-turnaround card in the hero; a send/get box; the limits as a grid. */
+.timeline-card { display:grid; gap:14px; align-content:start; background:var(--sheet); border:1px solid var(--line-strong); border-radius:2px; padding:clamp(1.2rem, 1rem + 1vw, 2rem); }
+.timeline-card > h2 { font:11px/1.6 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+.timeline-card .fine { font-size:12px; line-height:1.7; }
+.tl-bars { list-style:none; margin:0; padding:0; display:grid; gap:16px; }
+.tl-bars li { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:8px 12px; }
+.tl-name { font-size:18px; letter-spacing:-.02em; color:var(--ink); }
+.tl-days { font-size:13px; color:var(--ink-2); white-space:nowrap; }
+/* one working-day scale: the track is the longest turnaround, the bar this package's (4 px round data end, square start) */
+.tl-track { grid-column:1 / -1; height:8px; background:var(--line); }
+.tl-bar { display:block; height:100%; width:calc(var(--tl-days) / var(--tl-max) * 100%); background:var(--accent); border-radius:0 4px 4px 0; }
+
+.stages { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:64px 40px; counter-reset:stage; }
+.stage { counter-increment:stage; display:grid; gap:18px; align-content:start; min-width:0; border-top:1px solid var(--line-strong); padding-top:20px; }
+.stage > h3 { font-size:clamp(22px, 1.2rem + .6vw, 28px); letter-spacing:-.03em; line-height:1.15; }
+.stage > h3::before { content:counter(stage, decimal-leading-zero); display:block; margin-bottom:12px; font:11px/1.6 var(--mono); letter-spacing:.12em; color:var(--accent); }
+.stage > p { font-size:14px; line-height:1.75; color:var(--ink-2); max-width:62ch; }
+.stage > p.fine { font-size:12px; color:var(--muted); margin-top:-6px; }
+.stage-fig { margin:0; display:grid; gap:10px; min-width:0; }
+.stage-media { position:relative; aspect-ratio:16 / 9; overflow:hidden; background:var(--paper-2); }
+.stage-media > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.stage-fig figcaption { display:grid; gap:6px; justify-items:start; font-size:12px; line-height:1.6; color:var(--muted); }
+.stage-fig figcaption .pill { font-weight:400; border-radius:2px; background:transparent; border:1px solid var(--line-strong); color:var(--ink); padding:4px 9px; }
+.stage-fig figcaption a { color:var(--ink-2); }
+/* the spec-sheet label's dot is paper white, apart from the rendered (terracotta), Measured (blue), AI (lilac) and concept (sage) dots */
+.pill--doc::before { background:#f4f1e9; }
+/* Stage 3: page 1's first four tiles (x 86, y 509, 708 x 398 px of the 1588 x 2246 preview), cropped in CSS: the image
+   is 1588/708 of the frame wide and moved by the crop's offset (translate % is of the image's own box). */
+.stage-media--sheet { background:#f8f6f2; }
+.stage-media--sheet > img { inset:auto; left:0; top:0; width:224.294%; height:auto; max-width:none; object-fit:fill; transform:translate(-5.4156%, -22.6625%); }
+/* Stage 6: the 1200 x 630 card whole, centred in the stage frame like a link preview. */
+.stage-media--card { display:grid; place-items:center; padding:5% 6%; }
+.stage-media--card > img { position:static; width:100%; height:auto; object-fit:contain; box-shadow:0 18px 50px rgb(0 0 0 / .45); }
+.stage-stats { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px 32px; }
+.stage-stat { display:grid; gap:4px; font-size:12px; line-height:1.4; color:var(--muted); }
+.stage-stat b { font-weight:400; font-size:34px; letter-spacing:-.04em; line-height:1; color:var(--ink); }
+.stage-stat b em { font-style:normal; font-size:18px; letter-spacing:-.02em; color:var(--muted); }
+/* Stages 1 and 2: small diagrams in HTML, on the same 16:9 frame (they may grow, never clip). Stage 1's four steps sit two
+   by two, so they fill the frame as stage 2's sheet grid does (in one row they filled about a quarter of it on wide cards). */
+.stage-diagram { min-width:0; aspect-ratio:16 / 9; display:grid; align-content:center; justify-items:center; gap:clamp(14px, 3.5cqw, 24px); padding:24px; background:var(--paper-2); border:1px solid var(--line); container-type:inline-size; }
+.flow-chips { --icon:clamp(28px, 10cqw, 64px); list-style:none; margin:0; padding:0; width:min(100%, 520px); display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(22px, 5cqw, 36px) 28px; }
+.flow-chips li { position:relative; display:grid; justify-items:center; align-content:start; gap:10px; text-align:center; font-size:clamp(12px, 2.8cqw, 18px); line-height:1.45; color:var(--ink-2); }
+.flow-chips svg { width:var(--icon); height:var(--icon); color:var(--accent); }
+.flow-chips li + li::before { content:""; position:absolute; left:-19px; top:calc(var(--icon) / 2 - 4px); width:8px; height:8px; border-top:1px solid var(--muted); border-right:1px solid var(--muted); transform:rotate(45deg); }
+.flow-chips li:last-child { color:var(--ink); }
+.flow-chips li:nth-child(3)::before { display:none; }
+@container (max-width: 440px) { .flow-chips { --icon:clamp(28px, 8.5cqw, 56px); gap:22px 28px; } }
+.sheet-icons { list-style:none; margin:0; padding:0; width:min(100%, 88cqw, 600px); display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:clamp(8px, 2cqw, 14px); }
+.sheet-icons li { position:relative; aspect-ratio:1.414; border:1px solid var(--line-strong); background:var(--paper); }
+.sheet-icons li::after { content:""; position:absolute; top:4px; bottom:4px; right:4px; width:14%; border-left:1px solid var(--line-strong); }
+.sheet-icons li::before { content:""; position:absolute; top:6px; left:7px; width:8px; height:4px; border-left:1.5px solid var(--accent); border-bottom:1.5px solid var(--accent); transform:rotate(-45deg); }
+.sheet-record { text-align:center; font-size:clamp(12px, 2.3cqw, 15px); line-height:1.6; color:var(--ink-2); }
+.sheet-record b { font-weight:400; color:var(--ink); }
+.sheet-record > span { display:block; }
+
+.swap { display:grid; grid-template-columns:minmax(0,1fr) 56px minmax(0,1.35fr); gap:0 24px; align-items:start; }
+.swap-col > h3 { font:11px/1.6 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.swap-list { list-style:none; margin:0; padding:0; display:grid; }
+.swap-list h4 { margin:0; font-size:18px; font-weight:400; letter-spacing:-.02em; line-height:1.3; color:var(--band-ink); }
+.swap-list p { font-size:13px; line-height:1.7; color:var(--band-muted); }
+.swap-send .swap-list { counter-reset:send; }
+.swap-send li { counter-increment:send; position:relative; display:grid; gap:6px; padding:18px 0 18px 44px; border-top:1px solid var(--band-line); }
+.swap-send li::before { content:counter(send); position:absolute; left:0; top:17px; width:28px; height:28px; display:grid; place-items:center; border:1px solid var(--accent); border-radius:50%; font:12px/1 var(--mono); color:var(--accent); }
+.swap-get .swap-list { grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:28px; }
+.swap-get li { display:grid; gap:6px; align-content:start; padding:18px 0; border-top:1px solid var(--band-line); }
+.swap-get .ref { justify-self:start; }
+.swap-get li.swap-not { grid-column:1 / -1; margin-top:12px; padding:16px 18px; border:1px dashed var(--band-line); }
+.swap-arrow { align-self:center; justify-self:center; color:var(--accent); }
+.swap-arrow svg { display:block; width:40px; height:40px; }
+
+.limits { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:36px 48px; max-width:1100px; }
+.limits li { border-top:1px solid var(--line-strong); padding-top:18px; font-size:14px; line-height:1.75; color:var(--ink-2); }
+.limits strong { display:block; margin-bottom:8px; font-weight:400; font-size:20px; letter-spacing:-.02em; line-height:1.3; color:var(--ink); }
+/* no one-word last lines where text-wrap: pretty is supported; elsewhere ordinary wrapping */
+.stage > p, .stage-fig figcaption > span:not(.pill), .swap-list p, .limits li, .timeline-card .fine { text-wrap:wrap; text-wrap:pretty; }
+
+@media (max-width:1100px) {
+  .swap { grid-template-columns:1fr; gap:20px; }
+  .swap-arrow svg { transform:rotate(90deg); }
+}
+@media (max-width:800px) {
+  .stages { grid-template-columns:minmax(0,1fr); gap:48px; }
+  .stage-stat b { font-size:30px; }
+  .stage-diagram { padding:18px; }
+  .limits { grid-template-columns:1fr; gap:24px; }
+  .limits strong { font-size:18px; }
+}
+@media (max-width:640px) { .swap-get .swap-list { grid-template-columns:1fr; } }
+/* Stage 5's compare labels stack, as they do on phones, whenever its card is narrower than its 640 px maximum (two-column
+   cards at 801-1438 px). Side by side, the right label ("Rendered from building-plan drawings · fit-out illustrative",
+   about 303 px) wrapped and its dot was stranded away from its right-aligned text (1280 and 1366 px laptops). */
+.stage-fig[data-stage-fig="views"] { container-type:inline-size; }
+@container (max-width: 639px) { .stage-fig .compare-labels { grid-template-columns:1fr; } .stage-fig .compare-labels > div:last-child { justify-items:start; text-align:left; } }
