@@ -105,15 +105,19 @@ const afterLoadFrame = fn => {
     const out = form.querySelector('[data-brief-out]');
     const send = form.querySelector('[data-brief-send]');
     const val = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
+    const text = (name, limit) => (form.querySelector(`input[name="${name}"]`)?.value || '').trim().slice(0, limit);
     const run = () => {
-      const area = (form.querySelector('input[name="area"]').value || '').trim().slice(0, 80);
+      const area = text('area', 80);
+      const company = text('company', 100);
       const msg = [
-        "Hi Idyra, I'd like a quote.",
+        "Hi Idyra, I'd like a free project discussion and quote.",
+        ...(company ? [`Company / project: ${company}`] : []),
         `I am: ${val('who')}`,
         `Property: ${val('what')}${area ? `, ${area}` : ''}`,
         `Gross floor area: ${val('size')}`,
         `Building-plan drawings: ${val('drawings')}`,
-        `Interested in: ${val('want')}`,
+        `Presentation goal: ${val('goal')}`,
+        `Target timing: ${val('timing')}`,
       ].join('\n');
       out.textContent = msg;
       send.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(msg)}`;

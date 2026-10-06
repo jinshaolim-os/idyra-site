@@ -311,6 +311,15 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 .calc input { width: 12rem; max-width: 100%; min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--muted); border-radius: var(--radius-sm); background: var(--paper); font-variant-numeric: tabular-nums; }
 .calc output { font-family: var(--display); font-size: var(--t-xl); font-weight: 700; font-variant-numeric: tabular-nums; }
 
+/* Launch journey and case narrative use the existing visual language. */
+.launch-actions { margin:1.8rem 0 1rem; }
+.launch-benefits { background:var(--paper-2); }
+.case-proof { margin:2rem 0; max-width:75ch; }
+.case-proof p + p { margin-top:.7rem; }
+.case-hero-split { display:grid; gap:2rem; margin-top:1rem; align-items:center; }
+.case-hero-media { display:grid; gap:1rem; min-width:0; }
+@media (min-width:1000px) { .case-hero-split { grid-template-columns:1fr 1fr; gap:3rem; } }
+
 /* contact */
 .phone { font-family: var(--display); font-weight: 700; font-size: var(--t-2xl); letter-spacing: -.01em; user-select: all; font-variant-numeric: tabular-nums; }
 .contact-card { display: grid; gap: 1rem; background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: clamp(1.2rem, 1rem + 1vw, 2rem); max-width: 40rem; }
@@ -434,8 +443,8 @@ a { text-underline-offset:5px; }
 .btn { border-radius:2px; font-size:13px; font-weight:400; min-height:48px; padding:14px 23px; gap:30px; }
 .btn-primary { background:var(--ink); color:var(--paper); }
 .btn-primary:hover { background:var(--accent); color:var(--paper); }
-.btn-glass { border-color:rgb(255 255 255 / .42); background:rgb(25 23 20 / .32); color:white; backdrop-filter:blur(10px); }
-.btn-glass:hover { border-color:white; background:rgb(25 23 20 / .65); color:white; }
+.btn-glass, .hero-content .btn-wa { border-color:rgb(255 255 255 / .42); background:rgb(25 23 20 / .32); color:white; backdrop-filter:blur(10px); }
+.btn-glass:hover, .hero-content .btn-wa:hover { border-color:white; background:rgb(25 23 20 / .65); color:white; }
 .btn-row { gap:12px; }
 .overline { font-family:var(--mono); font-size:10px; line-height:1.6; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
 .status-dot { display:inline-block; width:5px; height:5px; background:var(--accent); border-radius:50%; margin-right:9px; flex:none; }
@@ -451,6 +460,9 @@ a { text-underline-offset:5px; }
 .v2-hero h1 { font-size:clamp(56px,6.5vw,94px); line-height:1.04; letter-spacing:-.058em; color:#f9f6ef; margin:0; font-weight:400; max-width:1100px; }
 .v2-hero h1 span { color:#dddcd4; }
 .hero-intro { color:#e0dfd8; line-height:1.65; font-size:16px; margin:24px 0 30px; max-width:550px; text-shadow:0 0 2px rgb(8 13 18 / .9),0 1px 8px rgb(8 13 18 / .7); }
+.hero-help { color:#e0dfd8; font-size:13px; line-height:1.5; margin:12px 0 0; max-width:550px; text-shadow:0 0 2px rgb(8 13 18 / .9),0 1px 8px rgb(8 13 18 / .7); }
+/* phones: the button says it ("Book a free demo call"); the line would push the demo links off the first screen */
+@media (max-width: 480px) { .hero-help { display: none; } }
 .hero-bottom { position:absolute; bottom:20px; width:100%; left:50%; transform:translateX(-50%); display:flex; justify-content:space-between; gap:20px; color:#c1c0b9; font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.07em; }
 .experience-rail { border-bottom:1px solid var(--line); background:#211f1b; }
 .rail-inner { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); }
