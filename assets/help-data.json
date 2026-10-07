@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 1,
+  "whatsappNumber": "60122505150",
+  "handoff": {
+    "en": "Hi Idyra, I'd like help with your digital-twin services and a free project review. Property type: . General area: . Approximate gross floor area: . Purpose: . Target timing: . Building-plan drawings available: ",
+    "ms": "Hai Idyra, saya ingin bertanya tentang perkhidmatan model digital dan semakan projek percuma. Jenis hartanah: . Kawasan umum: . Anggaran keluasan lantai kasar: . Tujuan: . Sasaran masa: . Pelan bangunan tersedia: "
+  },
+  "ui": {
+    "en": {
+      "title": "Idyra Help",
+      "intro": "Instant answers from our published services. This panel matches your question to prepared topics.",
+      "topics": "Choose a topic",
+      "question": "Or ask a short question",
+      "placeholder": "For example: What does a Plan Twin include?",
+      "ask": "Find an answer",
+      "privacy": "Please don't enter drawings or sensitive personal details. Questions stay in this page, are not saved, and are not added to WhatsApp.",
+      "suggested": "Related published topics",
+      "matched": "Closest published topic",
+      "noMatch": "I don't have a prepared answer for that question. Choose a topic below or ask our team on WhatsApp.",
+      "empty": "Enter a short question or choose a topic.",
+      "readMore": "Read the published details",
+      "whatsapp": "Ask our team on WhatsApp",
+      "reply": "Our team personally reviews enquiries and replies the same working day.",
+      "handoffNote": "Opens WhatsApp with a blank project brief. Your question here is not included.",
+      "close": "Close help",
+      "loading": "Loading published answers…",
+      "error": "The answers couldn't be loaded. You can still contact our team.",
+      "retry": "Try loading again",
+      "contact": "Contact Idyra"
+    },
+    "ms": {
+      "title": "Bantuan Idyra",
+      "intro": "Jawapan segera berdasarkan perkhidmatan yang kami terbitkan. Panel ini memadankan soalan anda dengan topik yang disediakan.",
+      "topics": "Pilih topik",
+      "question": "Atau tanya soalan ringkas",
+      "placeholder": "Contoh: Apa yang termasuk dalam Plan Twin?",
+      "ask": "Cari jawapan",
+      "privacy": "Jangan masukkan pelan atau maklumat peribadi sensitif. Soalan kekal di halaman ini, tidak disimpan dan tidak dimasukkan ke WhatsApp.",
+      "suggested": "Topik berkaitan yang diterbitkan",
+      "matched": "Topik terbitan paling hampir",
+      "noMatch": "Tiada jawapan yang disediakan untuk soalan itu. Pilih topik di bawah atau tanya pasukan kami melalui WhatsApp.",
+      "empty": "Masukkan soalan ringkas atau pilih topik.",
+      "readMore": "Baca butiran yang diterbitkan",
+      "whatsapp": "Tanya pasukan kami di WhatsApp",
+      "reply": "Pasukan kami menyemak sendiri pertanyaan dan membalas pada hari bekerja yang sama.",
+      "handoffNote": "Membuka WhatsApp dengan ringkasan projek kosong. Soalan anda di sini tidak disertakan.",
+      "close": "Tutup bantuan",
+      "loading": "Memuatkan jawapan yang diterbitkan…",
+      "error": "Jawapan tidak dapat dimuatkan. Anda masih boleh menghubungi pasukan kami.",
+      "retry": "Cuba muatkan semula",
+      "contact": "Hubungi Idyra"
+    }
+  },
+  "topics": [
+    {
+      "id": "benefits",
+      "keywords": {
+        "strong": [
+          "what is idyra",
+          "what do you do",
+          "what do you offer",
+          "what is a digital twin",
+          "services",
+          "perkhidmatan",
+          "benefits",
+          "benefit",
+          "apa itu idyra",
+          "kelebihan",
+          "manfaat",
+          "kegunaan",
+          "kenapa"
+        ],
+        "normal": [
+          "understand",
+          "explain",
+          "pembeli",
+          "pelanggan",
+          "faham",
+          "presentation",
+          "pemasaran"
+        ]
+      },
+      "en": {
+        "title": "How does it help?",
+        "answer": [
+          "Idyra turns building-plan drawings into a model people can explore. It helps owners, developers and registered estate agents explain a factory or warehouse before a site visit.",
+          "Visitors can walk inside, compare the building as per plan with an illustrative fit-out, and use a share link. It supports a clearer property presentation; it does not promise a sale, tenancy or financial return."
+        ],
+        "href": "how-it-works.html"
+      },
+      "ms": {
+        "title": "Apa manfaatnya?",
+        "answer": [
+          "Idyra menukar pelan bangunan kepada model yang boleh diterokai. Ia membantu pemilik, pemaju dan ejen hartanah berdaftar menerangkan kilang atau gudang sebelum lawatan tapak.",
+          "Pelawat boleh meneroka ruang dalaman, membandingkan keadaan mengikut pelan dengan susun atur ilustrasi, dan menggunakan pautan perkongsian. Ia membantu penerangan hartanah; jualan, penyewaan atau pulangan kewangan tidak dijanjikan."
+        ],
+        "href": "ms-how-it-works.html"
+      }
+    },
+    {
+      "id": "packages",
+      "keywords": {
+        "strong": [
+          "plan twin",
+          "showroom",
+          "package",
+          "packages",
+          "pakej",
+          "included",
+          "include",
+          "termasuk",
+          "apa dapat",
+          "deliverables"
+        ],
+        "normal": [
+          "stills",
+          "video",
+          "model",
+          "scope",
+          "skop",
+          "spec sheet",
+          "share",
+          "walkthrough"
+        ]
+      },
+      "en": {
+        "title": "Plan Twin or Showroom?",
+        "answer": [
+          "Plan Twin includes a to-scale walkable model, one operation-ready preset, a spec sheet and a share page, with a private preview and one revision round. Path-traced stills and film are not included.",
+          "Showroom adds path-traced stills with as-per-plan views, one vertical video and two agent links. The standard offer has 8 stills; the founding offer has 6. The walkthrough film is an add-on. Hosting is agreed in the order form.",
+          "The building-facts assistant is not included or offered yet; it remains a pilot."
+        ],
+        "href": "packages.html#compare-h"
+      },
+      "ms": {
+        "title": "Plan Twin atau Showroom?",
+        "answer": [
+          "Plan Twin merangkumi model berskala yang boleh diterokai, satu susun atur operasi ilustrasi, helaian spesifikasi dan halaman perkongsian, serta pratonton peribadi dan satu pusingan pindaan. Imej pegun path-traced dan filem tidak termasuk.",
+          "Showroom menambah imej pegun path-traced bersama pandangan mengikut pelan, satu video menegak dan dua pautan ejen. Tawaran biasa mempunyai 8 imej pegun; tawaran perintis mempunyai 6. Filem jelajah ialah tambahan. Pengehosan dipersetujui dalam borang pesanan.",
+          "Pembantu fakta bangunan belum disertakan atau ditawarkan; ia masih pada peringkat percubaan."
+        ],
+        "href": "ms-packages.html#compare-h"
+      }
+    },
+    {
+      "id": "prices",
+      "keywords": {
+        "strong": [
+          "price",
+          "prices",
+          "pricing",
+          "cost",
+          "how much",
+          "harga",
+          "berapa",
+          "kos",
+          "ringgit"
+        ],
+        "normal": [
+          "budget",
+          "bajet",
+          "rm",
+          "charge",
+          "fee",
+          "bayaran"
+        ]
+      },
+      "en": {
+        "title": "Published prices",
+        "answer": [
+          "Plan Twin: RM2,900 for an industrial or commercial building up to 25,000 sq ft.",
+          "Showroom for an industrial building: RM8,900 up to 25,000 sq ft, or RM13,900 for 25,001–80,000 sq ft. Bands use gross floor area. Ask us about larger buildings, several blocks or a commercial Showroom.",
+          "Add-ons: extra scenario RM1,500; walkthrough film RM2,500; 4 extra stills RM800. We quote the scope before work starts. Tax treatment is shown in the order form."
+        ],
+        "href": "packages.html#bands-h"
+      },
+      "ms": {
+        "title": "Harga yang diterbitkan",
+        "answer": [
+          "Plan Twin: RM2,900 untuk bangunan industri atau komersial sehingga 25,000 kaki persegi.",
+          "Showroom bagi bangunan industri: RM8,900 sehingga 25,000 kaki persegi, atau RM13,900 bagi 25,001–80,000 kaki persegi. Kategori menggunakan keluasan lantai kasar. Tanya kami tentang bangunan lebih besar, beberapa blok atau Showroom komersial.",
+          "Tambahan: senario tambahan RM1,500; filem jelajah RM2,500; 4 imej pegun tambahan RM800. Skop disebut harga sebelum kerja bermula. Layanan cukai dinyatakan dalam borang pesanan."
+        ],
+        "href": "ms-packages.html#bands-h"
+      }
+    },
+    {
+      "id": "founding",
+      "keywords": {
+        "strong": [
+          "founding",
+          "discount",
+          "promotion",
+          "promosi",
+          "diskaun",
+          "perintis",
+          "founding offer",
+          "special offer",
+          "launch offer",
+          "tawaran perintis",
+          "tawaran istimewa",
+          "slots"
+        ],
+        "normal": [
+          "early",
+          "rights",
+          "hak",
+          "case study",
+          "kajian kes"
+        ]
+      },
+      "en": {
+        "title": "Founding offers",
+        "answer": [
+          "The published founding price is RM1,900 for the first 10 Plan Twins, in return for case-study rights.",
+          "For the first 5 Showrooms, founding prices are RM4,450 up to 25,000 sq ft and RM6,950 for 25,001–80,000 sq ft. This includes 6 stills with as-per-plan views, one vertical video and case-study rights; the film is an add-on.",
+          "Ask our team to confirm availability and suitability. This panel does not track or reserve places."
+        ],
+        "href": "packages.html#main-h"
+      },
+      "ms": {
+        "title": "Tawaran perintis",
+        "answer": [
+          "Harga perintis yang diterbitkan ialah RM1,900 untuk 10 Plan Twin pertama, dengan hak penggunaan sebagai kajian kes.",
+          "Untuk 5 Showroom pertama, harga perintis ialah RM4,450 sehingga 25,000 kaki persegi dan RM6,950 bagi 25,001–80,000 kaki persegi. Ini merangkumi 6 imej pegun dengan pandangan mengikut pelan, satu video menegak dan hak kajian kes; filem ialah tambahan.",
+          "Pasukan kami akan mengesahkan ketersediaan dan kesesuaian. Panel ini tidak menjejak atau menempah tempat."
+        ],
+        "href": "ms-packages.html#main-h"
+      }
+    },
+    {
+      "id": "inputs",
+      "keywords": {
+        "strong": [
+          "drawings",
+          "drawing",
+          "plans",
+          "pdf",
+          "input",
+          "inputs",
+          "no plans",
+          "no drawings",
+          "send plans",
+          "pelan",
+          "lukisan",
+          "dokumen",
+          "tiada pelan",
+          "hantar",
+          "upload",
+          "photo based"
+        ],
+        "normal": [
+          "photos",
+          "photo",
+          "gambar",
+          "permission",
+          "licence",
+          "izin",
+          "file",
+          "fail"
+        ]
+      },
+      "en": {
+        "title": "What do you need from me?",
+        "answer": [
+          "Start with the property type, general area, approximate gross floor area, purpose, target timing and whether building-plan drawings are available. Please don't upload drawings or personal documents here.",
+          "After a signed order and permission to use the drawings, we need a readable building-plan PDF. We check that the sheets are complete and note the drawing reference, date and approval status. Drawings are never published.",
+          "No drawings? Tell us on WhatsApp first. A photo-based package is not currently offered."
+        ],
+        "href": "how-it-works.html#stage-drawings"
+      },
+      "ms": {
+        "title": "Apa yang diperlukan?",
+        "answer": [
+          "Mulakan dengan jenis hartanah, kawasan umum, anggaran keluasan lantai kasar, tujuan, sasaran masa dan sama ada pelan bangunan tersedia. Jangan muat naik pelan atau dokumen peribadi di sini.",
+          "Selepas pesanan ditandatangani dan kebenaran menggunakan pelan diperoleh, kami memerlukan PDF pelan bangunan yang jelas. Kami menyemak kelengkapan helaian serta rujukan, tarikh dan status kelulusan pelan. Pelan tidak pernah diterbitkan.",
+          "Tiada pelan? Maklumkan melalui WhatsApp dahulu. Pakej berasaskan gambar belum ditawarkan."
+        ],
+        "href": "ms-how-it-works.html#stage-drawings"
+      }
+    },
+    {
+      "id": "delivery",
+      "keywords": {
+        "strong": [
+          "how long",
+          "delivery",
+          "turnaround",
+          "deadline",
+          "working days",
+          "duration",
+          "bila siap",
+          "berapa lama",
+          "tempoh",
+          "hari bekerja",
+          "penghantaran",
+          "siap"
+        ],
+        "normal": [
+          "time",
+          "timing",
+          "masa",
+          "rush",
+          "urgent",
+          "cepat",
+          "revision",
+          "pindaan"
+        ]
+      },
+      "en": {
+        "title": "Delivery and revisions",
+        "answer": [
+          "Published founding turnaround: Plan Twin — 5 working days; Showroom — 15 working days. Time starts from complete drawings and the signed order.",
+          "We confirm each job's delivery date after checking the drawings and agree it in writing. The founding pilot handles one active job at a time. Both packages include a private preview and one revision round."
+        ],
+        "href": "how-it-works.html#time-h"
+      },
+      "ms": {
+        "title": "Tempoh dan pindaan",
+        "answer": [
+          "Tempoh perintis yang diterbitkan: Plan Twin — 5 working days; Showroom — 15 working days. Tempoh bermula selepas pelan lengkap diterima dan pesanan ditandatangani.",
+          "Tarikh penyerahan disahkan selepas pelan disemak dan dipersetujui secara bertulis. Percubaan perintis mengendalikan satu kerja aktif pada satu masa. Kedua-dua pakej merangkumi pratonton peribadi dan satu pusingan pindaan."
+        ],
+        "href": "ms-how-it-works.html#time-h"
+      }
+    },
+    {
+      "id": "limits",
+      "keywords": {
+        "strong": [
+          "accuracy",
+          "accurate",
+          "survey",
+          "as built",
+          "as-built",
+          "guarantee",
+          "guaranteed",
+          "guarantees",
+          "limitations",
+          "limits",
+          "real time",
+          "realtime",
+          "real-time",
+          "live monitoring",
+          "cctv",
+          "iot",
+          "sensor",
+          "sensors",
+          "ketepatan",
+          "tepat",
+          "ukur tanah",
+          "jaminan",
+          "dijamin",
+          "batasan",
+          "pemantauan"
+        ],
+        "normal": [
+          "measure",
+          "ukur",
+          "approval",
+          "approved",
+          "kelulusan",
+          "concept",
+          "konsep",
+          "illustrative",
+          "ilustrasi",
+          "realistic"
+        ]
+      },
+      "en": {
+        "title": "What are the limits?",
+        "answer": [
+          "The model is built from building-plan drawings. It is not an as-built record or a survey, and existing buildings can differ from their drawings. Operation-ready fit-outs and concept samples are illustrative.",
+          "The interactive model is a stylised architectural model; Showroom stills are a separate deliverable. This is property presentation, not a live building-monitoring service.",
+          "For project-specific accuracy, approvals or suitability, ask our team before ordering. Idyra is not an estate agent and does not offer the sample property for sale or rent."
+        ],
+        "href": "honesty.html"
+      },
+      "ms": {
+        "title": "Apakah batasannya?",
+        "answer": [
+          "Model dibina daripada pelan bangunan. Ia bukan rekod keadaan sebenar yang dibina atau ukur tanah; bangunan sedia ada boleh berbeza daripada pelan. Susun atur operasi dan sampel konsep ialah ilustrasi.",
+          "Model interaktif ialah model seni bina bergaya; imej pegun Showroom ialah hasil yang berasingan. Perkhidmatan ini untuk penerangan hartanah, bukan pemantauan bangunan secara langsung.",
+          "Tanya pasukan kami sebelum membuat pesanan tentang ketepatan, kelulusan atau kesesuaian projek anda. Idyra bukan ejen hartanah dan tidak menawarkan hartanah sampel untuk jualan atau sewaan."
+        ],
+        "href": "ms-honesty.html"
+      }
+    },
+    {
+      "id": "quote",
+      "keywords": {
+        "strong": [
+          "quote",
+          "quotation",
+          "get started",
+          "start a project",
+          "order",
+          "payment",
+          "deposit",
+          "refund",
+          "tax",
+          "sst",
+          "human",
+          "contact",
+          "whatsapp",
+          "demo call",
+          "sebut harga",
+          "sebutharga",
+          "pesanan",
+          "bayar",
+          "bayaran balik",
+          "cukai",
+          "hubungi",
+          "bermula",
+          "demo",
+          "semakan projek"
+        ],
+        "normal": [
+          "team",
+          "pasukan",
+          "book",
+          "tempah",
+          "review",
+          "semakan",
+          "free",
+          "percuma"
+        ]
+      },
+      "en": {
+        "title": "Ready for a quote?",
+        "answer": [
+          "Free project discussions and quotes are open. Tell us your property type, general area, approximate gross floor area, purpose, target timing and whether drawings are available. A free 20-minute demo call is also offered.",
+          "Quotes only for now: orders open once the business bank account and order paperwork are ready. We take no deposit or payment until then, and nothing is payable before a signed order form. Please don't send drawings before signing.",
+          "The order form sets scope, hosting, payment terms and any refund criteria. Our team reviews enquiries and replies the same working day on WhatsApp."
+        ],
+        "href": "contact.html#brief-h"
+      },
+      "ms": {
+        "title": "Sedia mendapatkan sebut harga?",
+        "answer": [
+          "Perbincangan projek dan sebut harga percuma kini dibuka. Beritahu kami jenis hartanah, kawasan umum, anggaran keluasan lantai kasar, tujuan, sasaran masa dan ketersediaan pelan. Panggilan demo percuma selama 20 minit juga ditawarkan.",
+          "Buat masa ini, sebut harga sahaja: pesanan dibuka setelah akaun bank perniagaan dan dokumen pesanan sedia. Tiada deposit atau bayaran diterima sehingga itu, dan tiada bayaran perlu dibuat sebelum borang pesanan ditandatangani. Jangan hantar pelan sebelum menandatangani.",
+          "Borang pesanan menetapkan skop, pengehosan, terma bayaran dan kriteria bayaran balik. Pasukan kami menyemak pertanyaan dan membalas pada hari bekerja yang sama melalui WhatsApp."
+        ],
+        "href": "ms-contact.html#brief-h"
+      }
+    }
+  ]
+}

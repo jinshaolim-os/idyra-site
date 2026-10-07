@@ -1,0 +1,73 @@
+/* Scoped customer help. Mobile launcher is a header row; the modal always remains under body. */
+.idyra-help { --idyra-help-bottom: 20px; font-family: var(--sans, system-ui, sans-serif); color: #f3eee7; }
+.idyra-help *, .idyra-help *::before, .idyra-help *::after { box-sizing: border-box; }
+.idyra-help [hidden] { display: none !important; }
+.idyra-help button, .idyra-help input, .idyra-help a { font: inherit; }
+.idyra-help button { cursor: pointer; }
+.idyra-help button:focus-visible, .idyra-help a:focus-visible, .idyra-help input:focus-visible, .idyra-help h3:focus-visible, .idyra-help-launcher:focus-visible { outline: 2px solid #ffbd91; outline-offset: 3px; }
+.idyra-help-launcher {
+  position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: calc(var(--idyra-help-bottom) + env(safe-area-inset-bottom, 0px));
+  z-index: 60; display: inline-flex; align-items: center; gap: 9px; min-height: 46px;
+  padding: 10px 16px 10px 12px; border: 1px solid #6d665e; border-radius: 999px;
+  color: #f3eee7; background: #25211d; box-shadow: 0 5px 20px #0005; font-family: var(--sans, system-ui, sans-serif); font-size: 13px; font-weight: 650; cursor: pointer;
+}
+.idyra-help-launcher, .idyra-help-launcher * { box-sizing: border-box; }
+.idyra-help-launcher:hover { background: #383028; border-color: #b4a595; }
+.idyra-help-mark { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid #bc9b80; border-radius: 50%; color: #ffbd91; font-weight: 700; }
+.idyra-help-panel {
+  position: fixed; inset: auto max(18px, env(safe-area-inset-right)) calc(var(--idyra-help-bottom) + env(safe-area-inset-bottom, 0px)) auto;
+  margin: 0; padding: 0; width: 410px; max-width: calc(100vw - 24px); max-height: min(760px, calc(100dvh - 48px));
+  border: 1px solid #63594d; border-radius: 16px; background: #211e19; color: #f3eee7; box-shadow: 0 18px 70px #0008;
+  font-family: var(--sans, system-ui, sans-serif); font-size: 14px; line-height: 1.5; overflow: hidden;
+}
+.idyra-help-panel[open] { display: flex; flex-direction: column; }
+.idyra-help-panel::backdrop { background: #08080780; }
+.idyra-help-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border-bottom: 1px solid #50483d; flex: 0 0 auto; }
+.idyra-help-header h2 { margin: 0; font: 600 18px/1.2 var(--sans, system-ui, sans-serif); letter-spacing: 0; text-transform: none; }
+.idyra-help-close { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: 0; border: 1px solid #63594d; border-radius: 50%; color: #f3eee7; background: transparent; font-size: 26px !important; line-height: 1; }
+.idyra-help-close:hover { background: #393128; }
+.idyra-help-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px; }
+.idyra-help p { margin: 0; }
+.idyra-help-intro { margin-bottom: 18px !important; color: #d4cabe; font-size: 13px; }
+.idyra-help-label { display: block; margin: 0 0 8px !important; font-size: 13px; font-weight: 650; letter-spacing: 0; text-transform: none; }
+.idyra-help-form { display: grid; grid-template-columns: 1fr auto; gap: 9px; margin: 0 0 20px; }
+.idyra-help-form label, .idyra-help-form .idyra-help-note { grid-column: 1 / -1; }
+.idyra-help-question { grid-column: 1 / -1; width: 100%; min-width: 0; min-height: 46px; padding: 10px 12px; border: 1px solid #8b7c6a; border-radius: 7px; background: #15130f; color: #fffaf4; font-size: 16px !important; }
+.idyra-help-question::placeholder { color: #b7ac9f; opacity: 1; }
+.idyra-help-ask, .idyra-help-retry { grid-column: 1 / -1; justify-self: start; min-height: 44px; padding: 9px 13px; border: 1px solid #b99678; border-radius: 7px; background: #473628; color: #fff6ea; font-weight: 650; }
+.idyra-help-ask:hover, .idyra-help-retry:hover { background: #624731; }
+.idyra-help-note { color: #bfb4a7; font-size: 11px; line-height: 1.45; }
+.idyra-help-status { margin: 0 0 14px !important; padding: 10px 12px; border-left: 2px solid #ffbd91; background: #342b22; color: #f1e4d6; font-size: 13px; }
+.idyra-help-topics { display: flex; flex-wrap: wrap; gap: 7px; }
+.idyra-help-topic { min-height: 44px; padding: 8px 11px; border: 1px solid #6c6052; border-radius: 7px; color: #e6dcd0; background: transparent; font-size: 12px !important; line-height: 1.3; text-align: left; }
+.idyra-help-topic:hover, .idyra-help-topic[aria-pressed="true"] { border-color: #d7ad88; color: #fff4e8; background: #423226; }
+.idyra-help-answer { padding: 15px; margin: 0 0 18px; border: 1px solid #78654f; border-radius: 10px; background: #2c251e; }
+.idyra-help-answer h3 { margin: 0 0 10px; font-size: 16px; font-weight: 650; line-height: 1.3; letter-spacing: 0; text-transform: none; }
+.idyra-help-answer p { margin-bottom: 11px; color: #e6dbcf; font-size: 13px; }
+.idyra-help-source { display: inline-block; padding-block: 7px; color: #ffbd91; text-decoration: underline; text-underline-offset: 3px; font-size: 12px !important; }
+.idyra-help-related { margin-bottom: 18px; }
+.idyra-help-footer { flex: 0 0 auto; padding: 13px 16px 16px; border-top: 1px solid #50483d; background: #211e19; }
+.idyra-help-wa { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 13px; border: 1px solid #57b878; border-radius: 7px; color: #fff !important; background: #176d38; font-size: 13px !important; font-weight: 650; line-height: 1.3; text-align: center; text-decoration: none; }
+.idyra-help-wa:hover { background: #207f44; }
+.idyra-help-reply { margin-top: 9px !important; color: #e0d4c6; font-size: 12px; }
+.idyra-help-footer .idyra-help-note { margin-top: 6px; }
+@media (max-width: 800px) {
+  .idyra-help { --idyra-help-bottom: 12px; }
+  .idyra-help-launcher { right: max(12px, env(safe-area-inset-right)); font-size: 12px; }
+  .top > .idyra-help-launcher--header {
+    position: static; inset: auto; z-index: auto; display: flex; justify-content: center; width: 100%;
+    min-height: 40px; height: 40px; margin: 0; padding: 6px 16px; gap: 7px;
+    border: 0; border-top: 1px solid #51463b; border-radius: 0; box-shadow: none; line-height: 1.3;
+  }
+  .idyra-help-launcher--header .idyra-help-mark { width: 20px; height: 20px; }
+  .idyra-help-launcher--header:focus-visible { outline-offset: -3px; }
+  .idyra-help-panel { right: max(12px, env(safe-area-inset-right)); width: calc(100vw - 24px); max-height: calc(100dvh - var(--idyra-help-bottom) - env(safe-area-inset-bottom, 0px) - 12px); }
+}
+@media (max-height: 520px) {
+  .idyra-help-panel { top: max(8px, env(safe-area-inset-top)); bottom: max(8px, env(safe-area-inset-bottom)); max-height: none; }
+  .idyra-help-header { padding-block: 7px; }
+  .idyra-help-footer { padding-block: 9px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .idyra-help-launcher, .idyra-help button, .idyra-help-wa { transition: background-color .15s, border-color .15s; }
+}

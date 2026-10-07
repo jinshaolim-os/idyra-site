@@ -1,6 +1,30 @@
 // idyra.ai: small progressive enhancements. Every page reads fully without this script.
 // Text written here gets the build's typesetting of middle dots: each "·" in a span that styles.css gives a little room.
-const setText = (element, text) => element.replaceChildren(...String(text).split('·').flatMap((part, i) => i ? [Object.assign(document.createElement('span'), { className: 'dot', textContent: '·' }), part] : [part]));
+const isBM = document.documentElement.lang === 'ms';
+const uiBM = {
+  'As per plan':'Mengikut pelan', 'Operation-ready: logistics':'Cadangan operasi: logistik',
+  'Operation-ready: light manufacturing':'Cadangan operasi: pembuatan ringan',
+  'Rendered from building-plan drawings':'Dirender berdasarkan lukisan pelan bangunan',
+  'Rendered from building-plan drawings · fit-out illustrative':'Dirender berdasarkan lukisan pelan bangunan · susun atur sebagai ilustrasi',
+  'Model state updated. Drag to explore this view.':'Paparan model dikemas kini. Seret untuk meneroka paparan ini.',
+  'Walk-in mode is ready. Use the movement controls inside the viewer.':'Mod berjalan sedia digunakan. Gunakan kawalan pergerakan dalam pemapar.',
+  'Measured · Tap two points on the model. Model measurement, not a survey.':'Ukuran · Ketik dua titik pada model. Ukuran model, bukan ukur tanah.',
+  'Not specified yet':'Belum dinyatakan', 'Owner or landlord':'Pemilik atau tuan tanah',
+  'Registered estate agent':'Ejen harta tanah berdaftar', 'Developer or park operator':'Pemaju atau pengendali taman perindustrian',
+  'Other':'Lain-lain', 'Not sure yet':'Belum pasti', 'Factory or warehouse':'Kilang atau gudang',
+  'Shop or office':'Kedai atau pejabat', 'Industrial park':'Taman perindustrian',
+  'Up to 25,000 sq ft':'Sehingga 25,000 kaki persegi', '25,001–80,000 sq ft':'25,001–80,000 kaki persegi',
+  'Over 80,000 sq ft':'Melebihi 80,000 kaki persegi', 'Not sure':'Tidak pasti', 'Yes, as a PDF':'Ya, dalam format PDF',
+  'On paper':'Di atas kertas', 'Not yet':'Belum ada',
+  'Explain the property to prospects':'Terangkan hartanah kepada bakal pelanggan',
+  'Discuss a possible layout with my team':'Bincangkan cadangan susun atur dengan pasukan saya',
+  'Create a company or project presentation':'Sediakan pembentangan syarikat atau projek',
+  'Prefer to discuss':'Ingin berbincang dahulu',
+  'As soon as possible, please confirm feasibility':'Secepat mungkin, sila sahkan kebolehlaksanaan',
+  'Within the next month':'Dalam bulan hadapan', 'Exploring options, no fixed date':'Meninjau pilihan, belum ada tarikh tetap'
+};
+const uiText = text => isBM ? (uiBM[text] || text) : text;
+const setText = (element, text) => element.replaceChildren(...String(uiText(text)).split('·').flatMap((part, i) => i ? [Object.assign(document.createElement('span'), { className: 'dot', textContent: '·' }), part] : [part]));
 // After the load event and the browser's next frame. A fast load can fire before the page's first layout, and an arrival
 // on a fragment (the header's "Explore" link is index.html#experience) jumps there only in that layout: until then the
 // page still reports its top, and with smooth scrolling already on the jump would glide past the hero (2 Oct 2026: the
@@ -15,7 +39,7 @@ const afterLoadFrame = fn => {
   // compare slider: as per plan (left) vs operation-ready (right); a range input drives it, so keys and touch work
   for (const c of $$('[data-compare]')) {
     const range = c.querySelector('input[type="range"]');
-    const set = v => { c.style.setProperty('--pos', `${v}%`); range.setAttribute('aria-valuetext', `${v}% as per plan, ${100 - v}% fitted out`); };
+    const set = v => { c.style.setProperty('--pos', `${v}%`); range.setAttribute('aria-valuetext', isBM ? `${v}% mengikut pelan, ${100 - v}% dengan cadangan susun atur` : `${v}% as per plan, ${100 - v}% fitted out`); };
     range.addEventListener('input', () => set(range.value));
     set(range.value);
   }
@@ -43,7 +67,7 @@ const afterLoadFrame = fn => {
       const box = btn.closest('[data-twin]');
       const f = document.createElement('iframe');
       f.src = box.dataset.src;
-      f.title = 'PT 49665 interactive to-scale model';
+      f.title = isBM ? 'Model interaktif berskala PT 49665' : 'PT 49665 interactive to-scale model';
       f.setAttribute('allow', 'fullscreen');
       f.setAttribute('allowfullscreen', '');
       box.querySelector('.twin-cta').remove();
@@ -81,7 +105,7 @@ const afterLoadFrame = fn => {
     const note = document.getElementById(btn.getAttribute('aria-controls'));
     btn.addEventListener('click', () => {
       const text = btn.dataset.copy;
-      const done = ok => { if (note) note.textContent = ok ? `Copied ${text}` : `Select the number above and copy it: ${text}`; };
+      const done = ok => { if (note) note.textContent = isBM ? (ok ? `Disalin ${text}` : `Pilih nombor di atas dan salin: ${text}`) : (ok ? `Copied ${text}` : `Select the number above and copy it: ${text}`); };
       try { navigator.clipboard.writeText(text).then(() => done(true), () => done(false)); } catch { done(false); }
     });
   }
@@ -109,7 +133,16 @@ const afterLoadFrame = fn => {
     const run = () => {
       const area = text('area', 80);
       const company = text('company', 100);
-      const msg = [
+      const msg = (isBM ? [
+        'Hai Idyra, saya ingin berbincang tentang projek dan mendapatkan sebut harga percuma.',
+        ...(company ? [`Syarikat / projek: ${company}`] : []),
+        `Saya: ${uiText(val('who'))}`,
+        `Hartanah: ${uiText(val('what'))}${area ? `, ${area}` : ''}`,
+        `Keluasan lantai kasar: ${uiText(val('size'))}`,
+        `Lukisan pelan bangunan: ${uiText(val('drawings'))}`,
+        `Tujuan pembentangan: ${uiText(val('goal'))}`,
+        `Sasaran masa: ${uiText(val('timing'))}`,
+      ] : [
         "Hi Idyra, I'd like a free project discussion and quote.",
         ...(company ? [`Company / project: ${company}`] : []),
         `I am: ${val('who')}`,
@@ -118,7 +151,7 @@ const afterLoadFrame = fn => {
         `Building-plan drawings: ${val('drawings')}`,
         `Presentation goal: ${val('goal')}`,
         `Target timing: ${val('timing')}`,
-      ].join('\n');
+      ]).join('\n');
       out.textContent = msg;
       send.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(msg)}`;
     };
@@ -141,13 +174,22 @@ const afterLoadFrame = fn => {
         e.preventDefault(); const k = (n + btns.length) % btns.length; select(k); btns[k].focus();
       });
     });
-    select(0);
+    const preferred = isBM ? panels.findIndex(panel => panel?.lang === 'ms') : 0;
+    select(preferred < 0 ? 0 : preferred);
   }
 })();
 
 // v2 navigation, accessible demo/property tabs and lightweight scroll reveals.
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Language/help controls change the sticky header's height, including after module mount.
+  const header = document.querySelector('.top');
+  if (header) {
+    const syncHeaderHeight = () => document.documentElement.style.setProperty('--site-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    syncHeaderHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(syncHeaderHeight).observe(header);
+    else window.addEventListener('resize', syncHeaderHeight);
+  }
   // Keep every demo entry point in the opening screen, including the private-preview ribbon.
   const hero = document.querySelector('.v2-hero');
   if (hero) {
@@ -255,7 +297,7 @@ const afterLoadFrame = fn => {
   box.addEventListener('twin-ready', run);
   for (const button of document.querySelectorAll('[data-twin-state], [data-twin-intent]')) button.addEventListener('click', () => {
     pending = {state:button.dataset.twinState, intent:button.dataset.twinIntent};
-    note.textContent = 'Opening the 3D model…';
+    note.textContent = isBM ? 'Membuka model 3D…' : 'Opening the 3D model…';
     if (!box.querySelector('iframe')) box.querySelector('[data-twin-open]').click();
     else run();
   });
@@ -300,7 +342,7 @@ const afterLoadFrame = fn => {
   for (const figure of figures) figure.querySelector('video').addEventListener('playing', () => showClip(figure));
   for (const toggle of toggles) toggle.addEventListener('click', () => {
     paused = !paused;
-    for (const t of toggles) { t.toggleAttribute('data-paused', paused); t.querySelector('[data-motion-label]').textContent = paused ? 'Play motion' : 'Pause motion'; }
+    for (const t of toggles) { t.toggleAttribute('data-paused', paused); t.querySelector('[data-motion-label]').textContent = isBM ? (paused ? 'Mainkan animasi' : 'Jeda animasi') : (paused ? 'Play motion' : 'Pause motion'); }
     updateAll();
   });
   reduced.addEventListener('change', updateAll);
