@@ -798,9 +798,31 @@ a.dl-media:hover { border-color:var(--accent); }
 /* four stills that share one label, uncropped */
 .dl-media--mosaic { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:2px; }
 .dl-media--mosaic img { position:static; width:100%; height:100%; min-height:0; object-fit:contain; }
-/* the spec sheet shows the top of page 1 (disclosure bar, title, fact tiles); the PDF opens on click */
-.dl-media--doc { background:#f4f1e9; }
-.dl-media--doc img { object-fit:cover; object-position:50% 0; }
+/* A native dark fact preview keeps the downloadable PDF available without making it the product hero. */
+.dl-spec-link { display:block; border:1px solid var(--line); color:var(--ink); text-decoration:none; }
+.dl-spec-link:hover { border-color:var(--accent); }
+.spec-preview { padding:clamp(18px, 3.4vw, 30px); background:linear-gradient(135deg, #29251f, #191714); color:var(--ink); }
+.spec-preview-head { display:flex; justify-content:space-between; flex-wrap:wrap; gap:5px 16px; padding-bottom:16px; border-bottom:1px solid var(--line-strong); font:11px/1.5 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--muted); }
+.spec-preview-head > :first-child { color:var(--accent); }
+.spec-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:23px 20px; margin:23px 0 0; }
+.spec-facts > div { display:grid; gap:6px; align-content:start; min-width:0; }
+.spec-facts dt { font-size:12px; line-height:1.45; color:var(--muted); }
+.spec-facts dd { margin:0; font-size:clamp(24px, 2.8vw, 38px); font-weight:400; line-height:1.15; letter-spacing:-.045em; color:var(--ink); }
+.spec-facts small { font:11px/1.6 var(--mono); color:var(--muted); }
+.spec-preview-source { margin-top:22px; border-top:1px solid var(--line-strong); padding-top:12px; font-size:11px; line-height:1.6; color:var(--muted); }
+.spec-preview--compact { padding:14px; }
+.spec-preview--compact .spec-preview-head { padding-bottom:10px; font-size:11px; letter-spacing:0; }
+.spec-preview--compact .spec-facts { gap:12px; margin-top:16px; }
+.spec-preview--compact .spec-facts dt { font-size:11px; }
+.spec-preview--compact .spec-facts dd { font-size:22px; }
+.spec-preview-cta { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 14px; border-top:1px solid var(--line); font-size:12px; background:#1c1a17; color:var(--ink-2); }
+.dl-model { min-height:260px; aspect-ratio:16 / 10; border:1px solid var(--line); background:#171613; }
+.dl-model .dl-model-preview { display:block; width:100%; height:100%; object-fit:contain; object-position:center; opacity:1; }
+.dl-model .twin-cta { inset:auto 0 0; gap:6px; padding:12px; background:linear-gradient(0deg, #171613 0%, rgb(23 22 19 / .86) 60%, transparent); }
+.dl-model .twin-cta .btn { font-size:12px; min-height:40px; padding:9px 14px; }
+.dl-model .twin-cta .fine { padding:0; background:none; color:var(--ink-2); font-size:11px; }
+.dl-fig[data-deliverable="model"] .dl-live-cta { margin-top:4px; }
+@media (max-width:599px) { .dl-model { min-height:270px; aspect-ratio:16 / 11; } .dl-model .dl-model-preview { object-position:center top; } .spec-facts dd { font-size:27px; } }
 /* the vertical video, uncropped, as a phone screen */
 .dl-media--phone img { left:50%; right:auto; top:6%; width:auto; height:88%; aspect-ratio:9 / 16; transform:translateX(-50%); border-radius:8px; outline:2px solid #3a3632; }
 /* one share card per agent, uncropped, with each card's burned-in tag, provenance line and agency/agent band in view: the
@@ -809,7 +831,7 @@ a.dl-media:hover { border-color:var(--accent); }
 .dl-media--cards img { inset:auto; width:62%; height:auto; aspect-ratio:1200 / 630; box-shadow:0 8px 20px rgb(0 0 0 / .5); }
 .dl-media--cards .dl-card--b { top:5%; right:4%; }
 .dl-media--cards .dl-card--a { bottom:5%; left:4%; }
-/* the live model (no picture of it is published): a text tile with its link on its own line */
+/* The full-size view stays available beside the on-demand embedded model. */
 .dl-live-cta { display:table; margin-top:10px; font-size:12px; color:var(--ink); border-bottom:1px solid var(--line-strong); padding-bottom:3px; }
 a.dl-note--link:hover .dl-live-cta { color:var(--accent); border-color:var(--accent); }
 /* text tiles: the share page (no picture of a Plan Twin's card exists) and the film add-on */
@@ -918,10 +940,9 @@ a.dl-note:hover { border-color:var(--accent); }
 .stage-fig figcaption a { color:var(--ink-2); }
 /* the spec-sheet label's dot is paper white, apart from the rendered (terracotta), Measured (blue), AI (lilac) and concept (sage) dots */
 .pill--doc::before { background:#f4f1e9; }
-/* Stage 3: page 1's first four tiles (x 86, y 509, 708 x 398 px of the 1588 x 2246 preview), cropped in CSS: the image
-   is 1588/708 of the frame wide and moved by the crop's offset (translate % is of the image's own box). */
-.stage-media--sheet { background:#f8f6f2; }
-.stage-media--sheet > img { inset:auto; left:0; top:0; width:224.294%; height:auto; max-width:none; object-fit:fill; transform:translate(-5.4156%, -22.6625%); }
+/* Stage 3 is real, selectable text with the PDF's exact figures and sheet references; it grows rather than clipping. */
+.stage-media--facts { aspect-ratio:auto; border:1px solid var(--line); }
+.stage-media--facts .spec-preview { min-height:300px; }
 /* Stage 6: the 1200 x 630 card whole, centred in the stage frame like a link preview. */
 .stage-media--card { display:grid; place-items:center; padding:5% 6%; }
 .stage-media--card > img { position:static; width:100%; height:auto; object-fit:contain; box-shadow:0 18px 50px rgb(0 0 0 / .45); }
