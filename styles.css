@@ -647,7 +647,7 @@ body:not([data-page="index"]) .lead { font-size:17px; color:var(--muted); line-h
   .property-copy p.fine > [data-when][hidden] { display:block!important; visibility:hidden; }
 }
 
-/* Concept samples: a separate, plainly marked block; dashed frames and a green dot set them apart from PT 49665. */
+/* Concept samples: a separate, plainly marked block; dashed frames and a green dot set them apart from Demonstration project. */
 .concepts { background:var(--paper); }
 .concepts-head { display:grid; grid-template-columns:1.3fr 1fr; align-items:end; gap:70px; margin-bottom:36px; }
 .concepts-head h2 { font-size:clamp(30px,3vw,44px); line-height:1.1; letter-spacing:-.04em; margin-top:16px; }
@@ -747,8 +747,8 @@ body:not([data-page="index"]) .lead { font-size:17px; color:var(--muted); line-h
 .transcript .shots-note { padding:0 0 14px; font-size:12px; line-height:1.7; color:var(--muted); max-width:68ch; }
 
 /* Operator polish (2 Oct 2026). Middle dots: build.mjs puts each "·" of the page text in a span (site.js does the same for
-   the text it writes). Instrument Sans draws the dot only 0.1 em wide, so without this room "PT 49665 · Factory hall" read
-   as "PT 49665·Factory hall". */
+   the text it writes). Instrument Sans draws the dot only 0.1 em wide, so without this room "Demonstration project · Factory hall" read
+   as "Demonstration project·Factory hall". */
 .dot { margin-inline:.12em; }
 /* An underline skips margins, so inside underlined text the dot keeps only its spaces: the footer's "Privacy · BM / EN"
    link, set in the monospace face, where the dot already fills a whole character cell. */
@@ -757,14 +757,14 @@ body:not([data-page="index"]) .lead { font-size:17px; color:var(--muted); line-h
    declaration keeps ordinary wrapping. */
 .trust .section-heading > p, .trust li, .presenter-card figcaption, .trust-details p { text-wrap:wrap; text-wrap:pretty; }
 /* The comparison keeps its images' own 16:9 frame on phones too. At 4:3 the as-per-plan image's burned label was cropped
-   to "g-plan drawings · JPLKSB/49665-2026" at 390 px, and framed from the left instead, the fit-out image's longer label
+   to "g-plan drawings · Demonstration drawing set" at 390 px, and framed from the left instead, the fit-out image's longer label
    would show past the divider. Both images share one frame, so the slider still lines them up. Phone text is at least
    11 px (the 8–9 px overlines, compare keys, step numbers, closing note, hero lot line and footer line were raised). */
 /* The hero intro is one sentence now: on phones its two lines are balanced, never "… people can / explore." */
 .hero-intro { text-wrap:balance; }
 
 /* Packages, made visual (founder, 2 Oct 2026: "How it works and Packages are mainly words"). Each package card shows what
-   it delivers with labelled PT 49665 files the site already publishes; the full scope sits in one comparison table. */
+   it delivers with labelled Demonstration project files the site already publishes; the full scope sits in one comparison table. */
 .jump { display:flex; flex-wrap:wrap; gap:0 28px; margin-top:22px; }
 .jump a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line-strong); }
 .jump a:hover { color:var(--accent); border-color:var(--accent); }
@@ -772,7 +772,7 @@ body:not([data-page="index"]) .lead { font-size:17px; color:var(--muted); line-h
 .plan .dl-head { font:11px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:-6px; text-wrap:balance; }
 /* the Plan Twin's scope in one line (its preset, preview and revision round are in no tile) */
 .plan .dl-sum { font-size:14px; line-height:1.6; color:var(--ink-2); text-wrap:pretty; }
-/* the PT 49665 disclosure, readable, directly under the two cards whose pictures it explains */
+/* the Demonstration project disclosure, readable, directly under the two cards whose pictures it explains */
 .sample-note { margin-top:16px; max-width:80ch; }
 .plan .dl { display:grid; gap:18px; min-width:0; }
 /* the small tiles: two columns where they fit (a card's .plan ul/li dashes and padding must not reach them) */
@@ -1009,12 +1009,13 @@ a.dl-note:hover { border-color:var(--accent); }
 
 /* Recognisable WhatsApp action and a site-wide language choice. */
 .btn-wa, .top .btn-small.btn-wa, .hero-content .btn-wa {
-  background:#25d366; color:#082b19; border-color:#25d366; backdrop-filter:none;
+  background:#25d366; color:#082b19; border-color:#25d366; backdrop-filter:none; gap:9px; justify-content:center;
 }
 .btn-wa:hover, .top .btn-small.btn-wa:hover, .hero-content .btn-wa:hover {
   background:#49df80; color:#082b19; border-color:#49df80;
 }
-.btn-wa svg { display:block; width:20px; height:20px; }
+.btn-wa svg { display:block; width:20px; height:20px; flex:0 0 20px; }
+.btn-wa > span { flex:0 1 auto; }
 .language-switch { display:flex; flex:none; align-items:center; gap:2px; border:1px solid var(--line-strong); padding:3px; border-radius:6px; }
 .language-switch a { display:grid; place-items:center; min-width:32px; min-height:34px; padding:2px 5px; color:var(--ink-2); font-size:12px; line-height:1; text-decoration:none; border-radius:3px; }
 .language-switch a[aria-current="true"] { background:var(--ink); color:var(--paper); font-weight:700; }
@@ -1034,3 +1035,22 @@ a.dl-note:hover { border-color:var(--accent); }
 @media (max-width:370px) { .top-in { gap:7px; } .brand svg { height:24px; } .language-switch a { min-width:27px; padding-inline:3px; } }
 /* The Malay word “bertanggungjawab” needs room on narrow phones without breaking the word. */
 @media (max-width:370px) { html[lang="ms"] #trust-h { font-size:32px; } }
+
+/* Short introductions stay uncropped and play only on request. */
+.campaign-intro { background:var(--paper); border-bottom:1px solid var(--line); }
+.campaign-layout { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr); gap:64px; align-items:center; }
+.campaign-copy { display:grid; gap:24px; max-width:440px; }
+.campaign-copy h2 { font-size:clamp(30px,3vw,48px); font-weight:400; }
+.campaign-copy p { color:var(--muted); }
+.campaign-copy .btn { justify-self:start; gap:10px; }
+.campaign-videos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+.campaign-card { margin:0; padding:0; border:0; min-width:0; display:grid; gap:16px; }
+.campaign-card .fig-media { aspect-ratio:9/16; background:#111; width:100%; max-height:510px; }
+.campaign-card .fig-media video, .campaign-card .fig-media img { width:100%; height:100%; object-fit:contain; display:block; }
+.campaign-card figcaption { display:grid; gap:10px; font-size:13px; color:var(--muted); }
+.campaign-card figcaption strong { color:var(--ink); font-size:18px; }
+.campaign-card .pill { justify-self:start; font-size:11px; }
+.campaign-card .transcript { margin:0; }
+@media(max-width:1100px) { .campaign-layout { gap:32px; grid-template-columns:minmax(0,.75fr) minmax(0,1.4fr); } }
+@media(max-width:800px) { .campaign-layout { grid-template-columns:1fr; } .campaign-copy { max-width:600px; } .campaign-videos { gap:18px; } .campaign-card .fig-media { max-height:none; } }
+@media(max-width:440px) { .campaign-videos { grid-template-columns:1fr; gap:36px; } .campaign-card .fig-media { max-height:500px; } }

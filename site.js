@@ -67,7 +67,7 @@ const afterLoadFrame = fn => {
       const box = btn.closest('[data-twin]');
       const f = document.createElement('iframe');
       f.src = box.dataset.src;
-      f.title = isBM ? 'Model interaktif berskala PT 49665' : 'PT 49665 interactive to-scale model';
+      f.title = isBM ? 'Model interaktif berskala Demonstration project' : 'Demonstration project interactive to-scale model';
       f.setAttribute('allow', 'fullscreen');
       f.setAttribute('allowfullscreen', '');
       box.querySelector('.twin-cta').remove();
