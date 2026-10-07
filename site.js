@@ -378,7 +378,30 @@ const afterLoadFrame = fn => {
   if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true });
 })();
 
-// Smooth in-page scrolling starts only after load and the first frame (afterLoadFrame): an arrival on a fragment (the
-// header's "Explore" link is index.html#experience) jumps there first, so the clip observer, which starts at the same
-// time, never sees the hero on the way.
-afterLoadFrame(() => document.documentElement.classList.add('smooth-scroll'));
+// The mobile help row can grow the header after the browser's first fragment jump. Align that arrival once after
+// load and fonts, using the rendered header height rather than waiting for ResizeObserver. Never pull a visitor back
+// after they start interacting or choose another fragment. Smooth scrolling starts only after this instant correction.
+(() => {
+  const initialHash = location.hash;
+  let interrupted = false;
+  const interrupt = () => { interrupted = true; };
+  const inputEvents = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+  if (initialHash) inputEvents.forEach(type => addEventListener(type, interrupt, { passive: true, once: true }));
+  afterLoadFrame(async () => {
+    if (initialHash) {
+      await (document.fonts?.ready || Promise.resolve());
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      if (!interrupted && location.hash === initialHash) {
+        let target;
+        try { target = document.getElementById(decodeURIComponent(initialHash.slice(1))); } catch { /* malformed fragment */ }
+        if (target) {
+          const header = document.querySelector('.top');
+          if (header) document.documentElement.style.setProperty('--site-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+          target.scrollIntoView({ behavior: 'instant', block: 'start' });
+        }
+      }
+      inputEvents.forEach(type => removeEventListener(type, interrupt));
+    }
+    document.documentElement.classList.add('smooth-scroll');
+  });
+})();
