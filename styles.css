@@ -18,7 +18,7 @@
   --accent: #ef8d68;       /* Idyra terracotta, oklch(.739 .13 41), fills */
   --accent-ink: #a94524;   /* text-safe terracotta */
   --accent-on: #201612;
-  --mark: #a73e25;         /* the "dimensional doorway" mark */
+  --mark: #153d35;         /* the "dimensional doorway" mark */
   --measured: #2a72b0;
   --measured-dot: #8fd0ff;
   --ai: #6a4fbd;
@@ -53,7 +53,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #191714; --paper-2: #23201d; --sheet: #26231f; --ink: #f4efe6; --ink-2: #d6d0c6; --muted: #b7b2aa;
-    --line: #3a3632; --line-strong: #4d4843; --accent: #ef8d68; --accent-ink: #f3a384; --accent-on: #201612; --mark: #ef8d68;
+    --line: #3a3632; --line-strong: #4d4843; --accent: #ef8d68; --accent-ink: #f3a384; --accent-on: #201612; --mark: #153d35;
     --measured: #7fc2f4; --ai: #bba3ff; --confirm: #f0c877; --confirm-bg: #3a2c12; --focus: #ef8d68;
     --band: #0f0e0c; --band-2: #1c1a17; --band-ink: #f4efe6; --band-muted: #b7b2aa; --band-line: #34302c;
     --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 24px 80px rgb(0 0 0 / .4);
@@ -62,7 +62,7 @@
 }
 :root[data-theme="dark"] {
   --paper: #191714; --paper-2: #23201d; --sheet: #26231f; --ink: #f4efe6; --ink-2: #d6d0c6; --muted: #b7b2aa;
-  --line: #3a3632; --line-strong: #4d4843; --accent: #ef8d68; --accent-ink: #f3a384; --accent-on: #201612; --mark: #ef8d68;
+  --line: #3a3632; --line-strong: #4d4843; --accent: #ef8d68; --accent-ink: #f3a384; --accent-on: #201612; --mark: #153d35;
   --measured: #7fc2f4; --ai: #bba3ff; --confirm: #f0c877; --confirm-bg: #3a2c12; --focus: #ef8d68;
   --band: #0f0e0c; --band-2: #1c1a17; --band-ink: #f4efe6; --band-muted: #b7b2aa; --band-line: #34302c;
   --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 24px 80px rgb(0 0 0 / .4);
@@ -409,7 +409,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 /* v2: expansive architectural imagery, precise rules and a restrained warm-dark palette. */
 :root, :root[data-theme="dark"], :root[data-theme="light"] {
   --paper:#191714; --paper-2:#211f1b; --sheet:#211f1b; --ink:#f4f1e9; --ink-2:#d0ccc3;
-  --muted:#aaa69d; --line:#36332e; --line-strong:#514b43; --accent-ink:#ef8d68; --mark:#ef8d68;
+  --muted:#aaa69d; --line:#36332e; --line-strong:#514b43; --accent-ink:#ef8d68; --mark: #153d35;
   --band:#151411; --band-2:#211f1b; --band-ink:#f4f1e9; --band-muted:#aaa69d; --band-line:#36332e;
   --confirm:#f0c877; --confirm-bg:#30281b; --focus:#ef8d68; --measured:#9ed6ef; --ai:#c5b7e8;
   --wa:#f4f1e9; --wa-hover:#ef8d68; --wa-on:#191714; --wrap:1440px; --gutter:60px;
@@ -1257,3 +1257,9 @@ body[data-page="index"] .v2-plans article { padding:30px; border:1px solid #716c
 .proof-note {max-width:820px;margin:20px 0 0;color:#c9c8ba}
 @media(max-width:900px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.proof-card:nth-child(2){border-right:0}.proof-card:nth-child(-n+2){border-bottom:1px solid #576047}}
 @media(max-width:420px){.proof-card{padding:22px 14px}.proof-card h3{font-size:17px}.proof-card p{font-size:13px}.proof-value{font-size:48px}.proof-card .text-link{font-size:12px}}
+
+/* Malaysia-first identity: the forest from the published Spaces campaign.
+   Cream isolates the exact dark-green logo; warm orange remains the accent. */
+.top, .site-footer {background:#153d35}
+.brand, .brand:hover {color:#153d35}
+.brand svg .brand-mark-plate {fill:#f4f0e6}
