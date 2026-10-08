@@ -253,8 +253,8 @@ const afterLoadFrame = fn => {
     selectDemo(value);
     document.getElementById('experience')?.scrollIntoView({behavior:reduced.matches ? 'instant' : 'smooth', block:'start'});
   };
-  for (const link of document.querySelectorAll('[data-open-demo]')) link.addEventListener('click', e => {
-    e.preventDefault(); const value = link.dataset.openDemo;
+  for (const link of document.querySelectorAll('[data-open-demo], [data-demo-entry]')) link.addEventListener('click', e => {
+    e.preventDefault(); const value = link.dataset.openDemo || link.dataset.demoEntry;
     history.replaceState(null, '', `#demo-${value}`); jumpToDemo(value);
     document.getElementById(`tab-${value}`)?.focus({preventScroll:true});
   });
