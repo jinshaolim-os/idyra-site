@@ -444,6 +444,82 @@
         ],
         "href": "ms-contact.html#brief-h"
       }
+    },
+    {
+      "id": "spaces",
+      "keywords": {
+        "strong": [
+          "commercial",
+          "home",
+          "cafe",
+          "retail",
+          "office",
+          "merchant",
+          "kediaman",
+          "kafe",
+          "komersial",
+          "rumah"
+        ],
+        "normal": [
+          "shop",
+          "store",
+          "fashion",
+          "peruncitan",
+          "pejabat"
+        ]
+      },
+      "en": {
+        "title": "Commercial and Home",
+        "answer": [
+          "We also prepare Commercial and Home presentations, quoted individually after a free 20-minute project review. Explore the original café and courtyard-home demonstrations.",
+          "These are fictional concept projects, not customer results. Hosting, revisions and deliverables are agreed in the quotation."
+        ],
+        "href": "spaces.html"
+      },
+      "ms": {
+        "title": "Komersial dan Kediaman",
+        "answer": [
+          "Kami juga menyediakan persembahan Komersial dan Kediaman, dengan sebut harga tersendiri selepas semakan projek percuma selama 20 minit. Terokai demonstrasi kafe dan rumah laman rekaan asli.",
+          "Ini projek konsep rekaan, bukan hasil pelanggan. Pengehosan, pindaan dan hasil kerja dipersetujui dalam sebut harga."
+        ],
+        "href": "ms-spaces.html"
+      }
+    },
+    {
+      "id": "partners",
+      "keywords": {
+        "strong": [
+          "partner",
+          "referral",
+          "commission",
+          "agent",
+          "rakan",
+          "rujukan",
+          "komisen"
+        ],
+        "normal": [
+          "join",
+          "community",
+          "sertai",
+          "komuniti"
+        ]
+      },
+      "en": {
+        "title": "Partner programme",
+        "answer": [
+          "You can register interest in the proposed referral partner pilot through WhatsApp. Commission terms and activation are still being finalised.",
+          "The ten profile cards are fictional design previews. Sending an enquiry does not create a partner account or accept any terms."
+        ],
+        "href": "partners.html"
+      },
+      "ms": {
+        "title": "Program rakan",
+        "answer": [
+          "Anda boleh menyatakan minat dalam cadangan projek perintis rakan rujukan melalui WhatsApp. Terma komisen dan pengaktifan masih dimuktamadkan.",
+          "Sepuluh kad profil ialah pratonton reka bentuk rekaan. Menghantar pertanyaan tidak mencipta akaun rakan atau menerima sebarang terma."
+        ],
+        "href": "ms-partners.html"
+      }
     }
   ]
 }

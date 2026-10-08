@@ -432,3 +432,15 @@ const afterLoadFrame = fn => {
     document.documentElement.classList.add('smooth-scroll');
   });
 })();
+
+// Category viewers load on explicit request; no background WebGL instances.
+for (const button of document.querySelectorAll('[data-category-open]')) {
+ button.addEventListener('click',()=>{
+  const box=button.closest('[data-category-demo]');
+  if(box.querySelector('iframe')) return;
+  const frame=document.createElement('iframe');frame.src=button.dataset.categoryOpen;
+  frame.title=document.documentElement.lang==='ms'?'Demo konsep 3D interaktif':'Interactive original 3D concept demo';
+  frame.setAttribute('allow','fullscreen');frame.setAttribute('loading','lazy');
+  box.replaceChildren(frame);frame.focus();
+ });
+}
