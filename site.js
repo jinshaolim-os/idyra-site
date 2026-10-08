@@ -102,21 +102,35 @@ const afterLoadFrame = fn => {
       f.addEventListener('load', () => {
         const doc = f.contentDocument;
         if (!doc) return;
+        // Curated showcase entries choose an existing state. Legacy embeds still
+        // open as per plan, and malformed attributes cannot become selectors.
+        const initialState = ['a', 'b', 'c'].includes(box.dataset.initialState) ? box.dataset.initialState : 'a';
+        const initialViews = { a: ['hall'], b: ['hall-overview'], c: ['assembly'] };
+        const initialView = initialViews[initialState].includes(box.dataset.initialView) ? box.dataset.initialView : null;
         const started = performance.now();
         const initialize = () => {
           const orbit = doc.getElementById('mode-orbit');
-          const plan = doc.querySelector('.seg-b[data-state="a"]');
+          const openingState = doc.querySelector(`.seg-b[data-state="${initialState}"]`);
           const people = doc.querySelector('[data-id="people"]');
           // Shader warmup applies the model's default state after its controls exist.
           // Wait for completion so it cannot overwrite the opening or a queued shortcut.
-          if (!f.contentWindow?.__factory?.ready || !orbit || !plan || !people) {
+          if (!f.contentWindow?.__factory?.ready || !orbit || !openingState || !people) {
             if (performance.now() - started < 90000) setTimeout(initialize, 100);
             return;
           }
           // Operate the viewer's own controls; keep the sanitized model unchanged.
           orbit.click();
-          plan.click();
+          openingState.click();
           if (people.getAttribute('aria-pressed') === 'true') people.click();
+          // Named source hotspots supply their own validated model coordinates.
+          // snap keeps orbit mode and does not invoke dock buttons that change
+          // state (for example, Warehouse forces logistics). No URL coordinates.
+          const runtime = f.contentWindow.__factory;
+          const pose = initialView && runtime.W?.hotspots?.find(h => h.id === initialView);
+          const validPoint = p => Array.isArray(p) && p.length === 3 && p.every(Number.isFinite);
+          if (pose && validPoint(pose.eye) && validPoint(pose.look) && typeof runtime.snap === 'function') {
+            runtime.snap([...pose.eye], [...pose.look]);
+          }
           box.dataset.initialized = 'true';
           box.dispatchEvent(new CustomEvent('twin-ready'));
         };
