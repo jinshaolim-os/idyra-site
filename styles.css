@@ -1220,3 +1220,7 @@ body[data-page="index"] .v2-plans article { padding:30px; border:1px solid #716c
 }
 /* The actual browser capture is 16:10: never crop it to the stills' 16:9 ratio. */
 .service-card-media .model-preview-card .fig-media { aspect-ratio:16/10; }
+
+/* Deferred content images use their ordinary geometry in the no-JavaScript fallback. */
+.fig-media noscript.deferred-image-fallback img { position:static; inset:auto; width:100%; height:auto; object-fit:contain; }
+.service-card-media .fig-media noscript.deferred-image-fallback { display:block; width:100%; min-width:0; }

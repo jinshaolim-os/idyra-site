@@ -33,6 +33,25 @@ const afterLoadFrame = fn => {
   const go = () => requestAnimationFrame(() => requestAnimationFrame(fn));
   if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
 };
+// Homepage proof images wait for the hero and stylesheets, rather than relying on the browser's
+// lazy-load distance. Restore responsive sources after load and layout; the normal lazy-loading
+// policy still decides which offscreen images to fetch. No-JS visitors use the original noscript images.
+(() => {
+  const images = [...document.querySelectorAll('img[data-deferred-image]')];
+  if (!images.length) return;
+  afterLoadFrame(() => {
+    for (const image of images) {
+      // A control may have resolved or changed the pending view before this callback.
+      if (!image.hasAttribute('data-deferred-image')) continue;
+      if (image.dataset.deferredSrcset) image.srcset = image.dataset.deferredSrcset;
+      if (image.dataset.deferredSrc) image.src = image.dataset.deferredSrc;
+      image.hidden = false;
+      image.removeAttribute('data-deferred-image');
+      delete image.dataset.deferredSrc;
+      delete image.dataset.deferredSrcset;
+    }
+  });
+})();
 (() => {
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
@@ -55,7 +74,15 @@ const afterLoadFrame = fn => {
       const on = btn.getAttribute('aria-checked') !== 'true';
       const v = on ? views.plan : views.op;
       btn.setAttribute('aria-checked', String(on));
-      img.srcset = v.srcset; img.src = v.src; img.alt = v.alt;
+      if (img.hasAttribute('data-deferred-image')) {
+        // Keep initial network priority, but activate the visitor's latest selection after load.
+        img.dataset.deferredSrcset = v.srcset;
+        img.dataset.deferredSrc = v.src;
+      } else {
+        img.srcset = v.srcset;
+        img.src = v.src;
+      }
+      img.alt = v.alt;
       setText(pill.querySelector('.pill-t') || pill, v.label);
       if (state) setText(state, v.state);
     });
