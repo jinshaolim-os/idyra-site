@@ -83,16 +83,16 @@
       "en": {
         "title": "How does it help?",
         "answer": [
-          "Idyra turns building-plan drawings into a model people can explore. It helps owners, developers and registered estate agents explain a factory or warehouse before a site visit.",
-          "Visitors can walk inside, compare the building as per plan with an illustrative fit-out, and use a share link. It supports a clearer property presentation; it does not promise a sale, tenancy or financial return."
+          "Idyra creates a digital 3D copy of a building or business space from its plans. We help people explain factories, facilities, shops, cafés, offices and homes.",
+          "Your project can bring together an explorable model, selected images and presentation files. We agree the deliverables around your brief. This is a visual presentation service; it does not promise a sale, tenancy or financial return."
         ],
         "href": "how-it-works.html"
       },
       "ms": {
         "title": "Apa manfaatnya?",
         "answer": [
-          "Idyra menukar pelan bangunan kepada model yang boleh diterokai. Ia membantu pemilik, pemaju dan ejen hartanah berdaftar menerangkan kilang atau gudang sebelum lawatan tapak.",
-          "Pelawat boleh meneroka ruang dalaman, membandingkan keadaan mengikut pelan dengan susun atur ilustrasi, dan menggunakan pautan perkongsian. Ia membantu penerangan hartanah; jualan, penyewaan atau pulangan kewangan tidak dijanjikan."
+          "Idyra mencipta salinan 3D digital bangunan atau ruang perniagaan berdasarkan pelannya. Kami membantu orang menerangkan kilang, fasiliti, kedai, kafe, pejabat dan kediaman.",
+          "Projek anda boleh menggabungkan model yang boleh diterokai, imej terpilih dan fail persembahan. Kami menetapkan hasil kerja mengikut skop anda. Ini ialah perkhidmatan persembahan visual; jualan, penyewaan atau pulangan kewangan tidak dijanjikan."
         ],
         "href": "ms-how-it-works.html"
       }
@@ -458,29 +458,39 @@
           "kediaman",
           "kafe",
           "komersial",
-          "rumah"
+          "rumah",
+          "industrial",
+          "factory",
+          "warehouse",
+          "facility",
+          "perindustrian",
+          "kilang",
+          "gudang",
+          "fasiliti"
         ],
         "normal": [
           "shop",
           "store",
           "fashion",
           "peruncitan",
-          "pejabat"
+          "pejabat",
+          "building",
+          "bangunan"
         ]
       },
       "en": {
-        "title": "Commercial and Home",
+        "title": "Industrial, Commercial and Home",
         "answer": [
-          "We also prepare Commercial and Home presentations, quoted individually after a free 20-minute project review. Explore the original café and courtyard-home demonstrations.",
-          "These are fictional concept projects, not customer results. Hosting, revisions and deliverables are agreed in the quotation."
+          "We create digital 3D presentations for factories and facilities, commercial spaces and homes. Other building types can be assessed through a free 20-minute project review.",
+          "The website concept images illustrate a visual direction. Our optional browser demonstrations are separate examples, not client results. Home and custom Commercial presentations are quoted to scope; your quotation confirms the deliverables, revisions and any hosting."
         ],
         "href": "spaces.html"
       },
       "ms": {
-        "title": "Komersial dan Kediaman",
+        "title": "Perindustrian, Komersial dan Kediaman",
         "answer": [
-          "Kami juga menyediakan persembahan Komersial dan Kediaman, dengan sebut harga tersendiri selepas semakan projek percuma selama 20 minit. Terokai demonstrasi kafe dan rumah laman rekaan asli.",
-          "Ini projek konsep rekaan, bukan hasil pelanggan. Pengehosan, pindaan dan hasil kerja dipersetujui dalam sebut harga."
+          "Kami mencipta persembahan 3D digital untuk kilang dan fasiliti, ruang komersial serta kediaman. Jenis bangunan lain boleh dinilai melalui semakan projek percuma selama 20 minit.",
+          "Imej konsep di laman web menunjukkan arah visual. Demonstrasi pelayar pilihan kami ialah contoh berasingan, bukan hasil pelanggan. Persembahan Kediaman dan Komersial khusus disebut harga mengikut skop; sebut harga anda mengesahkan hasil kerja, pindaan dan sebarang pengehosan."
         ],
         "href": "ms-spaces.html"
       }
@@ -495,7 +505,9 @@
           "agent",
           "rakan",
           "rujukan",
-          "komisen"
+          "komisen",
+          "carers",
+          "idyra carers"
         ],
         "normal": [
           "join",
@@ -507,18 +519,18 @@
       "en": {
         "title": "Partner programme",
         "answer": [
-          "You can register interest in the proposed referral partner pilot through WhatsApp. Commission terms and activation are still being finalised.",
-          "The ten profile cards are fictional design previews. Sending an enquiry does not create a partner account or accept any terms."
+          "Idyra Carers are referral partners who introduce people interested in our digital presentation services. Register your interest through the private application on our partner page, or start a conversation on WhatsApp. Commission terms and activation are still being finalised.",
+          "The ten profile cards are fictional design previews. An application does not enrol you, create a public profile or accept commission terms."
         ],
-        "href": "partners.html"
+        "href": "partners.html#apply"
       },
       "ms": {
         "title": "Program rakan",
         "answer": [
-          "Anda boleh menyatakan minat dalam cadangan projek perintis rakan rujukan melalui WhatsApp. Terma komisen dan pengaktifan masih dimuktamadkan.",
-          "Sepuluh kad profil ialah pratonton reka bentuk rekaan. Menghantar pertanyaan tidak mencipta akaun rakan atau menerima sebarang terma."
+          "Idyra Carers ialah rakan rujukan yang memperkenalkan orang yang berminat dengan perkhidmatan persembahan digital kami. Nyatakan minat melalui permohonan peribadi di halaman rakan kami, atau mulakan perbualan melalui WhatsApp. Terma komisen dan pengaktifan masih dimuktamadkan.",
+          "Sepuluh kad profil ialah pratonton reka bentuk rekaan. Permohonan tidak mendaftarkan anda sebagai rakan, mewujudkan profil awam atau menerima terma komisen."
         ],
-        "href": "ms-partners.html"
+        "href": "ms-partners.html#apply"
       }
     }
   ]

@@ -10,15 +10,18 @@ const uiBM = {
   'Walk-in mode is ready. Use the movement controls inside the viewer.':'Mod berjalan sedia digunakan. Gunakan kawalan pergerakan dalam pemapar.',
   'Measured · Tap two points on the model. Model measurement, not a survey.':'Ukuran · Ketik dua titik pada model. Ukuran model, bukan ukur tanah.',
   'Not specified yet':'Belum dinyatakan', 'Owner or landlord':'Pemilik atau tuan tanah',
+  'Business owner or operator':'Pemilik atau pengendali perniagaan', 'Homeowner':'Pemilik rumah',
   'Registered estate agent':'Ejen harta tanah berdaftar', 'Developer or park operator':'Pemaju atau pengendali taman perindustrian',
   'Other':'Lain-lain', 'Not sure yet':'Belum pasti', 'Factory or warehouse':'Kilang atau gudang',
   'Shop or office':'Kedai atau pejabat', 'Industrial park':'Taman perindustrian',
+  'Cafe or restaurant':'Kafe atau restoran', 'Home':'Rumah',
   'Up to 25,000 sq ft':'Sehingga 25,000 kaki persegi', '25,001–80,000 sq ft':'25,001–80,000 kaki persegi',
   'Over 80,000 sq ft':'Melebihi 80,000 kaki persegi', 'Not sure':'Tidak pasti', 'Yes, as a PDF':'Ya, dalam format PDF',
   'On paper':'Di atas kertas', 'Not yet':'Belum ada',
   'Explain the property to prospects':'Terangkan hartanah kepada bakal pelanggan',
   'Discuss a possible layout with my team':'Bincangkan cadangan susun atur dengan pasukan saya',
   'Create a company or project presentation':'Sediakan pembentangan syarikat atau projek',
+  'Explore ideas for my home':'Teroka idea untuk rumah saya',
   'Prefer to discuss':'Ingin berbincang dahulu',
   'As soon as possible, please confirm feasibility':'Secepat mungkin, sila sahkan kebolehlaksanaan',
   'Within the next month':'Dalam bulan hadapan', 'Exploring options, no fixed date':'Meninjau pilihan, belum ada tarikh tetap'
@@ -458,3 +461,23 @@ for (const button of document.querySelectorAll('[data-category-open]')) {
   box.replaceChildren(frame);frame.focus();
  });
 }
+
+// Preserve links shared before the sales homepage moved its working demo to Industrial.
+if (document.body.dataset.page === 'index' && /^#demo-(compare|twin|film)$/.test(location.hash)) {
+  const target = document.documentElement.lang === 'ms' ? 'ms-industrial.html' : 'industrial.html';
+  location.replace(target + location.search + location.hash);
+}
+// A direct link to a technical process stage still opens that stage after the details are collapsed.
+function revealLinkedProcess() {
+  if (!location.hash) return;
+  let id;
+  try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+  const element = document.getElementById(id);
+  const detail = element?.closest('details.process-detail');
+  if (detail && !detail.open) {
+    detail.open = true;
+    requestAnimationFrame(() => element.scrollIntoView({block:'start',behavior:'instant'}));
+  }
+}
+revealLinkedProcess();
+window.addEventListener('hashchange', revealLinkedProcess);
