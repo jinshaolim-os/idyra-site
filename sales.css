@@ -86,4 +86,4 @@ body:is([data-page=commercial],[data-page=home]) #interactive {background:#e9eee
 body[data-page=how-it-works] .hero-grid>.space-art {border-radius:18px;overflow:hidden}
 .space-grid>.space-card>h2 {font-size:30px;line-height:1.15;letter-spacing:-.035em;margin:24px 24px 15px}
 .partner-programme-name {font-size:16px;font-weight:500;margin:22px 0 12px;color:var(--ink)}
-.sales-hero .hero-help {display:block;max-width:none;width:auto;position:static;text-align:center;margin:18px auto 0;justify-content:center}
+.sales-hero .hero-help {text-shadow:none;display:block;max-width:none;width:auto;position:static;text-align:center;margin:18px auto 0;justify-content:center}
