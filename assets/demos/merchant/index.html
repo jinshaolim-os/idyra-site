@@ -2,28 +2,28 @@
 <html lang="ms">
 <head>
  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
- <title>Ruang 140 · Interactive café concept — Idyra</title>
+ <title>Ruang 140 · Konsep kafe interaktif — Idyra</title>
  <meta name="description" content="Explore an original fictional 140 m² café concept by Idyra. Compare two layouts, materials and lighting in a real interactive browser model.">
  <meta name="theme-color" content="#18382c"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <header class="topbar"><a class="brand" href="/ms-commercial.html" aria-label="Idyra home"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="m16 1 15 8v18l-8 4V14l-7-4-7 4v17l-8-4V9zM12 16l4-2 4 2v17l-4 2-4-2z" fill="currentColor"/></svg><span>idyra</span></a><a class="back" href="/ms-commercial.html" data-i18n="back">Kembali ke Idyra</a><div class="lang" aria-label="Language"><button type="button" id="lang-ms" aria-pressed="true">BM</button><button type="button" id="lang-en" aria-pressed="false">EN</button></div></header>
+ <header class="topbar"><a class="brand" href="/ms-commercial.html" data-i18n-link="homeHref" aria-label="Laman utama Idyra" data-i18n-aria="brandLabel" target="_top"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="m16 1 15 8v18l-8 4V14l-7-4-7 4v17l-8-4V9zM12 16l4-2 4 2v17l-4 2-4-2z" fill="currentColor"/></svg><span>idyra</span></a><a class="back" href="/ms-commercial.html" data-i18n-link="homeHref" data-i18n="back" target="_top">Kembali ke Idyra</a><div class="lang" role="group" aria-label="Bahasa" data-i18n-aria="langLabel"><button type="button" id="lang-ms" data-lang-option="ms" lang="ms" aria-label="Bahasa Melayu" aria-pressed="true">BM</button><button type="button" id="lang-en" data-lang-option="en" lang="en" aria-label="English" aria-pressed="false">EN</button></div></header>
  <main>
   <section class="intro"><div><p class="eyebrow" data-i18n="eyebrow">RUANG REKAAN · PENGALAMAN INTERAKTIF</p><h1>Ruang <em>140.</em></h1><p class="lede" data-i18n="lede">Sebuah kafe. Dua kemungkinan. Terokai ruang, ubah suasana dan bandingkan susun atur.</p></div><div class="dimensions"><span><strong>140</strong>m²</span><span>10 × 14 m<br><small data-i18n="authored">Dimensi rekaan</small></span></div></section>
-  <section class="studio" aria-label="Interactive café showroom">
+  <section class="studio" aria-label="Bilik pameran kafe interaktif" data-i18n-aria="studioLabel">
    <div class="viewer-column">
-    <div id="viewport" class="viewport" tabindex="0" aria-label="Interactive café model. Drag to orbit, pinch or scroll to zoom. Use the viewpoint buttons for keyboard navigation.">
+    <div id="viewport" class="viewport" tabindex="0" aria-label="Model kafe interaktif. Seret untuk putar, cubit atau tatal untuk zum. Gunakan butang pandangan untuk navigasi papan kekunci." data-i18n-aria="viewportLabel">
      <div class="scene-badge"><span class="concept-dot"></span><span data-i18n="badge">KONSEP 3D ASLI</span></div>
      <div class="view-name" id="view-name">Ruang masuk</div>
      <div id="loading" class="loading"><span class="loader"></span><strong data-i18n="loading">Membina ruang anda…</strong><span data-i18n="loadDetail">Model 3D asli. Tiada video prarakam.</span></div>
-     <div id="fallback" class="fallback" hidden><img src="plan.svg" alt="Ruang 140 original concept plan"><p data-i18n="fallback">Model 3D tidak tersedia pada peranti ini. Pelan konsep masih boleh dilihat.</p></div>
+     <div id="fallback" class="fallback" hidden><img src="plan.svg" alt="Pelan konsep asal Ruang 140" data-i18n-alt="planAlt"><p data-i18n="fallback">Model 3D tidak tersedia pada peranti ini. Pelan konsep masih boleh dilihat.</p></div>
      <div class="model-disclosure" data-i18n="disclosure">Konsep fiksyen rekaan Idyra · bukan projek pelanggan</div>
-     <button id="fullscreen" class="fullscreen" type="button" aria-label="Expand viewer" title="Expand viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+     <button id="fullscreen" class="fullscreen" type="button" aria-label="Besarkan paparan" title="Besarkan paparan" data-i18n-aria="expand" data-i18n-title="expand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
     </div>
-    <div class="viewbar"><span class="viewbar-label" data-i18n="view">PANDANGAN</span><div class="viewpoints" role="group" aria-label="Viewpoints"><button type="button" data-view="entry" aria-pressed="true" data-i18n="entry">Masuk</button><button type="button" data-view="bar" aria-pressed="false" data-i18n="bar">Bar kopi</button><button type="button" data-view="seating" aria-pressed="false" data-i18n="seating">Tempat duduk</button><button type="button" data-view="overview" aria-pressed="false" data-i18n="overview">Keseluruhan</button><button type="button" data-view="plan" aria-pressed="false" data-i18n="topview">Atas</button></div></div>
-    <p class="gesture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9V4a2 2 0 0 1 4 0v7m0-3a2 2 0 0 1 4 0v3m0-1a2 2 0 0 1 4 0v6c0 4-3 6-6 6h-2c-2 0-3-1-4-3l-4-6c-1-2 1-4 3-2l2 2"/></svg><span data-i18n="gesture">Seret untuk melihat sekeliling · cubit untuk zum · dua jari untuk alih</span></p>
+    <div class="viewbar"><span class="viewbar-label" data-i18n="view">PANDANGAN</span><div class="viewpoints" role="group" aria-label="Pandangan" data-i18n-aria="viewpointsLabel"><button type="button" data-view="entry" aria-pressed="true" data-i18n="entry">Pintu masuk</button><button type="button" data-view="bar" aria-pressed="false" data-i18n="bar">Bar kopi</button><button type="button" data-view="seating" aria-pressed="false" data-i18n="seating">Tempat duduk</button><button type="button" data-view="overview" aria-pressed="false" data-i18n="overview">Keseluruhan</button><button type="button" data-view="plan" aria-pressed="false" data-i18n="topview">Dari atas</button></div></div>
+    <p class="gesture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9V4a2 2 0 0 1 4 0v7m0-3a2 2 0 0 1 4 0v3m0-1a2 2 0 0 1 4 0v6c0 4-3 6-6 6h-2c-2 0-3-1-4-3l-4-6c-1-2 1-4 3-2l2 2"/></svg><span data-i18n="gesture">Seret untuk melihat sekeliling · cubit atau tatal untuk zum · dua jari untuk alih</span></p>
    </div>
-   <aside class="controls" aria-label="Configure the café">
+   <aside class="controls" aria-label="Konfigurasikan kafe" data-i18n-aria="controlsLabel">
     <div class="controls-heading"><p class="eyebrow" data-i18n="make">BENTUKKAN SUASANA</p><h2 data-i18n="yourSpace">Ruang. Mengikut anda.</h2></div>
     <fieldset><legend><span>01</span><span data-i18n="layout">Susun atur</span></legend><div class="choice-grid"><button type="button" data-layout="cafe" aria-pressed="true"><svg viewBox="0 0 58 44" aria-hidden="true"><circle cx="18" cy="13" r="6"/><circle cx="18" cy="32" r="6"/><rect x="38" y="7" width="11" height="11" rx="2"/><rect x="38" y="26" width="11" height="11" rx="2"/><path d="M5 7v31M54 7v31"/></svg><span data-i18n="cafe">Meja kafe</span></button><button type="button" data-layout="communal" aria-pressed="false"><svg viewBox="0 0 58 44" aria-hidden="true"><rect x="13" y="6" width="14" height="33" rx="3"/><path d="M8 10v6m0 6v6m0 5v6M32 10v6m0 6v6m0 5v6"/><rect x="41" y="8" width="10" height="10" rx="2"/><rect x="41" y="27" width="10" height="10" rx="2"/></svg><span data-i18n="communal">Meja komuniti</span></button></div></fieldset>
     <fieldset><legend><span>02</span><span data-i18n="light">Cahaya</span></legend><div class="segmented"><button type="button" data-light="day" aria-pressed="true"><span aria-hidden="true">☀</span> <span data-i18n="day">Siang</span></button><button type="button" data-light="evening" aria-pressed="false"><span aria-hidden="true">☽</span> <span data-i18n="evening">Petang</span></button></div></fieldset>
@@ -35,12 +35,97 @@
     <p class="status" id="status" role="status" aria-live="polite"></p>
    </aside>
   </section>
-  <section class="story"><div><p class="eyebrow" data-i18n="builtFor">DARI IDEA KE RUANG YANG BOLEH DITEROKAI</p><h2 data-i18n="storyTitle">Bukan sekadar gambar.</h2><p data-i18n="storyBody">Lihat bar kopi dari dekat. Bandingkan meja kecil dengan meja komuniti. Simpan pilihan anda untuk perbincangan seterusnya. Ini contoh cara ruang komersial boleh dipersembahkan melalui model 3D interaktif.</p><a class="cta" href="/ms-commercial.html" data-i18n="cta">Bincangkan ruang anda <span aria-hidden="true">↗</span></a></div><div class="detail-cards"><article><span>01</span><h3 data-i18n="card1">Butiran yang boleh dilihat</h3><p data-i18n="card1body">Bar kopi, mesin espresso, kabinet pastri, perabot dan pencahayaan dimodelkan sebagai geometri 3D.</p></article><article><span>02</span><h3 data-i18n="card2">Pilihan yang boleh dibandingkan</h3><p data-i18n="card2body">Dua susun atur, dua suasana cahaya dan dua kemasan bar dalam ruang rekaan yang sama.</p></article><article><span>03</span><h3 data-i18n="card3">Fail yang boleh dibawa pulang</h3><p data-i18n="card3body">Muat turun pilihan dalam JSON atau pelan SVG. Buka semula pilihan dalam demonstrasi ini.</p></article></div></section>
-  <section class="facts"><h2 data-i18n="factsTitle">Tentang demonstrasi ini</h2><dl><div><dt data-i18n="area">Luas lantai rekaan</dt><dd>140 m²</dd></div><div><dt data-i18n="envelope">Dimensi ruang</dt><dd>10 × 14 × 3.6 m</dd></div><div><dt data-i18n="source">Sumber</dt><dd data-i18n="sourceValue">Konsep asli Idyra</dd></div><div><dt data-i18n="delivery">Format</dt><dd data-i18n="deliveryValue">Model 3D dalam pelayar</dd></div></dl><p data-i18n="limits">Ini konsep fiksyen, bukan hartanah sebenar atau projek pelanggan. Dimensi direka untuk demonstrasi, bukan ukuran tapak. Perabot dan kemasan bersifat ilustrasi. Tiada pengesahan pembinaan, kapasiti, akses, keselamatan atau operasi. Prestasi paparan berbeza mengikut peranti.</p><a href="authored-scene.json" download data-i18n="factsDownload">Muat turun data rekaan asal</a></section>
+  <section class="story"><div><p class="eyebrow" data-i18n="builtFor">DARI IDEA KE RUANG YANG BOLEH DITEROKAI</p><h2 data-i18n="storyTitle">Bukan sekadar gambar.</h2><p data-i18n="storyBody">Lihat bar kopi dari dekat. Bandingkan meja kecil dengan meja komuniti. Simpan pilihan anda untuk perbincangan seterusnya. Ini contoh cara ruang komersial boleh dipersembahkan melalui model 3D interaktif.</p><a class="cta" href="/ms-commercial.html" data-i18n-link="homeHref" target="_top"><span data-i18n="cta">Bincangkan ruang anda</span> <span aria-hidden="true">↗</span></a></div><div class="detail-cards"><article><span>01</span><h3 data-i18n="card1">Butiran yang boleh dilihat</h3><p data-i18n="card1body">Bar kopi, mesin espresso, kabinet pastri, perabot dan pencahayaan dimodelkan sebagai geometri 3D.</p></article><article><span>02</span><h3 data-i18n="card2">Pilihan yang boleh dibandingkan</h3><p data-i18n="card2body">Dua susun atur, dua suasana cahaya dan dua kemasan bar dalam ruang rekaan yang sama.</p></article><article><span>03</span><h3 data-i18n="card3">Fail yang boleh dibawa pulang</h3><p data-i18n="card3body">Muat turun pilihan dalam JSON atau pelan SVG. Buka semula pilihan dalam demonstrasi ini.</p></article></div></section>
+  <section class="facts"><h2 data-i18n="factsTitle">Tentang demonstrasi ini</h2><dl><div><dt data-i18n="area">Luas lantai rekaan</dt><dd>140 m²</dd></div><div><dt data-i18n="envelope">Dimensi ruang</dt><dd>10 × 14 × 3.6 m</dd></div><div><dt data-i18n="source">Sumber</dt><dd data-i18n="sourceValue">Konsep asli Idyra</dd></div><div><dt data-i18n="delivery">Format</dt><dd data-i18n="deliveryValue">Model 3D dalam pelayar</dd></div></dl><p data-i18n="limits">Ini konsep fiksyen, bukan hartanah sebenar atau projek pelanggan. Dimensi direka untuk demonstrasi, bukan ukuran tapak. Perabot, kemasan dan pencahayaan bersifat ilustrasi, bukan fotografi atau simulasi cahaya. Tiada pengesahan pembinaan, kapasiti, akses, keselamatan atau operasi. Prestasi paparan berbeza mengikut peranti.</p><a href="authored-scene.json" download data-i18n="factsDownload">Muat turun data rekaan asal</a></section>
  </main>
- <footer><a class="wordmark" href="/ms-commercial.html">idyra</a><span data-i18n="footer">Idea yang boleh diterokai.</span><small>RUANG 140 · ORIGINAL CONCEPT</small></footer>
- <dialog id="plan-dialog"><div class="dialog-head"><h2 data-i18n="floorplan">Lihat pelan 2D</h2><button type="button" id="plan-close" aria-label="Close floor plan">×</button></div><div id="plan-content"></div><button type="button" id="plan-save" class="cta" data-i18n="planSave">Muat turun pelan SVG</button></dialog>
- <noscript><div class="noscript">Enable JavaScript for the interactive 3D model. <a href="plan.svg">Open the original concept floor plan.</a></div></noscript>
+ <footer><a class="wordmark" href="/ms-commercial.html" data-i18n-link="homeHref" target="_top">idyra</a><span data-i18n="footer">Idea yang boleh diterokai.</span><small data-i18n="footerTag">RUANG 140 · KONSEP ASLI</small></footer>
+ <dialog id="plan-dialog" aria-labelledby="plan-title"><div class="dialog-head"><h2 id="plan-title" data-i18n="floorplan">Lihat pelan 2D</h2><button type="button" id="plan-close" aria-label="Tutup pelan" data-i18n-aria="planClose">×</button></div><div id="plan-content"></div><button type="button" id="plan-save" class="cta" data-i18n="planSave">Muat turun pelan SVG</button></dialog>
+ <noscript><div class="noscript">Aktifkan JavaScript untuk model 3D interaktif. / Enable JavaScript for the interactive 3D model. <a href="plan.svg">Buka pelan konsep asal / Open the original concept floor plan.</a></div></noscript>
+ <!--early-ui:start--><script id="early-ui">/* Generated by build.mjs from interface.mjs; edit those sources, not this block. */
+(function(){try{
+var COPY={"ms":{"docTitle":"Ruang 140 · Konsep kafe interaktif — Idyra","homeHref":"/ms-commercial.html","brandLabel":"Laman utama Idyra","back":"Kembali ke Idyra","langLabel":"Bahasa","eyebrow":"RUANG REKAAN · PENGALAMAN INTERAKTIF","lede":"Sebuah kafe. Dua kemungkinan. Terokai ruang, ubah suasana dan bandingkan susun atur.","authored":"Dimensi rekaan","studioLabel":"Bilik pameran kafe interaktif","viewportLabel":"Model kafe interaktif. Seret untuk putar, cubit atau tatal untuk zum. Gunakan butang pandangan untuk navigasi papan kekunci.","badge":"KONSEP 3D ASLI","loading":"Membina ruang anda…","loadDetail":"Model 3D asli. Tiada video prarakam.","fallback":"Model 3D tidak tersedia pada peranti ini. Pelan konsep masih boleh dilihat.","planAlt":"Pelan konsep asal Ruang 140","disclosure":"Konsep fiksyen rekaan Idyra · bukan projek pelanggan","expand":"Besarkan paparan","exitFullscreen":"Keluar dari skrin penuh","view":"PANDANGAN","viewpointsLabel":"Pandangan","entry":"Pintu masuk","bar":"Bar kopi","seating":"Tempat duduk","overview":"Keseluruhan","topview":"Dari atas","gesture":"Seret untuk melihat sekeliling · cubit atau tatal untuk zum · dua jari untuk alih","controlsLabel":"Konfigurasikan kafe","make":"BENTUKKAN SUASANA","yourSpace":"Ruang. Mengikut anda.","layout":"Susun atur","cafe":"Meja kafe","communal":"Meja komuniti","light":"Cahaya","day":"Siang","evening":"Petang","finish":"Kemasan bar","terracotta":"Terakota","forest":"Hijau rimba","cutaway":"Buka dinding hadapan","ceiling":"Tunjukkan siling","ceilingNote":"Siling disembunyikan untuk pandangan dari atas.","plants":"Tumbuhan","floorplan":"Lihat pelan 2D","save":"Simpan pilihan","import":"Buka fail pilihan","reset":"Tetapkan semula","planClose":"Tutup pelan","planSave":"Muat turun pelan SVG","builtFor":"DARI IDEA KE RUANG YANG BOLEH DITEROKAI","storyTitle":"Bukan sekadar gambar.","storyBody":"Lihat bar kopi dari dekat. Bandingkan meja kecil dengan meja komuniti. Simpan pilihan anda untuk perbincangan seterusnya. Ini contoh cara ruang komersial boleh dipersembahkan melalui model 3D interaktif.","cta":"Bincangkan ruang anda","card1":"Butiran yang boleh dilihat","card1body":"Bar kopi, mesin espresso, kabinet pastri, perabot dan pencahayaan dimodelkan sebagai geometri 3D.","card2":"Pilihan yang boleh dibandingkan","card2body":"Dua susun atur, dua suasana cahaya dan dua kemasan bar dalam ruang rekaan yang sama.","card3":"Fail yang boleh dibawa pulang","card3body":"Muat turun pilihan dalam JSON atau pelan SVG. Buka semula pilihan dalam demonstrasi ini.","factsTitle":"Tentang demonstrasi ini","area":"Luas lantai rekaan","envelope":"Dimensi ruang","source":"Sumber","sourceValue":"Konsep asli Idyra","delivery":"Format","deliveryValue":"Model 3D dalam pelayar","limits":"Ini konsep fiksyen, bukan hartanah sebenar atau projek pelanggan. Dimensi direka untuk demonstrasi, bukan ukuran tapak. Perabot, kemasan dan pencahayaan bersifat ilustrasi, bukan fotografi atau simulasi cahaya. Tiada pengesahan pembinaan, kapasiti, akses, keselamatan atau operasi. Prestasi paparan berbeza mengikut peranti.","factsDownload":"Muat turun data rekaan asal","footer":"Idea yang boleh diterokai.","footerTag":"RUANG 140 · KONSEP ASLI","saved":"Pilihan dimuat turun sebagai JSON.","loaded":"Pilihan anda telah dibuka.","invalid":"Fail tidak sah. Gunakan fail pilihan Ruang 140.","resetDone":"Pilihan asal dipulihkan.","planDone":"Pelan susun atur dimuat turun.","ready":"Seret model atau pilih pandangan untuk bermula.","viewNames":{"entry":"Ruang masuk","bar":"Bar kopi","seating":"Sudut tempat duduk","overview":"Pandangan keseluruhan","plan":"Pandangan atas"}},"en":{"docTitle":"Ruang 140 · Interactive café concept — Idyra","homeHref":"/commercial.html","brandLabel":"Idyra home","back":"Back to Idyra","langLabel":"Language","eyebrow":"AUTHORED SPACE · INTERACTIVE EXPERIENCE","lede":"One café. Two possibilities. Explore the space, change the atmosphere and compare layouts.","authored":"Authored dimensions","studioLabel":"Interactive café showroom","viewportLabel":"Interactive café model. Drag to orbit, pinch or scroll to zoom. Use the viewpoint buttons for keyboard navigation.","badge":"ORIGINAL 3D CONCEPT","loading":"Building your space…","loadDetail":"Real 3D geometry. No prerecorded video.","fallback":"The 3D model is unavailable on this device. You can still explore the original concept plan.","planAlt":"Ruang 140 original concept plan","disclosure":"Original fictional Idyra concept · not client work","expand":"Expand viewer","exitFullscreen":"Exit full screen","view":"VIEWPOINT","viewpointsLabel":"Viewpoints","entry":"Entrance","bar":"Coffee bar","seating":"Seating","overview":"Overview","topview":"Top view","gesture":"Drag to orbit · pinch or scroll to zoom · two fingers to pan","controlsLabel":"Configure the café","make":"SHAPE THE ATMOSPHERE","yourSpace":"Space. Your way.","layout":"Layout","cafe":"Café tables","communal":"Communal table","light":"Lighting","day":"Daylight","evening":"Evening","finish":"Counter finish","terracotta":"Terracotta","forest":"Forest green","cutaway":"Open the front walls","ceiling":"Show ceiling","ceilingNote":"Ceiling is hidden in overhead views.","plants":"Planting","floorplan":"View 2D plan","save":"Save choices","import":"Open saved choices","reset":"Reset scene","planClose":"Close floor plan","planSave":"Download SVG plan","builtFor":"FROM AN IDEA TO A SPACE YOU CAN EXPLORE","storyTitle":"More than a picture.","storyBody":"Look closer at the coffee bar. Compare small tables with a communal setting. Save your choices for the next discussion. This is one way to present a commercial space through an interactive 3D model.","cta":"Discuss your space","card1":"Details you can explore","card1body":"Coffee bar, espresso machine, pastry display, furniture and lighting are modelled as real 3D geometry.","card2":"Choices you can compare","card2body":"Two furniture layouts, two lighting moods and two counter finishes within the same authored space.","card3":"Files you can take away","card3body":"Download your choices as JSON or the floor plan as SVG. Reopen your choices in this demonstration.","factsTitle":"About this demonstration","area":"Authored floor area","envelope":"Space dimensions","source":"Source","sourceValue":"Original Idyra concept","delivery":"Format","deliveryValue":"Interactive browser 3D","limits":"This is a fictional concept, not a real property or client project. Dimensions are authored for demonstration, not surveyed. Furniture, finishes and lighting are illustrative, not photography or a lighting simulation. Construction, capacity, accessibility, safety and operations have not been validated. Display performance varies by device.","factsDownload":"Download original authored scene data","footer":"Ideas you can explore.","footerTag":"RUANG 140 · ORIGINAL CONCEPT","saved":"Your choices were downloaded as JSON.","loaded":"Your saved choices are open.","invalid":"Invalid file. Use a Ruang 140 configuration file.","resetDone":"Original choices restored.","planDone":"Your layout plan was downloaded.","ready":"Drag the model or choose a viewpoint to begin.","viewNames":{"entry":"Entrance lounge","bar":"Coffee bar","seating":"Seating corner","overview":"Whole space","plan":"Top view"}}};
+var DEFAULT={"layout":"cafe","light":"day","finish":"terracotta","cutaway":true,"ceiling":false,"plants":true,"view":"entry"};
+var parsePreset=function parsePreset(search) {
+ var rules = [
+  ['layout', ['cafe', 'communal']],
+  ['light', ['day', 'evening']],
+  ['finish', ['terracotta', 'forest']],
+  ['view', ['entry', 'bar', 'seating', 'overview', 'plan']],
+  ['cutaway', ['0', '1']],
+  ['ceiling', ['0', '1']],
+  ['plants', ['0', '1']],
+  ['lang', ['en', 'ms']]
+ ];
+ var values = {}, rejected = [];
+ var query = typeof search === 'string' ? (search.charAt(0) === '?' ? search.slice(1) : search) : '';
+ var pairs = [];
+ var pieces = query ? query.split('&') : [];
+ for (var i = 0; i < pieces.length; i++) {
+  if (!pieces[i]) continue;
+  var at = pieces[i].indexOf('=');
+  var rawName = at < 0 ? pieces[i] : pieces[i].slice(0, at);
+  var decoded = rawName;
+  try { decoded = decodeURIComponent(rawName.replace(/\+/g, ' ')); } catch (e) { decoded = rawName; }
+  pairs.push([rawName, decoded, at < 0 ? '' : pieces[i].slice(at + 1)]);
+ }
+ for (var r = 0; r < rules.length; r++) {
+  var name = rules[r][0], allowed = rules[r][1], hits = [];
+  for (var j = 0; j < pairs.length; j++) if (pairs[j][0] === name || pairs[j][1] === name) hits.push(pairs[j]);
+  if (!hits.length) continue;
+  var value = hits.length === 1 && hits[0][0] === name ? hits[0][2] : null;
+  if (value !== null && /^[a-z0-9-]{1,24}$/.test(value) && allowed.includes(value)) values[name] = value;
+  else rejected.push(name);
+ }
+ return {values: values, rejected: rejected};
+};
+var presetState=function presetState(values, base) {
+ var out = {};
+ for (var key in base) if (Object.prototype.hasOwnProperty.call(base, key)) out[key] = base[key];
+ var text = ['layout', 'light', 'finish', 'view'], flags = ['cutaway', 'ceiling', 'plants'];
+ for (var i = 0; i < text.length; i++) if (values && typeof values[text[i]] === 'string') out[text[i]] = values[text[i]];
+ for (var k = 0; k < flags.length; k++) if (values && (values[flags[k]] === '0' || values[flags[k]] === '1')) out[flags[k]] = values[flags[k]] === '1';
+ return out;
+};
+var openingLanguage=function openingLanguage(values, saved) {
+ if (values && (values.lang === 'en' || values.lang === 'ms')) return {lang: values.lang, source: 'url'};
+ if (saved === 'en' || saved === 'ms') return {lang: saved, source: 'saved'};
+ return {lang: 'ms', source: 'default'};
+};
+var applyText=function applyText(doc, copy, lang) {
+ var words = copy[lang === 'en' ? 'en' : 'ms'];
+ var pick = function (key) { return typeof words[key] === 'string' ? words[key] : null; };
+ var each = function (selector, fn) { var list = doc.querySelectorAll(selector); for (var i = 0; i < list.length; i++) fn(list[i]); };
+ doc.documentElement.lang = lang === 'en' ? 'en' : 'ms';
+ if (pick('docTitle') !== null) doc.title = pick('docTitle');
+ each('[data-i18n]', function (el) { var v = pick(el.getAttribute('data-i18n')); if (v !== null) el.textContent = v; });
+ var attrs = [['data-i18n-aria', 'aria-label'], ['data-i18n-title', 'title'], ['data-i18n-alt', 'alt'], ['data-i18n-link', 'href']];
+ for (var a = 0; a < attrs.length; a++) (function (source, target) {
+  each('[' + source + ']', function (el) { var v = pick(el.getAttribute(source)); if (v !== null) el.setAttribute(target, v); });
+ })(attrs[a][0], attrs[a][1]);
+ each('[data-lang-option]', function (el) { el.setAttribute('aria-pressed', String(el.getAttribute('data-lang-option') === lang)); });
+};
+var showControls=function showControls(doc, state, copy, lang) {
+ var words = copy[lang === 'en' ? 'en' : 'ms'];
+ var choices = ['layout', 'light', 'finish', 'view'];
+ for (var c = 0; c < choices.length; c++) {
+  var list = doc.querySelectorAll('[data-' + choices[c] + ']');
+  for (var i = 0; i < list.length; i++) list[i].setAttribute('aria-pressed', String(list[i].getAttribute('data-' + choices[c]) === state[choices[c]]));
+ }
+ var flags = ['cutaway', 'ceiling', 'plants'];
+ for (var f = 0; f < flags.length; f++) { var box = doc.getElementById(flags[f]); if (box) box.checked = state[flags[f]] === true; }
+ var overhead = state.view === 'overview' || state.view === 'plan';
+ var ceiling = doc.getElementById('ceiling'); if (ceiling) ceiling.disabled = overhead;
+ var note = doc.getElementById('ceiling-note'); if (note) note.hidden = !overhead;
+ var name = doc.getElementById('view-name');
+ if (name && words.viewNames && typeof words.viewNames[state.view] === 'string') name.textContent = words.viewNames[state.view];
+};
+var preset=parsePreset(location.search),saved=null;
+try{saved=localStorage.getItem("idyra-merchant-language");}catch(e){}
+var lang=openingLanguage(preset.values,saved).lang;
+applyText(document,COPY,lang);
+showControls(document,presetState(preset.values,DEFAULT),COPY,lang);
+}catch(e){}})();
+</script><!--early-ui:end-->
  <script type="module" src="viewer.js"></script>
 </body>
 </html>

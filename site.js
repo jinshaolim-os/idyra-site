@@ -102,10 +102,10 @@ const afterLoadFrame = fn => {
       f.addEventListener('load', () => {
         const doc = f.contentDocument;
         if (!doc) return;
-        // Curated showcase entries choose an existing state. Legacy embeds still
-        // open as per plan, and malformed attributes cannot become selectors.
+        // Curated entries open inside the viewer itself, with its state-aware
+        // camera and lens. Legacy embeds still start outside, as per plan.
         const initialState = ['a', 'b', 'c'].includes(box.dataset.initialState) ? box.dataset.initialState : 'a';
-        const initialViews = { a: ['hall'], b: ['hall-overview'], c: ['assembly'] };
+        const initialViews = { a: ['shell'], b: ['aisle'], c: ['assembly'] };
         const initialView = initialViews[initialState].includes(box.dataset.initialView) ? box.dataset.initialView : null;
         const started = performance.now();
         const initialize = () => {
@@ -118,19 +118,17 @@ const afterLoadFrame = fn => {
             if (performance.now() - started < 90000) setTimeout(initialize, 100);
             return;
           }
-          // Operate the viewer's own controls; keep the sanitized model unchanged.
-          orbit.click();
-          openingState.click();
-          if (people.getAttribute('aria-pressed') === 'true') people.click();
-          // Named source hotspots supply their own validated model coordinates.
-          // snap keeps orbit mode and does not invoke dock buttons that change
-          // state (for example, Warehouse forces logistics). No URL coordinates.
           const runtime = f.contentWindow.__factory;
-          const pose = initialView && runtime.W?.hotspots?.find(h => h.id === initialView);
-          const validPoint = p => Array.isArray(p) && p.length === 3 && p.every(Number.isFinite);
-          if (pose && validPoint(pose.eye) && validPoint(pose.look) && typeof runtime.snap === 'function') {
-            runtime.snap([...pose.eye], [...pose.look]);
+          // openingView is the viewer's validated, actually applied URL opening,
+          // not an arbitrary URL value. Resetting Orbit here would discard its
+          // first-person pose and aspect-aware lens. Unknown/mismatched openings
+          // retain the safe legacy initialization through the viewer's controls.
+          const curatedOpening = initialView && runtime.openingView === initialView && runtime.state === initialState;
+          if (!curatedOpening) {
+            orbit.click();
+            openingState.click();
           }
+          if (people.getAttribute('aria-pressed') === 'true') people.click();
           box.dataset.initialized = 'true';
           box.dispatchEvent(new CustomEvent('twin-ready'));
         };
@@ -452,7 +450,9 @@ for (const button of document.querySelectorAll('[data-category-open]')) {
  button.addEventListener('click',()=>{
   const box=button.closest('[data-category-demo]');
   if(box.querySelector('iframe')) return;
-  const frame=document.createElement('iframe');frame.src=button.dataset.categoryOpen;
+  const src=new URL(button.dataset.categoryOpen,document.baseURI);
+  src.searchParams.set('lang',document.documentElement.lang==='ms'?'ms':'en');
+  const frame=document.createElement('iframe');frame.src=src.href;
   frame.title=document.documentElement.lang==='ms'?'Demo konsep 3D interaktif':'Interactive original 3D concept demo';
   frame.setAttribute('allow','fullscreen');frame.setAttribute('loading','lazy');
   box.replaceChildren(frame);frame.focus();
