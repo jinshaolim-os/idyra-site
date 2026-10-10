@@ -85,5 +85,6 @@ body[data-page="packages"] .sp-plan-art .im-feature { box-shadow: none; }
 
 .site-footer .brand svg > g:first-of-type { color: inherit; }
 .brand svg > g:nth-of-type(2) { color: #EF8D68; }
+.top .brand svg > g:nth-of-type(2) { color: #B85C38; }
 
 .studio-process-film video::cue { font-size: clamp(14px, 1.15vw, 18px); color: #fff; background-color: rgba(21,61,53,.88); }

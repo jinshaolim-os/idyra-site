@@ -217,3 +217,20 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
 })();
+
+// Optional film filters progressively enhance a complete, readable no-JavaScript collection.
+for (const library of document.querySelectorAll('[data-industrial-film-library]')) {
+  const buttons = [...library.querySelectorAll('[data-industrial-film-filter]')];
+  const cards = [...library.querySelectorAll('[data-industrial-film]')];
+  const count = library.querySelector('[data-industrial-film-count]');
+  if (buttons.length) library.querySelector('.if-filter-row').hidden = false;
+  for (const button of buttons) button.addEventListener('click', () => {
+    const selected = button.dataset.industrialFilmFilter;
+    for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+    for (const card of cards) {
+      card.hidden = selected !== 'all' && card.dataset.industrialFilmKind !== selected;
+      if (card.hidden) for (const video of card.querySelectorAll('video')) video.pause();
+    }
+    if (count) count.textContent = String(cards.filter(card => !card.hidden).length);
+  });
+}
