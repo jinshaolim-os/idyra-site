@@ -112,7 +112,7 @@ a { text-underline-offset: .18em; }
 .im-stage-tag--r { right: 16px; background: rgb(251 248 241 / .88); color: var(--im-forest); }
 .im-wipe { position: absolute; left: 0; right: 0; bottom: 0; height: 48px; margin: 0; opacity: 0; z-index: 4; cursor: ew-resize; }
 .im-stage-frame:has(.im-wipe:focus-visible) { outline: 3px solid var(--im-orange-ink); outline-offset: 4px; }
-.im-stage figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; padding: 14px 4px 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+.im-stage figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 10px 4px 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 .im-stage figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 .im-stage figcaption .text-link { margin-left: auto; font-size: 13px; }
 
@@ -155,7 +155,7 @@ a { text-underline-offset: .18em; }
 .pl-controls input[type="range"] { flex: 1; min-width: 0; accent-color: var(--im-forest); }
 .pl-btn { appearance: none; border: 1px solid var(--im-line-2); background: var(--im-paper); color: var(--im-forest); font: 700 12.5px/1 var(--body); padding: 11px 15px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
 .pl-btn[aria-pressed="true"] { background: var(--im-forest); color: var(--im-cream); border-color: var(--im-forest); }
-.planlift figcaption { padding: 12px 4px 0; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+.planlift figcaption { padding: 10px 4px 0; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
 .planlift figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 
 /* ---------- home: category gallery, outcomes, process, budget, studio, close ---------- */
@@ -211,7 +211,7 @@ body:is([data-page=commercial],[data-page=home]) #interactive { background: var(
 .im-show-grid .space-art figcaption { padding: 12px 18px 16px; }
 .im-model { margin: 0; border-radius: 24px; overflow: hidden; background: var(--im-paper); border: 1px solid var(--im-line); }
 .im-model img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
-.im-model figcaption { padding: 12px 18px 16px; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.im-model figcaption { padding: 10px 16px 12px; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
 .im-model figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 
 /* ---------- spaces page ---------- */
@@ -372,11 +372,11 @@ main > .hero h1 { font-size: clamp(40px, 5.2vw, 82px); }
 .im-card-use { font-size: 13px !important; color: var(--ink-2) !important; padding-top: 6px; }
 .im-card-use span { color: var(--im-orange-ink); font-weight: 700; }
 .im-gallery-more { margin: 22px 0 0; }
-.im-gallery-note { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+.im-gallery-note { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
 .im-gallery-note .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 .im-feature { margin: 0; border-radius: var(--im-radius); overflow: hidden; background: var(--im-paper); border: 1px solid var(--im-line); box-shadow: var(--im-shadow); }
 .im-feature img { display: block; width: 100%; height: auto; }
-.im-feature figcaption { padding: 12px 18px 16px; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.im-feature figcaption { padding: 10px 16px 12px; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
 .im-feature figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 .im-feature figcaption strong { color: var(--im-forest); }
 .im-lightbox { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1180px); width: 96vw; }

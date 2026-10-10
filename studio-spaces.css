@@ -34,7 +34,7 @@
 .studio-spaces .ss-purpose-visual, .studio-spaces .ss-enquiry-visual { position: relative; min-width: 0; overflow: hidden; border-radius: 22px; background: var(--im-paper); }
 .studio-spaces .ss-purpose-visual > figure, .studio-spaces .ss-enquiry-visual > figure { margin: 0; }
 .studio-spaces .ss-purpose-visual img, .studio-spaces .ss-enquiry-visual img { display: block; width: 100%; height: auto; aspect-ratio: 5/4; object-fit: cover; }
-.studio-spaces .ss-visual-caption { display: grid; gap: 5px; padding: 13px 18px 16px; font-size: 11px; line-height: 1.5; color: var(--muted); }
+.studio-spaces .ss-visual-caption { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 10px 18px; font-size: 11px; line-height: 1.5; color: var(--muted); }
 .studio-spaces .ss-visual-caption .pill { padding: 0; border: 0; background: transparent; font-size: 10px; justify-self: start; }
 .studio-spaces .ss-purpose-copy > .overline { margin: 0 0 14px; }
 .studio-spaces .ss-outcomes { list-style: none; margin: 27px 0 24px; padding: 0; display: grid; }

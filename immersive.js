@@ -194,7 +194,7 @@
   dialog.querySelector('.im-lightbox-close').setAttribute('aria-label', document.documentElement.lang === 'ms' ? 'Tutup' : 'Close');
   document.body.appendChild(dialog);
   const img = dialog.querySelector('img'), title = dialog.querySelector('strong'), caption = dialog.querySelector('p'), note = dialog.querySelector('.fine');
-  note.textContent = document.documentElement.lang === 'ms' ? 'Karya konsep asli · Ilustrasi AI. Bukan projek pelanggan.' : 'Original concept artwork · AI-illustrative. Not a client project.';
+  note.textContent = document.documentElement.lang === 'ms' ? 'Konsep AI · ruang rekaan' : 'AI concept · fictional space';
   let opener = null;
   const open = link => {
     opener = link;
