@@ -435,7 +435,9 @@ const afterLoadFrame = fn => {
       await new Promise(resolve => requestAnimationFrame(resolve));
       if (!interrupted && location.hash === initialHash) {
         let target;
-        try { target = document.getElementById(decodeURIComponent(initialHash.slice(1))); } catch { /* malformed fragment */ }
+        try { target = document.getElementById(decodeURIComponent(initialHash.slice(1)));
+          // A demo arrival should include its controls, rather than tuck the tabs behind the sticky header.
+          if (/^#demo-(compare|twin|film)$/.test(initialHash)) target = document.querySelector('.demo-toolbar') || target; } catch { /* malformed fragment */ }
         if (target) {
           const header = document.querySelector('.top');
           if (header) document.documentElement.style.setProperty('--site-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
