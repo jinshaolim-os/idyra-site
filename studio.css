@@ -83,4 +83,6 @@ body[data-page="packages"] .sp-plan-art .im-feature { box-shadow: none; }
  body[data-page="packages"] .sp-plan-intro { min-height: 3.2em; }
 }
 
-.footer .brand, .footer .brand:hover { color: #f4f0e6; }
+.site-footer .brand svg > g:first-of-type { color: inherit; }
+
+.studio-process-film video::cue { font-size: clamp(14px, 1.15vw, 18px); color: #fff; background-color: rgba(21,61,53,.88); }
