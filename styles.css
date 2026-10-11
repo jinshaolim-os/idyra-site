@@ -399,8 +399,12 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 .chips input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 2px; }
 .brief .field { display: grid; gap: .35rem; }
 .brief .field label { font-weight: 700; font-size: var(--t-sm); }
-.brief input[type="text"] { min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--muted); border-radius: var(--radius-sm); background: var(--paper); max-width: 26rem; width: 100%; }
-.brief-out { font-family: var(--mono); font-size: var(--t-sm); white-space: pre-wrap; background: var(--paper-2); border-radius: var(--radius-sm); padding: .8rem .9rem; color: var(--ink-2); margin: 0; }
+.brief input[type="text"], .brief input[type="number"] { min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--muted); border-radius: var(--radius-sm); background: var(--paper); max-width: 26rem; width: 100%; }
+.brief input[type="number"] { font: inherit; color: inherit; }
+.brief .chips span { min-height: 44px; }
+.brief-examples { max-width: 52rem; margin-bottom: 1.5rem; }
+.brief-examples .fine { margin-block: .5rem .75rem; }
+.brief-out { font-family: var(--mono); font-size: var(--t-sm); white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; background: var(--paper-2); border-radius: var(--radius-sm); padding: .8rem .9rem; color: var(--ink-2); margin: 0; }
 .twin-steps { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .6rem 1.4rem; }
 .twin-steps li { display: grid; grid-template-columns: auto 1fr; gap: .6rem; align-items: baseline; font-size: var(--t-sm); color: var(--ink-2); }
 .twin-steps b { font-family: var(--mono); font-size: var(--t-xs); color: var(--accent-ink); letter-spacing: .06em; }

@@ -24,7 +24,13 @@ const uiBM = {
   'Explore ideas for my home':'Teroka idea untuk rumah saya',
   'Prefer to discuss':'Ingin berbincang dahulu',
   'As soon as possible, please confirm feasibility':'Secepat mungkin, sila sahkan kebolehlaksanaan',
-  'Within the next month':'Dalam bulan hadapan', 'Exploring options, no fixed date':'Meninjau pilihan, belum ada tarikh tetap'
+  'Within the next month':'Dalam bulan hadapan', 'Exploring options, no fixed date':'Meninjau pilihan, belum ada tarikh tetap',
+  'Interactive 3D model':'Model 3D interaktif', 'Still images':'Imej pegun',
+  'Presentation video':'Video persembahan', 'Illustrative layout options':'Pilihan susun atur ilustratif',
+  'Please recommend suitable options':'Mohon cadangkan pilihan yang sesuai',
+  'Not sure / prefer to discuss':'Belum pasti / bincang dahulu',
+  'Please check the budget amount':'Sila semak jumlah bajet',
+  'My indicative budget, not a quotation':'Anggaran bajet saya, bukan sebut harga'
 };
 const uiText = text => isBM ? (uiBM[text] || text) : text;
 const setText = (element, text) => element.replaceChildren(...String(uiText(text)).split('·').flatMap((part, i) => i ? [Object.assign(document.createElement('span'), { className: 'dot', textContent: '·' }), part] : [part]));
@@ -170,29 +176,40 @@ const afterLoadFrame = fn => {
   for (const form of $$('[data-brief]')) {
     const out = form.querySelector('[data-brief-out]');
     const send = form.querySelector('[data-brief-send]');
+    const budget = form.querySelector('[name="budget"]');
     const val = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
     const text = (name, limit) => (form.querySelector(`input[name="${name}"]`)?.value || '').trim().slice(0, limit);
     const run = () => {
       const area = text('area', 80);
       const company = text('company', 100);
+      const interests = [...form.querySelectorAll('input[name="interests"]:checked')].map(input => uiText(input.value));
+      const interestText = interests.length ? interests.join(', ') : uiText('Please recommend suitable options');
+      const amount = budget?.value.trim() || '';
+      const budgetText = budget && !budget.validity.valid ? uiText('Please check the budget amount') : amount && Number.isFinite(Number(amount))
+        ? `MYR ${Number(amount).toLocaleString('en-MY', { maximumFractionDigits: 2 })} (${uiText('My indicative budget, not a quotation')})`
+        : uiText('Not sure / prefer to discuss');
       const msg = (isBM ? [
         'Hai Idyra, saya ingin berbincang tentang projek dan mendapatkan sebut harga percuma.',
         ...(company ? [`Syarikat / projek: ${company}`] : []),
         `Saya: ${uiText(val('who'))}`,
         `Hartanah: ${uiText(val('what'))}${area ? `, ${area}` : ''}`,
+        `Pilihan yang diminati: ${interestText}`,
         `Keluasan lantai kasar: ${uiText(val('size'))}`,
         `Lukisan pelan bangunan: ${uiText(val('drawings'))}`,
         `Tujuan pembentangan: ${uiText(val('goal'))}`,
         `Sasaran masa: ${uiText(val('timing'))}`,
+        `Bajet projek: ${budgetText}`,
       ] : [
         "Hi Idyra, I'd like a free project discussion and quote.",
         ...(company ? [`Company / project: ${company}`] : []),
         `I am: ${val('who')}`,
         `Property: ${val('what')}${area ? `, ${area}` : ''}`,
+        `Interested in: ${interestText}`,
         `Gross floor area: ${val('size')}`,
         `Building-plan drawings: ${val('drawings')}`,
         `Presentation goal: ${val('goal')}`,
         `Target timing: ${val('timing')}`,
+        `Project budget: ${budgetText}`,
       ]).join('\n');
       out.textContent = msg;
       send.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(msg)}`;
@@ -200,6 +217,7 @@ const afterLoadFrame = fn => {
     form.addEventListener('change', run);
     form.addEventListener('input', run);
     form.addEventListener('submit', e => e.preventDefault());
+    send.addEventListener('click', event => { if (!form.reportValidity()) event.preventDefault(); });
     run();
   }
 
