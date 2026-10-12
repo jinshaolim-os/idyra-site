@@ -1,0 +1,96 @@
+{
+  "schema": "idyra-ruang-industri-01",
+  "version": 1,
+  "name": "Ruang Industri 01",
+  "disclaimer": "Original fictional Idyra concept. Not a client project. Not a real property. Not offered for sale or rent.",
+  "areas": {
+    "hall": 1512,
+    "office": 432,
+    "total": 1944
+  },
+  "hall": {
+    "width": 36,
+    "depth": 42,
+    "floors": 1
+  },
+  "office": {
+    "width": 18,
+    "depth": 12,
+    "floors": 2
+  },
+  "levels": {
+    "grade": 0,
+    "floor": 1.2,
+    "officeUpper": 5.05,
+    "eave": 9.6,
+    "ridge": 12
+  },
+  "layout": {
+    "hall": {
+      "x": 0,
+      "z": 0,
+      "w": 36,
+      "d": 42
+    },
+    "office": {
+      "x": 0,
+      "z": -12,
+      "w": 18,
+      "d": 12
+    },
+    "court": {
+      "x": -11.2,
+      "z": 8,
+      "w": 10.4,
+      "d": 16
+    },
+    "canopy": {
+      "x": -7.4,
+      "z": 10.5,
+      "w": 6.8,
+      "d": 11
+    },
+    "loading": {
+      "x": 36.2,
+      "z": 14,
+      "w": 11,
+      "d": 20
+    },
+    "dock": {
+      "x": 36.2,
+      "z": 15.2,
+      "w": 6.4,
+      "d": 17.2
+    },
+    "parking": {
+      "x": 19.2,
+      "z": -13.6,
+      "w": 16.2,
+      "d": 8.6
+    },
+    "bikes": {
+      "x": 19.4,
+      "z": -3.5,
+      "w": 14.2,
+      "d": 2.15
+    },
+    "guard": {
+      "x": 33.4,
+      "z": -17.4,
+      "w": 3.2,
+      "d": 2.7
+    },
+    "drive": {
+      "x": 23,
+      "z": -20.2,
+      "w": 7.4,
+      "d": 6.4
+    },
+    "pad": {
+      "x": -14,
+      "z": -21,
+      "w": 66,
+      "d": 68
+    }
+  }
+}

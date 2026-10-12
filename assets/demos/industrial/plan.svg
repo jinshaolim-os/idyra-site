@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 860" width="980" height="860" role="img" aria-label="Ruang Industri 01">
+  <rect width="980" height="860" fill="#F4F0E6"/>
+  <rect x="168" y="88" width="660" height="680" fill="#E7E1D4" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="384" y="696" width="74" height="64" fill="#D5D1C8" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="334" y="608" width="162" height="86" fill="#E5DFD2" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="352" y="571.5" width="142" height="21.5" fill="#EFE8DC" stroke="#B85C38" stroke-width="1.6"/>
+  <rect x="696" y="318" width="104" height="160" fill="#DCE6DF" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="694" y="343" width="68" height="110" fill="none" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="216" y="218" width="110" height="200" fill="#E4DDD2" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="262" y="234" width="64" height="172" fill="#C9B8A4" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="328" y="138" width="360" height="420" fill="#F7F1E6" stroke="#153D35" stroke-width="1.6"/>
+  <rect x="508" y="558" width="180" height="120" fill="#F3E2D8" stroke="#B85C38" stroke-width="1.6"/>
+  <rect x="322" y="705" width="32" height="27" fill="#F7F4EC" stroke="#153D35" stroke-width="1.6"/>
+  <path d="M694 343 h 68 v 110 h -68 z" fill="none" stroke="#153D35" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="508" y="340" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Dewan / Hall</text><text x="508" y="356" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">36 × 42 m</text><text x="508" y="372" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">1512 m²</text>
+  <text x="598" y="612" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Pejabat / Office</text><text x="598" y="628" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">18 × 12 m</text><text x="598" y="644" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">2 tingkat / 2 floors · 432 m²</text>
+  <text x="748" y="398" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Halaman / Court</text>
+  <text x="271" y="388" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Muatan / Loading</text>
+  <text x="415" y="651" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Pelawat / Visitors</text>
+  <text x="423" y="563.5" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Motosikal / Bikes</text>
+  <text x="338" y="736" text-anchor="middle" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Pondok / Guard</text>
+  <g aria-hidden="true">
+    <path d="M288 118 v-22" stroke="#153D35" stroke-width="1.4"/>
+    <path d="M283 102 l5 -8 l5 8" fill="none" stroke="#153D35" stroke-width="1.4"/>
+    <text x="298" y="110" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Utara / North</text>
+  </g>
+  <g aria-hidden="true">
+    <path d="M48 814 h100" stroke="#153D35" stroke-width="1.6"/>
+    <path d="M48 810 v8 M148 810 v8" stroke="#153D35" stroke-width="1.4"/>
+    <text x="48" y="832" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">10 m</text>
+  </g>
+  <text x="36" y="40" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="15" font-weight="600">Ruang Industri 01</text><text x="36" y="56" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">Konsep fiksyen · bukan projek pelanggan / Fictional concept · not client work</text><text x="36" y="72" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">Jumlah luas lantai 1944 m² / Total floor area 1944 m²</text><text x="36" y="88" text-anchor="start" fill="#153D35" font-family="Palatino, Georgia, serif" font-size="12" font-weight="500">Aras lantai 1.2 m / Floor datum 1.2 m</text>
+</svg>

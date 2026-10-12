@@ -282,6 +282,9 @@ body:is([data-page=commercial],[data-page=home]) #interactive { background: var(
 .im-proof figcaption { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; padding-top: 10px; font-size: 12px; color: rgb(244 240 230 / .72); }
 .im-proof figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-cream); font-size: 11px; font-weight: 700; }
 .sales-outcomes .im-proof-note { color: rgb(244 240 230 / .66); margin-top: 26px; }
+.outcome-card .studio-native-preview { margin: 0 0 22px; }
+.outcome-card .studio-native-preview a { display: block; border-radius: 18px; overflow: hidden; background: rgb(244 240 230 / .08); border: 1px solid rgb(244 240 230 / .16); }
+.outcome-card .studio-native-preview img { display: block; width: 100%; height: auto; }
 
 /* ---------- three steps in a row (How it works) ---------- */
 .im-steps-band { background: var(--im-paper); border-block: 1px solid var(--im-line); }

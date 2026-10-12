@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ruang Industri 01 · Konsep kilang interaktif — Idyra</title>
+  <meta name="description" content="Konsep fiksyen asli sebuah kilang 1944 m². Terokai dewan, pejabat dan halaman dalam model 3D pelayar.">
+  <meta name="theme-color" content="#153D35">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/ms-index.html" data-i18n-link="homeHref" data-i18n-aria="brandLabel" aria-label="Laman utama Idyra" target="_top">
+      <svg viewBox="0 0 32 36" aria-hidden="true"><path d="m16 1 15 8v18l-8 4V14l-7-4-7 4v17l-8-4V9zM12 16l4-2 4 2v17l-4 2-4-2z" fill="currentColor"/></svg>
+      <span>idyra</span>
+    </a>
+    <a class="back" href="/ms-industrial.html#interactive" data-i18n-link="backHref" data-i18n="back" target="_top">Kembali ke Industri</a>
+    <div class="lang" role="group" aria-label="Bahasa" data-i18n-aria="langLabel">
+      <button type="button" id="lang-ms" data-lang-option="ms" lang="ms" aria-pressed="true">BM</button>
+      <button type="button" id="lang-en" data-lang-option="en" lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">KONSEP PERINDUSTRIAN · MODEL ASLI</p>
+        <h1>Ruang Industri <em>01</em></h1>
+        <p class="lede" data-i18n="lede">Sebuah dewan, sebuah pejabat dua tingkat, dan halaman yang berlindung. Ubah susunan, kemasan dan cahaya pada bangunan yang sama.</p>
+      </div>
+      <div class="dimensions">
+        <span class="area-total"><strong>1944</strong> m²</span>
+        <span class="area-split">1512 + 432<small data-i18n="authored">Luas lantai rekaan</small></span>
+      </div>
+    </section>
+    <section class="studio" aria-label="Bilik pameran kilang interaktif" data-i18n-aria="studioLabel">
+      <div class="viewer-column">
+        <div id="viewport" class="viewport" tabindex="0" aria-label="Model kilang interaktif. Seret untuk mengorbit, tatal untuk zum, anak panah untuk mengorbit. Kekunci 1 hingga 5 menukar pandangan." data-i18n-aria="viewportLabel">
+          <div id="cutaway-badge" class="cutaway-badge" data-i18n="cutaway">KERATAN</div>
+          <div id="loading" class="loading"><span class="loader"></span><strong data-i18n="loading">Membina ruang anda…</strong><span data-i18n="loadDetail">Geometri 3D asli. Tiada muat turun aset.</span></div>
+          <div id="fallback" class="fallback" hidden>
+            <a href="plan.svg"><img src="plan.svg" alt="Pelan konsep asli Ruang Industri 01" data-i18n-alt="planAlt"></a>
+            <p data-i18n="fallback">Model 3D tidak tersedia pada peranti ini. Pelan konsep masih boleh dilihat.</p>
+          </div>
+          <div id="hotspot-layer" class="hotspot-layer">
+            <button type="button" id="hot-reception" data-zone="reception" data-zone-label="zoneReception" hidden aria-label="Penerimaan" data-label="Penerimaan"><span>1</span></button>
+            <button type="button" id="hot-production" data-zone="production" data-zone-label="zoneProduction" hidden aria-label="Stor / pengeluaran" data-label="Stor / pengeluaran"><span>2</span></button>
+            <button type="button" id="hot-loading" data-zone="loading" data-zone-label="zoneLoading" hidden aria-label="Muatan" data-label="Muatan"><span>3</span></button>
+          </div>
+          <div class="canvas-labels">
+            <div class="view-name" id="view-name">Kampus, tiga suku</div>
+            <p class="model-disclosure" data-i18n="disclosure">Konsep fiksyen rekaan Idyra · bukan projek pelanggan</p>
+          </div>
+          <button id="fullscreen" class="fullscreen" type="button" aria-label="Besarkan paparan" title="Besarkan paparan" data-i18n-aria="expand" data-i18n-title="expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>
+          </button>
+        </div>
+        <div class="viewbar">
+          <span class="viewbar-label" data-i18n="view">PANDANGAN</span>
+          <div class="viewpoints" role="group" aria-label="Pandangan" data-i18n-aria="viewpointsLabel">
+            <button type="button" data-view="campus" aria-pressed="true" data-i18n="campus">Kampus</button>
+            <button type="button" data-view="hall" aria-pressed="false" data-i18n="hall">Dewan</button>
+            <button type="button" data-view="office" aria-pressed="false" data-i18n="office">Pejabat</button>
+            <button type="button" data-view="loading" aria-pressed="false" data-i18n="loadingView">Muatan</button>
+            <button type="button" data-view="plan" aria-pressed="false" data-i18n="plan">Pelan</button>
+          </div>
+        </div>
+        <p class="gesture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9V4a2 2 0 0 1 4 0v7m0-3a2 2 0 0 1 4 0v3m0-1a2 2 0 0 1 4 0v6c0 4-3 6-6 6h-2c-2 0-3-1-4-3l-4-6c-1-2 1-4 3-2l2 2"/></svg><span data-i18n="gesture">Seret untuk orbit · tatal untuk zum · 1–5 pandangan · anak panah mengorbit</span></p>
+      </div>
+      <aside class="controls" aria-label="Konfigurasikan konsep" data-i18n-aria="controlsLabel">
+        <p class="eyebrow" data-i18n="make">BENTUKKAN RUANG</p>
+        <h2 data-i18n="yourSpace">Bangunan yang sama. Tiga susunan.</h2>
+        <details open>
+          <summary data-i18n="fitLabel">Susunan</summary>
+          <div class="choice" role="group" aria-label="Susunan" data-i18n-aria="fitLabel">
+            <button type="button" data-config="shell" aria-pressed="false" data-i18n="shell">Ruang kosong</button>
+            <button type="button" data-config="logistics" aria-pressed="true" data-i18n="logistics">Logistik</button>
+            <button type="button" data-config="assembly" aria-pressed="false" data-i18n="assembly">Pemasangan ringan</button>
+          </div>
+          <p class="note" id="fit-note" data-i18n="logisticsNote">Rak palet, lorong dan karton. Ilustrasi aliran, bukan data gudang.</p>
+        </details>
+        <section class="control-block">
+          <h3 data-i18n="light">Cahaya</h3>
+          <div class="segmented" role="group" data-i18n-aria="light">
+            <button type="button" data-time="day" aria-pressed="true" data-i18n="day">Siang</button>
+            <button type="button" data-time="afternoon" aria-pressed="false" data-i18n="afternoon">Lewat petang</button>
+          </div>
+        </section>
+        <details open>
+          <summary data-i18n="finish">Kemasan</summary>
+          <div class="choice" role="group">
+            <button type="button" data-palette="kiln" aria-pressed="true"><i class="swatch kiln"></i><span data-i18n="kiln">Klinker</span></button>
+            <button type="button" data-palette="canopy" aria-pressed="false"><i class="swatch canopy"></i><span data-i18n="canopy">Kanopi</span></button>
+          </div>
+          <p class="note" id="palette-note" data-i18n="kilnNote">Panel krim, bumbung rimba, sirip terakota.</p>
+        </details>
+        <details open>
+          <summary data-i18n="view">PANDANGAN</summary>
+          <label class="toggle"><span data-i18n="showRoof">Tunjuk penutup bumbung</span><input type="checkbox" id="roof" checked><span class="toggle-ui" aria-hidden="true"></span></label>
+          <label class="toggle"><span data-i18n="showWalls">Tunjuk dinding hadapan</span><input type="checkbox" id="walls" checked><span class="toggle-ui" aria-hidden="true"></span></label>
+          <p class="note" id="plan-note" data-i18n="planNote" hidden>Penutup bumbung disembunyikan untuk pandangan pelan.</p>
+        </details>
+        <details open>
+          <summary data-i18n="zones">Zon</summary>
+          <div class="zones" role="group">
+            <button type="button" data-zone="reception" aria-pressed="false" data-i18n="zoneReception">Penerimaan</button>
+            <button type="button" data-zone="production" aria-pressed="false" data-i18n="zoneProduction">Stor / pengeluaran</button>
+            <button type="button" data-zone="loading" aria-pressed="false" data-i18n="zoneLoading">Muatan</button>
+          </div>
+          <p class="note" id="zone-copy" data-i18n="zonePrompt">Pilih zon untuk baca maksud ruang.</p>
+        </details>
+        <div class="utility">
+          <button type="button" id="plan-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3zM3 12h8V3m0 9v9m0-5h10"/></svg><span data-i18n="floorplan">Lihat pelan 2D</span></button>
+          <button type="button" id="save"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/></svg><span data-i18n="save">Simpan pilihan</span></button>
+          <button type="button" id="share"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8l4 4-4 4M4 5h7v4"/></svg><span data-i18n="share">Salin pautan</span></button>
+        </div>
+        <input id="share-link" class="share-link" readonly hidden>
+        <div class="minor-actions">
+          <button type="button" id="import-button" data-i18n="import">Buka fail pilihan</button>
+          <button type="button" id="reset" data-i18n="reset">Tetapkan semula</button>
+          <input type="file" id="import-file" accept=".json,application/json" hidden>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </aside>
+    </section>
+    <section class="story">
+      <div>
+        <p class="eyebrow" data-i18n="builtFor">DARI KONSEP KE RUANG YANG BOLEH DITEROKAI</p>
+        <h2 data-i18n="storyTitle">Ruang kosong, aliran, dan cahaya.</h2>
+        <p data-i18n="storyBody">Bandingkan dewan kosong dengan susunan logistik atau pemasangan ringan. Buka bumbung untuk membaca rangka bangunan. Simpan pilihan untuk perbincangan seterusnya. Ini cara satu konsep perindustrian dipersembahkan, bukan hasil projek pelanggan.</p>
+        <a class="cta" href="/ms-contact.html#brief-h" data-i18n-link="discussHref" target="_top"><span data-i18n="cta">Bincangkan ruang anda</span> <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="detail-cards">
+        <article><span>01</span><h3 data-i18n="card1">Bangunan yang konsisten</h3><p data-i18n="card1body">Dewan 36 × 42 m dan pejabat dua tingkat 18 × 12 m dikongsi oleh model, pelan dan angka luas.</p></article>
+        <article><span>02</span><h3 data-i18n="card2">Tiga susunan, satu bangunan</h3><p data-i18n="card2body">Ruang kosong, logistik dan pemasangan ringan menggunakan dinding, rangka bangunan dan halaman yang sama.</p></article>
+        <article><span>03</span><h3 data-i18n="card3">Fail pada peranti anda</h3><p data-i18n="card3body">Pautan, JSON dan pelan SVG dijana di pelayar. Tiada penghantaran ke pelayan.</p></article>
+      </div>
+    </section>
+    <section class="facts">
+      <div>
+        <h2 data-i18n="factsTitle">Tentang demonstrasi ini</h2>
+        <p class="limits" data-i18n="limits">Ini konsep fiksyen, bukan hartanah sebenar atau projek pelanggan. Dimensi direka untuk demonstrasi, bukan ukuran tapak. Struktur, perabot, kemasan dan cahaya bersifat ilustrasi, bukan kejuruteraan, fotografi atau simulasi operasi. Tiada pengesahan pembinaan, kapasiti, akses, keselamatan atau kelulusan. Prestasi paparan berbeza mengikut peranti.</p>
+        <a href="scene.json" download data-i18n="factsDownload">Muat turun data rekaan asal</a>
+        <a href="plan.svg" data-i18n="planLink">Buka pelan konsep (SVG)</a>
+      </div>
+      <dl>
+        <div><dt data-i18n="area">Jumlah luas lantai</dt><dd data-i18n="areaValue">1944 m²</dd></div>
+        <div><dt data-i18n="hallFact">Dewan</dt><dd data-i18n="hallValue">36 × 42 m · 1512 m²</dd></div>
+        <div><dt data-i18n="officeFact">Pejabat</dt><dd data-i18n="officeValue">18 × 12 m · 2 tingkat · 432 m²</dd></div>
+        <div><dt data-i18n="source">Sumber</dt><dd data-i18n="sourceValue">Konsep asli Idyra</dd></div>
+        <div><dt data-i18n="delivery">Format</dt><dd data-i18n="deliveryValue">Model 3D dalam pelayar</dd></div>
+      </dl>
+    </section>
+  </main>
+  <footer>
+    <a class="wordmark" href="/ms-index.html" data-i18n-link="homeHref" target="_top">idyra</a>
+    <span data-i18n="footer">Idea yang boleh diterokai.</span>
+    <a class="licence" href="THREE-LICENSE.txt" data-i18n="licence" target="_blank" rel="noopener">Lesen Three.js</a>
+    <small data-i18n="footerTag">RUANG INDUSTRI 01 · KONSEP ASLI</small>
+  </footer>
+  <dialog id="plan-dialog" aria-labelledby="plan-title">
+    <div class="dialog-head">
+      <h2 id="plan-title" data-i18n="floorplan">Lihat pelan 2D</h2>
+      <button type="button" id="plan-close" aria-label="Tutup pelan" data-i18n-aria="planClose">×</button>
+    </div>
+    <div id="plan-content"></div>
+    <button type="button" id="plan-save" class="solid" data-i18n="planSave">Muat turun pelan SVG</button>
+  </dialog>
+  <noscript>
+    <div class="noscript">Aktifkan JavaScript untuk model 3D interaktif. / Enable JavaScript for the interactive 3D model. <a href="plan.svg">Buka pelan konsep asal / Open the original concept floor plan.</a></div>
+  </noscript>
+  <script type="module" src="app.bundle.js"></script>
+</body>
+</html>
