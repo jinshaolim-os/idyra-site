@@ -93,7 +93,7 @@ const afterLoadFrame = fn => {
         img.src = v.src;
       }
       img.alt = v.alt;
-      setText(pill.querySelector('.pill-t') || pill, v.label);
+      if (pill) setText(pill.querySelector('.pill-t') || pill, v.label);
       if (state) setText(state, v.state);
     });
   }

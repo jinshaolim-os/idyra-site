@@ -5,7 +5,12 @@
 .im-section-intro,.section-heading { gap: clamp(24px, 4vw, 64px); margin-bottom: 30px; }
 .im-section-intro > p,.section-heading > p { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.75; }
 .pill { align-items: center; gap: 7px; line-height: 1.45; }
-.pill::before { width: 5px; height: 5px; background: #648578; }
+.pill::before { content: none; }
+.sales-close > .wrap > h2 { margin-inline: auto; }
+/* These compact artwork panels have their titles in the adjacent content. */
+.im-benefit-grid .im-feature > figcaption,
+.sp-process .im-feature > figcaption,
+body[data-page="packages"] :is(.sp-hero-art,.sp-plan-art,.sp-custom-art,.sp-addon-art) .im-feature > figcaption { display: none; }
 .sales-space-card > .space-art { margin: 0; }
 .sales-space-card > .space-art figcaption { padding: 10px 22px 0; }
 .sales-space-card > .space-art .pill { font-size: 10px; }
