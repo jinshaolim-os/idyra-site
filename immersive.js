@@ -1,6 +1,7 @@
 // idyra.ai immersive layer (redesign, 10 Oct 2026). Progressive enhancement only: every figure reads without it.
 // - Space stages: a range input moves the wipe between the concept drawing and the concept image; pointer drag on the
-//   frame drives the same input, so keyboard, touch and mouse share one control.
+//   frame drives the same input, so keyboard, touch and mouse share one control. A touch drag starts only once it is
+//   clearly sideways, so a page scroll that begins on the picture never moves the wipe; a tap still sets it.
 // - Space selector: accessible tabs (arrow keys, Home/End) between the three category stages.
 // - Plan lift: animates a fictional floor plan into its isometric massing model once, when it scrolls into view. With
 //   reduced motion the finished model the build drew stays as it is and the controls move instantly.
@@ -22,18 +23,30 @@
       range.setAttribute('aria-valuetext', `${v}% ${left}, ${100 - v}% ${right}`);
     };
     range.addEventListener('input', () => set(range.value));
-    let dragging = false;
+    let dragging = false, touch = null;
     const fromPointer = event => {
       const box = frame.getBoundingClientRect();
       set(((event.clientX - box.left) / box.width) * 100);
     };
     frame.addEventListener('pointerdown', event => {
       if (event.button !== 0 && event.pointerType === 'mouse') return;
+      // Touch waits for direction: touch-action: pan-y lets the browser scroll vertically and cancel this pointer.
+      if (event.pointerType === 'touch') { touch = { id: event.pointerId, x: event.clientX, y: event.clientY }; return; }
       dragging = true; frame.setPointerCapture?.(event.pointerId); fromPointer(event);
     });
-    frame.addEventListener('pointermove', event => { if (dragging) fromPointer(event); });
-    const stop = () => { dragging = false; };
-    frame.addEventListener('pointerup', stop); frame.addEventListener('pointercancel', stop);
+    frame.addEventListener('pointermove', event => {
+      if (touch && event.pointerId === touch.id) {
+        const dx = Math.abs(event.clientX - touch.x), dy = Math.abs(event.clientY - touch.y);
+        if (dx > 8 && dx > dy) { touch = null; dragging = true; frame.setPointerCapture?.(event.pointerId); }
+        else { if (dy > 8) touch = null; return; }
+      }
+      if (dragging) fromPointer(event);
+    });
+    frame.addEventListener('pointerup', event => {
+      if (touch && event.pointerId === touch.id) fromPointer(event);
+      dragging = false; touch = null;
+    });
+    frame.addEventListener('pointercancel', () => { dragging = false; touch = null; });
     set(range.value);
     stage.classList.add('is-ready');
   }
@@ -198,6 +211,9 @@
   let opener = null;
   const open = link => {
     opener = link;
+    // Reserve the picture's shape before the full-size file arrives, so the caption does not jump.
+    const thumb = link.querySelector('img'), w = Number(thumb?.getAttribute('width')), h = Number(thumb?.getAttribute('height'));
+    if (w > 0 && h > 0) { img.width = w; img.height = h; } else { img.removeAttribute('width'); img.removeAttribute('height'); }
     img.src = link.getAttribute('href'); img.alt = link.dataset.caption || '';
     title.textContent = link.dataset.title || ''; caption.textContent = link.dataset.caption || '';
     dialog.showModal();

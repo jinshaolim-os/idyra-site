@@ -112,6 +112,9 @@ a { text-underline-offset: .18em; }
 .im-stage-tag--r { right: 16px; background: rgb(251 248 241 / .88); color: var(--im-forest); }
 .im-wipe { position: absolute; left: 0; right: 0; bottom: 0; height: 48px; margin: 0; opacity: 0; z-index: 4; cursor: ew-resize; }
 .im-stage-frame:has(.im-wipe:focus-visible) { outline: 3px solid var(--im-orange-ink); outline-offset: 4px; }
+/* Touch (audit, 12 Oct 2026): the frame decides between scroll, tap and sideways drag, so the invisible native range
+   must not take touches in the bottom band. Keyboard and assistive-technology use of the range is unchanged. */
+@media (any-pointer: coarse) { .im-wipe { pointer-events: none; } }
 .im-stage figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 10px 4px 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 .im-stage figcaption .pill { border: 0; background: transparent; padding: 0; color: var(--im-forest); font-size: 11.5px; font-weight: 700; }
 .im-stage figcaption .text-link { margin-left: auto; font-size: 13px; }
@@ -461,6 +464,17 @@ main > .hero h1 { font-size: clamp(40px, 5.2vw, 82px); }
   .im-hero--showcase .im-hero-heading h1 { font-size: clamp(42px, 8vw, 72px); }
   .im-hero--showcase .im-stage figcaption > span:not(.pill) { font-size: 11px; }
   .im-hero--showcase .im-hero-points { display: flex; flex-wrap: wrap; gap: 8px; }
+}
+/* Phones (audit, 12 Oct 2026): the artwork stays directly under the headline; inside the copy block the free-review
+   action, its help line and the deliverable chips come before the longer explanation, so the action reaches the first
+   screen. Visual order only: the stage still precedes the copy block, and the intro paragraph is not a focus stop. */
+@media (max-width: 699px) {
+  .im-hero--showcase .im-hero-grid { row-gap: 18px; }
+  .im-hero--showcase .im-hero-copy { display: flex; flex-direction: column; }
+  .im-hero--showcase .im-hero-copy .btn-row { order: 1; margin-top: 0; }
+  .im-hero--showcase .im-hero-copy .hero-help { order: 2; }
+  .im-hero--showcase .im-hero-copy .im-hero-points { order: 3; margin-top: 20px; }
+  .im-hero--showcase .im-hero-copy .im-intro { order: 4; margin: 24px 0 0; }
 }
 /* Keep the hero's category action clear of the desktop help launcher. */
 .im-hero--showcase .im-stage figcaption .text-link { margin-left: 0; margin-right: auto; }

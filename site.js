@@ -30,7 +30,8 @@ const uiBM = {
   'Please recommend suitable options':'Mohon cadangkan pilihan yang sesuai',
   'Not sure / prefer to discuss':'Belum pasti / bincang dahulu',
   'Please check the budget amount':'Sila semak jumlah bajet',
-  'My indicative budget, not a quotation':'Anggaran bajet saya, bukan sebut harga'
+  'My indicative budget, not a quotation':'Anggaran bajet saya, bukan sebut harga',
+  'Message preview updated':'Pratonton mesej dikemas kini'
 };
 const uiText = text => isBM ? (uiBM[text] || text) : text;
 const setText = (element, text) => element.replaceChildren(...String(uiText(text)).split('·').flatMap((part, i) => i ? [Object.assign(document.createElement('span'), { className: 'dot', textContent: '·' }), part] : [part]));
@@ -177,6 +178,7 @@ const afterLoadFrame = fn => {
     const out = form.querySelector('[data-brief-out]');
     const send = form.querySelector('[data-brief-send]');
     const budget = form.querySelector('[name="budget"]');
+    const status = form.querySelector('[data-brief-status]');
     const val = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
     const text = (name, limit) => (form.querySelector(`input[name="${name}"]`)?.value || '').trim().slice(0, limit);
     const run = () => {
@@ -214,11 +216,25 @@ const afterLoadFrame = fn => {
       out.textContent = msg;
       send.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(msg)}`;
     };
-    form.addEventListener('change', run);
-    form.addEventListener('input', run);
+    // The preview is not a live region, which would re-read the whole draft on every keystroke. After a pause, one short
+    // status tells screen-reader users that the draft changed; they can read it in full before opening WhatsApp.
+    let statusTimer = 0, announced = '';
+    const announce = () => {
+      if (!status) return;
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => {
+        if (out.textContent === announced) return;
+        announced = out.textContent;
+        status.textContent = '';
+        requestAnimationFrame(() => { status.textContent = uiText('Message preview updated'); });
+      }, 900);
+    };
+    form.addEventListener('change', () => { run(); announce(); });
+    form.addEventListener('input', () => { run(); announce(); });
     form.addEventListener('submit', e => e.preventDefault());
     send.addEventListener('click', event => { if (!form.reportValidity()) event.preventDefault(); });
     run();
+    announced = out.textContent;
   }
 
   // language tabs (home summary in EN / BM / 中文)

@@ -20,6 +20,15 @@
 .studio-film { margin: 0; min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--im-line); border-radius: 22px; background: var(--im-paper); }
 .studio-film-media { display: grid; place-items: center; padding: 16px; background: #e6e8df; }
 .studio-film-media video { display: block; width: auto; max-width: 100%; height: clamp(280px,29vw,390px); aspect-ratio: 1080/1912; object-fit: contain; border-radius: 12px; background: #153d35; }
+/* Posters wait for the visitor (site.js sets them from data-poster near the viewport after load). Without JavaScript the
+   <noscript> poster sits under the posterless video (its background is cleared only then; Chrome's grey control panel always). */
+.studio-film-media > video, .studio-film-media > noscript { grid-area: 1 / 1; }
+.studio-film-media > video, .studio-process-film > video { position: relative; z-index: 1; }
+.studio-film-media:has(> noscript img) > video, .studio-process-film:has(> noscript img) > video { background: transparent; }
+.studio-film-media > video::-webkit-media-controls, .studio-process-film > video::-webkit-media-controls { background: transparent; }
+.studio-film-media noscript img { display: block; width: auto; max-width: 100%; height: clamp(280px,29vw,390px); aspect-ratio: 1080/1912; object-fit: contain; border-radius: 12px; background: #153d35; }
+.studio-process-film { position: relative; }
+.studio-process-film noscript img { position: absolute; top: 0; left: 0; z-index: 0; display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; background: #153d35; }
 .studio-film figcaption { display: flex; flex: 1; flex-direction: column; align-items: start; padding: 23px; gap: 11px; }
 .studio-film figcaption .overline { margin: 0; font-size: 10px; }
 .studio-film figcaption strong { font-size: clamp(22px,2.1vw,29px); font-weight: 400; line-height: 1.2; letter-spacing: -.025em; }
@@ -52,7 +61,7 @@
 @media(max-width:749px) {
   .studio-film-grid { grid-template-columns: minmax(0,1fr); gap: 22px; }
   .studio-film-media { padding: 14px; }
-  .studio-film-media video { height: 340px; max-height: 65vh; }
+  .studio-film-media video, .studio-film-media noscript img { height: 340px; max-height: 65vh; }
   .studio-film figcaption { padding: 22px; gap: 10px; }
   .studio-film figcaption strong { font-size: 27px; }
   .im-section-intro,.section-heading { margin-bottom: 24px; }

@@ -30,6 +30,13 @@
 .industrial-films .if-card[hidden] { display: none; }
 .industrial-films .if-film-frame { width: 100%; min-width: 0; background: var(--if-forest); }
 .industrial-films .if-film-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; background: var(--if-forest); }
+/* Posters wait for the visitor (site.js sets them from data-poster near the viewport after load). Without JavaScript the
+   <noscript> poster sits under the posterless video (its background is cleared only then; Chrome's grey control panel always). */
+.industrial-films .if-film-frame { position: relative; }
+.industrial-films .if-film-frame > video { position: relative; z-index: 1; }
+.industrial-films .if-film-frame:has(> noscript img) > video { background: transparent; }
+.industrial-films .if-film-frame > video::-webkit-media-controls { background: transparent; }
+.industrial-films .if-film-frame noscript img { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; object-fit: contain; background: var(--if-forest); }
 .industrial-films .if-caption { display: flex; flex: 1; flex-direction: column; gap: 0; min-width: 0; padding: clamp(20px, 2.2vw, 28px); }
 .industrial-films .if-provenance { margin: 0 0 17px; line-height: 1.5; }
 .industrial-films .if-provenance .pill { font-size: 11.5px; line-height: 1.5; padding: 0; margin: 0; border: 0; background: transparent; color: #425f54; }
