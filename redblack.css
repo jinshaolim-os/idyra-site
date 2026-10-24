@@ -452,3 +452,27 @@ select option { background: #101010; color: var(--rb-text); }
    original fictional-project disclosure; remove only surrounding editor chrome. */
 .rb-hero-model .studio-native-preview > a { display: block; position: relative; aspect-ratio: 824 / 448; overflow: hidden; border-radius: 6px; }
 .rb-hero-model .studio-native-preview img { position: absolute; width: 139.805825%; max-width: none; height: auto; left: -1.941748%; top: -57.366071%; border-radius: 0; }
+
+/* Account entry replaces the global messaging CTA; existing project contact stays on Contact. */
+.top .rb-account-entry { color: #000; background: var(--rb-red); border-color: var(--rb-red); white-space: nowrap; min-height: 44px; }
+.top .rb-account-entry:hover { color: #000; background: #CC7371; border-color: #CC7371; }
+.rb-account-section { background: #080808; border-bottom: 1px solid var(--rb-line); }
+.rb-account-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+.rb-account-grid h2 { font-size: clamp(34px, 4vw, 56px); font-weight: 400; line-height: 1.12; margin: 18px 0 24px; letter-spacing: -.04em; }
+.rb-account-grid h2 em { color: var(--rb-red); font-style: normal; font-family: inherit; }
+.rb-account-grid > div > p { color: var(--rb-secondary); max-width: 53ch; }
+.rb-account-card { background: var(--rb-surface); border: 1px solid var(--rb-line-strong); border-radius: 12px; padding: 32px; min-width: 0; }
+.rb-account-status { display: inline-block; color: var(--rb-secondary); font: 10px/1.5 var(--mono); letter-spacing: .08em; border: 1px solid var(--rb-line-strong); border-radius: 4px; padding: 5px 8px; }
+.rb-account-card h3 { font-size: 28px; font-weight: 400; line-height: 1.2; margin: 24px 0 15px; }
+.rb-account-card p { font-size: 14px; line-height: 1.7; }
+.rb-account-card .btn-row { margin-block: 24px; gap: 18px; }
+.rb-account-card .fine { font-size: 12px; color: var(--rb-muted); }
+.rb-account-card > .text-link { display: inline-block; margin-top: 10px; font-size: 13px; }
+@media (max-width: 800px) {
+  .top .rb-account-entry { margin-left: 0; min-width: 64px; padding: 10px 12px; font-size: 11px; }
+  .rb-account-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .rb-account-card { padding: 24px; }
+}
+@media (max-width: 370px) {
+  .top .rb-account-entry { min-width: 60px; padding-inline: 9px; }
+}
