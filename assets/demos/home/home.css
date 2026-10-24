@@ -10,3 +10,45 @@
 /* Keep the title readable over roofed interiors without dimming the model. */
 .scene-title{padding:12px 14px;border-radius:8px;background:linear-gradient(115deg,#f7f5eff5 0%,#f7f5eff0 74%,#f7f5efe8 100%);box-shadow:0 3px 18px #172b2510;max-width:calc(100% - 44px)}
 .scene-title h1{text-shadow:none}.scene-title>p:last-child{margin-bottom:0}
+
+/* Idyra red / black viewer chrome. The rendered home, canvas size and finish swatches are unchanged. */
+html { color-scheme: dark; }
+body { background: #000; color: #f4f2ee; }
+.mast { background: #000; border-color: #303030; }
+.brand { color: #B85A58; }
+.brand .brand-dimension { width: 28px; height: 28px; flex: none; }
+.brand strong { color: #f4f2ee; }
+.brand span { color: #b7b5b1; border-color: #565656; }
+.eyebrow, legend, .panel-heading > p:last-child,
+.finish small, .visibility small, .minor-actions, .status,
+.concept-facts small, .project-notes p { color: #b7b5b1; }
+.scene-title { background: rgb(0 0 0 / .91); box-shadow: none; border: 1px solid #414141; }
+.scene-title h1 { color: #f4f2ee; }
+.scene-title em { font-family: inherit; font-style: normal; }
+.scene-title .eyebrow, .scene-title > p:last-child { color: #b7b5b1; }
+.scene-note, .scene-hint, .expand { color: #f4f2ee; background: rgb(0 0 0 / .91); border-color: #565656; }
+.concept-dot { background: #B85A58; }
+.note-divider { color: #b7b5b1; }
+.view-nav { background: #101010; border-color: #565656; box-shadow: none; }
+.view-nav button { color: #f4f2ee; }
+.view-nav button:hover, .lang button:not([aria-pressed="true"]):hover { background: #242424; }
+.view-nav button[aria-pressed="true"], .view-nav button[aria-pressed="true"]:hover,
+.lang button[aria-pressed="true"] { background: #B85A58; color: #000; }
+.lang { border-color: #565656; }
+.lang button { color: #b7b5b1; }
+.design-panel { background: #101010; border-color: #414141; }
+.finish { background: #101010; color: #f4f2ee; border-color: #565656; }
+.finish.selected { background: #211414; border-color: #B85A58; box-shadow: none; }
+.choice-mark { color: #f4f2ee; }
+.visibility label, .concept-facts, .source-note { border-color: #414141; }
+.visibility input { background: #565656; }
+.visibility input:checked { background: #B85A58; }
+.action-row button { background: #B85A58; color: #000; border-color: #B85A58; }
+.action-row button.quiet { background: transparent; color: #f4f2ee; border-color: #565656; }
+.project-notes { background: #0B0B0B; }
+.project-notes h2 { font-family: Arial, Helvetica, sans-serif; }
+footer { background: #000; color: #b7b5b1; border-top: 1px solid #303030; }
+.loading, .noscript { background: #101010; color: #f4f2ee; }
+.loader { border-color: #414141; border-top-color: #B85A58; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+.scene:focus-visible, .file-action:focus-within { outline-color: #f4f2ee; }

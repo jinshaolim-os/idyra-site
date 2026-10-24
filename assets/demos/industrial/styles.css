@@ -188,3 +188,28 @@ dialog::backdrop { background: rgba(21, 61, 53, 0.35); }
   .toggle-ui::after { transition: none; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Idyra red / black viewer chrome. Canvas, model materials and material swatches stay unchanged. */
+:root { --cream: #000; --paper: #101010; --ink: #f4f2ee; --muted: #b7b5b1; --line: #414141; --terra: #B85A58; --soft: #181818; color-scheme: dark; }
+.topbar { border-bottom: 1px solid #303030; }
+.brand, .wordmark { color: #f4f2ee; }
+.brand svg { color: #B85A58; }
+.brand .brand-dimension { width: 28px; height: 28px; flex: none; }
+h1, h2, h3, .dimensions strong, .facts dd, .view-name { font-family: "Avenir Next", "Segoe UI", sans-serif; }
+h1 em { font-style: normal; }
+:focus-visible, .toggle input:focus-visible + .toggle-ui { outline-color: #f4f2ee; }
+button[aria-pressed="true"], .cta, .solid { background: #B85A58; color: #000; border-color: #B85A58; }
+.lang, .controls { background: #101010; }
+.choice button:hover, .segmented button:hover, .viewpoints button:hover,
+.zones button:hover, .utility button:hover, .minor-actions button:hover { border-color: #B85A58; }
+.cutaway-badge, .view-name, .model-disclosure, .fullscreen { color: #f4f2ee; background: rgb(0 0 0 / .91); border-color: #565656; }
+.loading, .fallback { color: #f4f2ee; background: #101010; }
+.loader { border-color: #414141; border-top-color: #B85A58; }
+.hotspot-layer button span, .hotspot-layer button::after { color: #f4f2ee; background: #111; border-color: #aaa; }
+.hotspot-layer button[aria-pressed="true"] span { background: #B85A58; color: #000; border-color: #B85A58; }
+.toggle-ui { background: #565656; }
+.toggle input:checked + .toggle-ui { background: #B85A58; }
+.share-link { background: #101010; color: #f4f2ee; border-color: #565656; }
+dialog { background: #101010; color: #f4f2ee; border-color: #565656; }
+dialog::backdrop { background: rgb(0 0 0 / .78); }
+.noscript { background: #181818; color: #f4f2ee; }

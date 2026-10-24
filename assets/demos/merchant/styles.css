@@ -5,3 +5,34 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition:none!important;scroll-behavior:auto!important}}
 
 .ceiling-note{grid-column:1/-1;font-size:10px;line-height:1.5;color:var(--muted);margin:5px 0 0}
+
+/* Idyra red / black viewer chrome. Rendering, canvas dimensions and finish swatches are preserved. */
+:root { --paper: #000; --ink: #f4f2ee; --muted: #b7b5b1; --green: #B85A58; --line: #414141; --gold: #b7b5b1; --panel: #101010; color-scheme: dark; }
+.topbar, footer { background: #000; border-color: #303030; }
+.brand, .wordmark { color: #f4f2ee; }
+.brand svg { color: #B85A58; }
+.brand .brand-dimension { width: 28px; height: 28px; flex: none; }
+h1 em { font-family: inherit; font-style: normal; color: #B85A58; }
+.eyebrow, .gesture, legend > span:first-child, .minor-actions button,
+.status, .detail-cards article > span, .facts dt, .facts p, footer { color: #b7b5b1; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+.toggles input:focus-visible + .toggle-ui { outline-color: #f4f2ee; }
+.studio { box-shadow: none; }
+.controls { background: #101010; }
+.scene-badge, .view-name, .model-disclosure, .fullscreen { background: rgb(0 0 0 / .91); color: #f4f2ee; border-color: #565656; }
+.concept-dot { background: #B85A58; }
+.loading, .fallback { color: #f4f2ee; background: #101010; }
+.loader { border-color: #414141; border-top-color: #B85A58; }
+.choice-grid button, .segmented, .utility button { background: #101010; border-color: #565656; }
+.lang button[aria-pressed="true"], .viewpoints button[aria-pressed="true"],
+.choice-grid button[aria-pressed="true"], .segmented button[aria-pressed="true"],
+.cta { background: #B85A58; color: #000; border-color: #B85A58; }
+.viewpoints button:hover, .utility button:hover { color: #f4f2ee; background: #202020; border-color: #B85A58; }
+.viewpoints button[aria-pressed="true"]:hover { color: #000; background: #B85A58; }
+.swatch { border-color: #101010; box-shadow: 0 0 0 1px #565656; }
+.finish-options button[aria-pressed="true"] .swatch { box-shadow: 0 0 0 2px #B85A58; }
+.toggle-ui { background: #565656; }
+.toggles input:checked + .toggle-ui { background: #B85A58; }
+dialog { background: #101010; color: #f4f2ee; border-color: #565656; box-shadow: 0 25px 100px rgb(0 0 0 / .6); }
+dialog::backdrop { background: rgb(0 0 0 / .78); }
+.noscript { background: #181818; color: #f4f2ee; }
