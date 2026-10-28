@@ -348,6 +348,12 @@ const afterLoadFrame = fn => {
     updateAll();
   });
   reduced.addEventListener('change', updateAll);
+  // Preferences can change while the page is open: low data (where supported) and Save-Data stop the clips as reduced
+  // motion does. Leaving the page pauses them; a page restored from the back/forward cache checks again.
+  lowData.addEventListener?.('change', updateAll);
+  navigator.connection?.addEventListener?.('change', updateAll);
+  window.addEventListener('pagehide', () => { for (const figure of figures) { const video = figure.querySelector('video'); if (!video.paused) video.pause(); } });
+  window.addEventListener('pageshow', event => { if (event.persisted) updateAll(); });
   document.addEventListener('visibilitychange', updateAll);
   const start = () => {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -450,7 +456,7 @@ window.addEventListener('hashchange', revealLinkedProcess);
 // most of its box. Nothing plays in a hidden tab or off screen, however it started; a preview the visitor started
 // resumes when it comes back into view, and one they paused stays paused; after a pause, scrolling no longer starts
 // previews (hover and focus still do). Reduced motion and Save-Data stop every automatic start (hover, focus and
-// scrolling); the play control still works. Every card shows that control.
+// scrolling), also when either changes while the page is open; the play control still works. Every card shows that control.
 (() => {
   const cards = [...document.querySelectorAll('[data-sg-film]')];
   if (cards.length) {
@@ -518,8 +524,10 @@ window.addEventListener('hashchange', revealLinkedProcess);
     }
     reduced.addEventListener('change', apply);
     lowData.addEventListener?.('change', apply);
+    navigator.connection?.addEventListener?.('change', apply);
     document.addEventListener('visibilitychange', apply);
     window.addEventListener('pagehide', () => { for (const card of cards) { const video = videoOf(card); if (video && !video.paused) video.pause(); } });
+    window.addEventListener('pageshow', event => { if (event.persisted) apply(); });
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(entries => {
         for (const entry of entries) state.get(entry.target).ratio = entry.isIntersecting ? entry.intersectionRatio : 0;

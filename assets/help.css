@@ -72,7 +72,7 @@
   .idyra-help-launcher, .idyra-help button, .idyra-help-action { transition: background-color .15s, border-color .15s; }
 }
 /* Prelaunch (27 Oct 2026): the handoff is the project-brief route (Idyra red, the primary action), plus the live mailbox. */
-.idyra-help-brief { border-color: #FF4F45; color: #1A1A1A !important; background: #FF4F45; }
-.idyra-help-brief:hover { background: #FF6B62; }
+.idyra-help-brief { border-color: var(--action, #A44B49); color: var(--on-action, #FFFFFF) !important; background: var(--action, #A44B49); }
+.idyra-help-brief:hover { background: var(--action-hover, #AE5350); }
 .idyra-help-email { display: block; margin-top: 8px; text-align: center; color: #f2e9de !important; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
-.idyra-help-email:focus-visible, .idyra-help-brief:focus-visible { outline: 3px solid #FF4F45; outline-offset: 2px; }
+.idyra-help-email:focus-visible, .idyra-help-brief:focus-visible { outline: 3px solid var(--focus, #E2A09B); outline-offset: 2px; }
