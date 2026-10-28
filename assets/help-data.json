@@ -1,10 +1,7 @@
 {
   "schemaVersion": 1,
-  "whatsappNumber": "60122505150",
-  "handoff": {
-    "en": "Hi Idyra, I'd like help with your digital-twin services and a free project review. Property type: . General area: . Approximate gross floor area: . Purpose: . Target timing: . Building-plan drawings available: ",
-    "ms": "Hai Idyra, saya ingin bertanya tentang perkhidmatan model digital dan semakan projek percuma. Jenis hartanah: . Kawasan umum: . Anggaran keluasan lantai kasar: . Tujuan: . Sasaran masa: . Pelan bangunan tersedia: "
-  },
+  "briefUrl": "https://idyra-industrial-pilot.onrender.com/#/studio",
+  "email": "hello@idyra.ai",
   "ui": {
     "en": {
       "title": "Idyra Help",
@@ -13,20 +10,21 @@
       "question": "Or ask a short question",
       "placeholder": "For example: What does a Plan Twin include?",
       "ask": "Find an answer",
-      "privacy": "Please don't enter drawings or sensitive personal details. Questions stay in this page, are not saved, and are not added to WhatsApp.",
+      "privacy": "Please don't enter drawings or sensitive personal details. Questions stay in this page and are not saved or sent.",
       "suggested": "Related published topics",
       "matched": "Closest published topic",
-      "noMatch": "I don't have a prepared answer for that question. Choose a topic below or ask our team on WhatsApp.",
+      "noMatch": "I don't have a prepared answer for that question. Choose a topic below, start a project brief in the app or email our team.",
       "empty": "Enter a short question or choose a topic.",
       "readMore": "Read the published details",
-      "whatsapp": "Ask our team on WhatsApp",
-      "reply": "Our team personally reviews enquiries and replies the same working day.",
-      "handoffNote": "Opens WhatsApp with a blank project brief. Your question here is not included.",
+      "reply": "Invited preview: sending a brief needs an invited account. Anyone can email us.",
+      "handoffNote": "Opens the Idyra app in a new tab. Your question here is not included.",
       "close": "Close help",
       "loading": "Loading published answers…",
       "error": "The answers couldn't be loaded. You can still contact our team.",
       "retry": "Try loading again",
-      "contact": "Contact Idyra"
+      "contact": "Contact Idyra",
+      "brief": "Start a project brief",
+      "email": "Email hello@idyra.ai"
     },
     "ms": {
       "title": "Bantuan Idyra",
@@ -35,20 +33,21 @@
       "question": "Atau tanya soalan ringkas",
       "placeholder": "Contoh: Apa yang termasuk dalam Plan Twin?",
       "ask": "Cari jawapan",
-      "privacy": "Jangan masukkan pelan atau maklumat peribadi sensitif. Soalan kekal di halaman ini, tidak disimpan dan tidak dimasukkan ke WhatsApp.",
+      "privacy": "Jangan masukkan pelan atau maklumat peribadi sensitif. Soalan kekal di halaman ini dan tidak disimpan atau dihantar.",
       "suggested": "Topik berkaitan yang diterbitkan",
       "matched": "Topik terbitan paling hampir",
-      "noMatch": "Tiada jawapan yang disediakan untuk soalan itu. Pilih topik di bawah atau tanya pasukan kami melalui WhatsApp.",
+      "noMatch": "Tiada jawapan yang disediakan untuk soalan itu. Pilih topik di bawah, mulakan ringkasan projek dalam aplikasi atau hantar e-mel kepada pasukan kami.",
       "empty": "Masukkan soalan ringkas atau pilih topik.",
       "readMore": "Baca butiran yang diterbitkan",
-      "whatsapp": "Tanya pasukan kami di WhatsApp",
-      "reply": "Pasukan kami menyemak sendiri pertanyaan dan membalas pada hari bekerja yang sama.",
-      "handoffNote": "Membuka WhatsApp dengan ringkasan projek kosong. Soalan anda di sini tidak disertakan.",
+      "reply": "Pratonton jemputan: menghantar ringkasan memerlukan akaun jemputan. Sesiapa sahaja boleh menghantar e-mel kepada kami.",
+      "handoffNote": "Membuka aplikasi Idyra dalam tab baharu. Soalan anda di sini tidak disertakan.",
       "close": "Tutup bantuan",
       "loading": "Memuatkan jawapan yang diterbitkan…",
       "error": "Jawapan tidak dapat dimuatkan. Anda masih boleh menghubungi pasukan kami.",
       "retry": "Cuba muatkan semula",
-      "contact": "Hubungi Idyra"
+      "contact": "Hubungi Idyra",
+      "brief": "Mulakan ringkasan projek",
+      "email": "E-mel hello@idyra.ai"
     }
   },
   "topics": [
@@ -83,7 +82,7 @@
       "en": {
         "title": "How does it help?",
         "answer": [
-          "Idyra creates a digital 3D copy of a building or business space from its plans. We help people explain factories, facilities, shops, cafés, offices and homes.",
+          "Idyra creates a digital 3D copy of a building or business space from its plans. We help people explain shops, cafés, offices, factories and facilities; homes are coming soon.",
           "Your project can bring together an explorable model, selected images and presentation files. We agree the deliverables around your brief. This is a visual presentation service; it does not promise a sale, tenancy or financial return."
         ],
         "href": "how-it-works.html"
@@ -91,7 +90,7 @@
       "ms": {
         "title": "Apa manfaatnya?",
         "answer": [
-          "Idyra mencipta salinan 3D digital bangunan atau ruang perniagaan berdasarkan pelannya. Kami membantu orang menerangkan kilang, fasiliti, kedai, kafe, pejabat dan kediaman.",
+          "Idyra mencipta salinan 3D digital bangunan atau ruang perniagaan berdasarkan pelannya. Kami membantu orang menerangkan kedai, kafe, pejabat, kilang dan fasiliti; kediaman akan datang.",
           "Projek anda boleh menggabungkan model yang boleh diterokai, imej terpilih dan fail persembahan. Kami menetapkan hasil kerja mengikut skop anda. Ini ialah perkhidmatan persembahan visual; jualan, penyewaan atau pulangan kewangan tidak dijanjikan."
         ],
         "href": "ms-how-it-works.html"
@@ -265,7 +264,7 @@
         "answer": [
           "Start with the property type, general area, approximate gross floor area, purpose, target timing and whether building-plan drawings are available. Please don't upload drawings or personal documents here.",
           "After a signed order and permission to use the drawings, we need a readable building-plan PDF. We check that the sheets are complete and note the drawing reference, date and approval status. Drawings are never published.",
-          "No drawings? Tell us on WhatsApp first. A photo-based package is not currently offered."
+          "No drawings? Email hello@idyra.ai first. A photo-based package is not currently offered."
         ],
         "href": "how-it-works.html#stage-drawings"
       },
@@ -274,7 +273,7 @@
         "answer": [
           "Mulakan dengan jenis hartanah, kawasan umum, anggaran keluasan lantai kasar, tujuan, sasaran masa dan sama ada pelan bangunan tersedia. Jangan muat naik pelan atau dokumen peribadi di sini.",
           "Selepas pesanan ditandatangani dan kebenaran menggunakan pelan diperoleh, kami memerlukan PDF pelan bangunan yang jelas. Kami menyemak kelengkapan helaian serta rujukan, tarikh dan status kelulusan pelan. Pelan tidak pernah diterbitkan.",
-          "Tiada pelan? Maklumkan melalui WhatsApp dahulu. Pakej berasaskan gambar belum ditawarkan."
+          "Tiada pelan? Hantar e-mel ke hello@idyra.ai dahulu. Pakej berasaskan gambar belum ditawarkan."
         ],
         "href": "ms-how-it-works.html#stage-drawings"
       }
@@ -310,7 +309,7 @@
       "en": {
         "title": "Delivery and revisions",
         "answer": [
-          "Published founding turnaround: Plan Twin — 5 working days; Showroom — 15 working days. Time starts from complete drawings and the signed order.",
+          "Project timing is confirmed in your written scope. It starts from complete drawings and the signed order.",
           "We confirm each job's delivery date after checking the drawings and agree it in writing. The founding pilot handles one active job at a time. Both packages include a private preview and one revision round."
         ],
         "href": "how-it-works.html#time-h"
@@ -318,7 +317,7 @@
       "ms": {
         "title": "Tempoh dan pindaan",
         "answer": [
-          "Tempoh perintis yang diterbitkan: Plan Twin — 5 working days; Showroom — 15 working days. Tempoh bermula selepas pelan lengkap diterima dan pesanan ditandatangani.",
+          "Tempoh projek disahkan dalam skop bertulis anda. Ia bermula selepas pelan lengkap diterima dan pesanan ditandatangani.",
           "Tarikh penyerahan disahkan selepas pelan disemak dan dipersetujui secara bertulis. Percubaan perintis mengendalikan satu kerja aktif pada satu masa. Kedua-dua pakej merangkumi pratonton peribadi dan satu pusingan pindaan."
         ],
         "href": "ms-how-it-works.html#time-h"
@@ -431,7 +430,7 @@
         "answer": [
           "Free project discussions and quotes are open. Tell us your property type, general area, approximate gross floor area, purpose, target timing and whether drawings are available. A free 20-minute demo call is also offered.",
           "We confirm production availability and payment arrangements in your written order. Nothing is payable before a signed order form. Please don't send drawings before signing.",
-          "The order form sets scope, hosting, payment terms and any refund criteria. Our team reviews enquiries and replies the same working day on WhatsApp."
+          "The order form sets scope, hosting, payment terms and any refund criteria. Start a project brief in the app or email hello@idyra.ai; timing is confirmed in your written scope."
         ],
         "href": "contact.html#brief-h"
       },
@@ -440,7 +439,7 @@
         "answer": [
           "Perbincangan projek dan sebut harga percuma kini dibuka. Beritahu kami jenis hartanah, kawasan umum, anggaran keluasan lantai kasar, tujuan, sasaran masa dan ketersediaan pelan. Panggilan demo percuma selama 20 minit juga ditawarkan.",
           "Ketersediaan penghasilan dan urusan bayaran disahkan dalam pesanan bertulis anda. Tiada bayaran perlu dibuat sebelum borang pesanan ditandatangani. Jangan hantar pelan sebelum menandatangani.",
-          "Borang pesanan menetapkan skop, pengehosan, terma bayaran dan kriteria bayaran balik. Pasukan kami menyemak pertanyaan dan membalas pada hari bekerja yang sama melalui WhatsApp."
+          "Borang pesanan menetapkan skop, pengehosan, terma bayaran dan kriteria bayaran balik. Mulakan ringkasan projek dalam aplikasi atau hantar e-mel ke hello@idyra.ai; masa disahkan dalam skop bertulis anda."
         ],
         "href": "ms-contact.html#brief-h"
       }
@@ -479,18 +478,18 @@
         ]
       },
       "en": {
-        "title": "Industrial, Commercial and Home",
+        "title": "Commercial, Industrial and Home",
         "answer": [
-          "We create digital 3D presentations for factories and facilities, commercial spaces and homes. Other building types can be assessed through a free 20-minute project review.",
-          "The website concept images illustrate a visual direction. Our optional browser demonstrations are separate examples, not client results. Home and custom Commercial presentations are quoted to scope; your quotation confirms the deliverables, revisions and any hosting."
+          "We create digital 3D presentations for shops, cafés, offices, factories and facilities. Homes are coming soon. Other building types can be assessed through a free 20-minute project review.",
+          "The website concept images illustrate a visual direction. Our optional browser demonstrations, including the fictional Courtyard House, are separate examples, not client results. Custom Commercial presentations are quoted to scope; your quotation confirms the deliverables, revisions and any hosting."
         ],
         "href": "spaces.html"
       },
       "ms": {
-        "title": "Perindustrian, Komersial dan Kediaman",
+        "title": "Komersial, Perindustrian dan Kediaman",
         "answer": [
-          "Kami mencipta persembahan 3D digital untuk kilang dan fasiliti, ruang komersial serta kediaman. Jenis bangunan lain boleh dinilai melalui semakan projek percuma selama 20 minit.",
-          "Imej konsep di laman web menunjukkan arah visual. Demonstrasi pelayar pilihan kami ialah contoh berasingan, bukan hasil pelanggan. Persembahan Kediaman dan Komersial khusus disebut harga mengikut skop; sebut harga anda mengesahkan hasil kerja, pindaan dan sebarang pengehosan."
+          "Kami mencipta persembahan 3D digital untuk kedai, kafe, pejabat, kilang dan fasiliti. Kediaman akan datang. Jenis bangunan lain boleh dinilai melalui semakan projek percuma selama 20 minit.",
+          "Imej konsep di laman web menunjukkan arah visual. Demonstrasi pelayar pilihan kami, termasuk Courtyard House rekaan, ialah contoh berasingan, bukan hasil pelanggan. Persembahan Komersial khusus disebut harga mengikut skop; sebut harga anda mengesahkan hasil kerja, pindaan dan sebarang pengehosan."
         ],
         "href": "ms-spaces.html"
       }
@@ -519,7 +518,7 @@
       "en": {
         "title": "Partner programme",
         "answer": [
-          "Idyra Carers are referral partners who introduce people interested in our digital presentation services. Register your interest through the private application on our partner page, or start a conversation on WhatsApp. Commission terms and activation are still being finalised.",
+          "Idyra Carers are referral partners who introduce people interested in our digital presentation services. Register your interest through the private application on our partner page, or email hello@idyra.ai. Commission terms and activation are still being finalised.",
           "The ten profile cards are fictional design previews. An application does not enrol you, create a public profile or accept commission terms."
         ],
         "href": "partners.html#apply"
@@ -527,7 +526,7 @@
       "ms": {
         "title": "Program rakan",
         "answer": [
-          "Idyra Carers ialah rakan rujukan yang memperkenalkan orang yang berminat dengan perkhidmatan persembahan digital kami. Nyatakan minat melalui permohonan peribadi di halaman rakan kami, atau mulakan perbualan melalui WhatsApp. Terma komisen dan pengaktifan masih dimuktamadkan.",
+          "Idyra Carers ialah rakan rujukan yang memperkenalkan orang yang berminat dengan perkhidmatan persembahan digital kami. Nyatakan minat melalui permohonan peribadi di halaman rakan kami, atau hantar e-mel ke hello@idyra.ai. Terma komisen dan pengaktifan masih dimuktamadkan.",
           "Sepuluh kad profil ialah pratonton reka bentuk rekaan. Permohonan tidak mendaftarkan anda sebagai rakan, mewujudkan profil awam atau menerima terma komisen."
         ],
         "href": "ms-partners.html#apply"

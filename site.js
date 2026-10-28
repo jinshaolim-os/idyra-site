@@ -149,16 +149,6 @@ const afterLoadFrame = fn => {
     });
   }
 
-  // copy the WhatsApp number (the wa.me link is a convenience that may not open inside every viewer)
-  for (const btn of $$('[data-copy]')) {
-    const note = document.getElementById(btn.getAttribute('aria-controls'));
-    btn.addEventListener('click', () => {
-      const text = btn.dataset.copy;
-      const done = ok => { if (note) note.textContent = isBM ? (ok ? `Disalin ${text}` : `Pilih nombor di atas dan salin: ${text}`) : (ok ? `Copied ${text}` : `Select the number above and copy it: ${text}`); };
-      try { navigator.clipboard.writeText(text).then(() => done(true), () => done(false)); } catch { done(false); }
-    });
-  }
-
   // vacancy cost: the visitor's own rent divided by 4.3 weeks; a comparison, not a promise of results
   for (const form of $$('[data-calc]')) {
     const input = form.querySelector('input');
@@ -171,70 +161,6 @@ const afterLoadFrame = fn => {
     form.addEventListener('submit', e => { e.preventDefault(); run(); });
     input.addEventListener('input', run);
     run();
-  }
-
-  // quote-request builder: composes a WhatsApp message in the browser; nothing is sent until the visitor presses Send
-  for (const form of $$('[data-brief]')) {
-    const out = form.querySelector('[data-brief-out]');
-    const send = form.querySelector('[data-brief-send]');
-    const budget = form.querySelector('[name="budget"]');
-    const status = form.querySelector('[data-brief-status]');
-    const val = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
-    const text = (name, limit) => (form.querySelector(`input[name="${name}"]`)?.value || '').trim().slice(0, limit);
-    const run = () => {
-      const area = text('area', 80);
-      const company = text('company', 100);
-      const interests = [...form.querySelectorAll('input[name="interests"]:checked')].map(input => uiText(input.value));
-      const interestText = interests.length ? interests.join(', ') : uiText('Please recommend suitable options');
-      const amount = budget?.value.trim() || '';
-      const budgetText = budget && !budget.validity.valid ? uiText('Please check the budget amount') : amount && Number.isFinite(Number(amount))
-        ? `MYR ${Number(amount).toLocaleString('en-MY', { maximumFractionDigits: 2 })} (${uiText('My indicative budget, not a quotation')})`
-        : uiText('Not sure / prefer to discuss');
-      const msg = (isBM ? [
-        'Hai Idyra, saya ingin berbincang tentang projek dan mendapatkan sebut harga percuma.',
-        ...(company ? [`Syarikat / projek: ${company}`] : []),
-        `Saya: ${uiText(val('who'))}`,
-        `Hartanah: ${uiText(val('what'))}${area ? `, ${area}` : ''}`,
-        `Pilihan yang diminati: ${interestText}`,
-        `Keluasan lantai kasar: ${uiText(val('size'))}`,
-        `Lukisan pelan bangunan: ${uiText(val('drawings'))}`,
-        `Tujuan pembentangan: ${uiText(val('goal'))}`,
-        `Sasaran masa: ${uiText(val('timing'))}`,
-        `Bajet projek: ${budgetText}`,
-      ] : [
-        "Hi Idyra, I'd like a free project discussion and quote.",
-        ...(company ? [`Company / project: ${company}`] : []),
-        `I am: ${val('who')}`,
-        `Property: ${val('what')}${area ? `, ${area}` : ''}`,
-        `Interested in: ${interestText}`,
-        `Gross floor area: ${val('size')}`,
-        `Building-plan drawings: ${val('drawings')}`,
-        `Presentation goal: ${val('goal')}`,
-        `Target timing: ${val('timing')}`,
-        `Project budget: ${budgetText}`,
-      ]).join('\n');
-      out.textContent = msg;
-      send.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(msg)}`;
-    };
-    // The preview is not a live region, which would re-read the whole draft on every keystroke. After a pause, one short
-    // status tells screen-reader users that the draft changed; they can read it in full before opening WhatsApp.
-    let statusTimer = 0, announced = '';
-    const announce = () => {
-      if (!status) return;
-      clearTimeout(statusTimer);
-      statusTimer = setTimeout(() => {
-        if (out.textContent === announced) return;
-        announced = out.textContent;
-        status.textContent = '';
-        requestAnimationFrame(() => { status.textContent = uiText('Message preview updated'); });
-      }, 900);
-    };
-    form.addEventListener('change', () => { run(); announce(); });
-    form.addEventListener('input', () => { run(); announce(); });
-    form.addEventListener('submit', e => e.preventDefault());
-    send.addEventListener('click', event => { if (!form.reportValidity()) event.preventDefault(); });
-    run();
-    announced = out.textContent;
   }
 
   // language tabs (home summary in EN / BM / 中文)
@@ -517,3 +443,167 @@ function revealLinkedProcess() {
 }
 revealLinkedProcess();
 window.addEventListener('hashchange', revealLinkedProcess);
+
+// Idyra Signal media rails (26 Oct 2026; playback rules from root's prelaunch review, 27 Oct). A card is poster-first:
+// its muted film has no source until it is chosen to play. At most one preview plays at a time: the card the visitor
+// last started with its play control, else the card they hover or focus, else the most visible card once it fills
+// most of its box. Nothing plays in a hidden tab or off screen, however it started; a preview the visitor started
+// resumes when it comes back into view, and one they paused stays paused; after a pause, scrolling no longer starts
+// previews (hover and focus still do). Reduced motion and Save-Data stop every automatic start (hover, focus and
+// scrolling); the play control still works. Every card shows that control.
+(() => {
+  const cards = [...document.querySelectorAll('[data-sg-film]')];
+  if (cards.length) {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const lowData = window.matchMedia('(prefers-reduced-data: reduce)');
+    const saveData = () => !!(navigator.connection && navigator.connection.saveData) || lowData.matches;
+    const tabVisible = () => document.visibilityState !== 'hidden';
+    let measured = false, quiet = false; // measured: visibility data exists; quiet: the visitor paused a preview
+    const autoAllowed = () => measured && !reduced.matches && !saveData() && tabVisible();
+    const label = playing => isBM ? (playing ? 'Jeda pratonton' : 'Mainkan pratonton senyap') : (playing ? 'Pause the preview' : 'Play the muted preview');
+    const videoOf = card => card.querySelector(':scope > .sg-media > video[data-sg-src], :scope > .sg-project-media > video[data-sg-src], :scope > .sg-banner-media > video[data-sg-src]') || card.querySelector('video[data-sg-src]');
+    const state = new Map(cards.map(card => [card, { hover: false, ratio: 0, manual: null, manualAt: 0 }]));
+    let clock = 0;
+    const setPlaying = (card, playing) => {
+      card.classList.toggle('is-playing', playing);
+      const button = card.querySelector('[data-sg-play]');
+      if (button) { button.setAttribute('aria-pressed', String(playing)); button.setAttribute('aria-label', label(playing)); }
+    };
+    const choose = () => {
+      if (!tabVisible()) return null;
+      const visible = cards.filter(card => state.get(card).ratio > 0 && videoOf(card));
+      const started = visible.filter(card => state.get(card).manual === true).sort((a, b) => state.get(b).manualAt - state.get(a).manualAt)[0];
+      if (started) return started;
+      if (!autoAllowed()) return null;
+      const hovered = visible.find(card => state.get(card).hover && state.get(card).manual !== false);
+      if (hovered) return hovered;
+      if (quiet) return null;
+      let best = null, bestRatio = .6;
+      for (const card of visible) { const s = state.get(card); if (s.manual !== false && s.ratio > bestRatio) { best = card; bestRatio = s.ratio; } }
+      return best;
+    };
+    const apply = () => {
+      const active = choose();
+      for (const card of cards) {
+        const video = videoOf(card);
+        if (!video) continue;
+        if (card === active) {
+          if (!video.getAttribute('src')) video.src = video.dataset.sgSrc;
+          const playing = video.play();
+          if (playing) playing.catch(() => setPlaying(card, false));
+        } else {
+          if (!video.paused) video.pause();
+          setPlaying(card, false);
+        }
+      }
+    };
+    for (const card of cards) {
+      const video = videoOf(card), button = card.querySelector('[data-sg-play]'), s = state.get(card);
+      if (!video) continue;
+      video.addEventListener('playing', () => { if (choose() === card) setPlaying(card, true); else video.pause(); });
+      video.addEventListener('pause', () => setPlaying(card, false));
+      card.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { s.hover = true; apply(); } });
+      card.addEventListener('pointerleave', () => { s.hover = false; apply(); });
+      card.addEventListener('focusin', () => { s.hover = true; apply(); });
+      card.addEventListener('focusout', e => { if (!card.contains(e.relatedTarget)) { s.hover = false; apply(); } });
+      if (button) {
+        button.hidden = false; button.setAttribute('aria-label', label(false));
+        button.addEventListener('click', () => {
+          s.manual = !card.classList.contains('is-playing'); s.manualAt = ++clock;
+          if (s.manual) { for (const other of cards) if (other !== card && state.get(other).manual === true) state.get(other).manual = null; }
+          else quiet = true;
+          apply();
+        });
+      }
+    }
+    reduced.addEventListener('change', apply);
+    lowData.addEventListener?.('change', apply);
+    document.addEventListener('visibilitychange', apply);
+    window.addEventListener('pagehide', () => { for (const card of cards) { const video = videoOf(card); if (video && !video.paused) video.pause(); } });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        for (const entry of entries) state.get(entry.target).ratio = entry.isIntersecting ? entry.intersectionRatio : 0;
+        apply();
+      }, { threshold: [0, .01, .25, .5, .6, .75, .9, 1] });
+      afterLoadFrame(() => { measured = true; cards.forEach(card => observer.observe(card)); });
+    } else for (const s of state.values()) s.ratio = 1; // without visibility data, only the play control starts a preview
+  }
+  // Films with their own controls (studio, process and industrial films) never auto-start; once a visitor plays one,
+  // it still pauses when it leaves the screen or the tab is hidden. The visitor resumes it.
+  const controlled = [...document.querySelectorAll('video[controls]')];
+  if (controlled.length) {
+    const pauseAll = () => { if (document.visibilityState === 'hidden') controlled.forEach(video => { if (!video.paused) video.pause(); }); };
+    document.addEventListener('visibilitychange', pauseAll);
+    if ('IntersectionObserver' in window) {
+      const off = new IntersectionObserver(entries => entries.forEach(entry => { if (!entry.isIntersecting && !entry.target.paused) entry.target.pause(); }), { threshold: 0 });
+      controlled.forEach(video => off.observe(video));
+    }
+  }
+  // Mobile hero carousel dots: one per card, following the snapped card.
+  for (const dots of document.querySelectorAll('[data-sg-dots-for]')) {
+    const rail = document.getElementById(dots.dataset.sgDotsFor);
+    if (!rail) continue;
+    const items = [...rail.children];
+    dots.replaceChildren(...items.map(() => document.createElement('span')));
+    const sync = () => {
+      const index = Math.round(rail.scrollLeft / Math.max(1, items[0]?.getBoundingClientRect().width + 12));
+      [...dots.children].forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(index, items.length - 1)));
+    };
+    sync(); rail.addEventListener('scroll', sync, { passive: true }); window.addEventListener('resize', sync);
+  }
+  // Active state for the current route in the top bar and the mobile tab bar.
+  const path = typeof location === 'object' && typeof location?.pathname === 'string' ? location.pathname : '';
+  const here = path.split('/').pop().replace(/^ms-/, '') || 'index.html';
+  for (const a of document.querySelectorAll('.nav a, .sg-tabbar a')) {
+    const target = (a.getAttribute('href') || '').split(/[?#]/)[0].replace(/^ms-/, '');
+    if (target && target === here) a.setAttribute('aria-current', 'page');
+  }
+  // Sub-tab bars on inner pages: the tab whose section is in view is the active one.
+  const tabs = [...document.querySelectorAll('.jump a[href^="#"], .project-nav a[href^="#"], .sp-route a[href^="#"]')];
+  if (tabs.length && 'IntersectionObserver' in window) {
+    const targets = tabs.map(a => document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)))).filter(Boolean);
+    const setActive = id => tabs.forEach(a => { if (a.getAttribute('href') === `#${id}`) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    if (targets[0]) setActive(targets[0].id);
+    const spy = new IntersectionObserver(entries => { const hit = entries.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0]; if (hit) setActive(hit.target.id); }, { rootMargin: '-40% 0px -50% 0px' });
+    targets.forEach(t => spy.observe(t));
+    tabs.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href').slice(1))));
+  }
+  // Live budget estimator: every state is authored in the HTML; this only chooses which to show.
+  for (const est of document.querySelectorAll('[data-estimator]')) {
+    const chips = [...est.querySelectorAll('[data-area]')], range = est.querySelector('[data-area-range]');
+    const num = est.querySelector('[data-area-num]'), units = [...est.querySelectorAll('[data-area-unit]')], unitToggle = est.querySelector('[data-unit-toggle]');
+    const types = [...est.querySelectorAll('input[name$="-type"]')], pkgs = [...est.querySelectorAll('input[name$="-pkg"]')];
+    const reason = est.querySelector('[data-est-reason]'), showroom = pkgs.find(i => i.value === 'showroom');
+    let area = 10000, unit = 'sqft';
+    const fmt = n => n.toLocaleString('en-MY');
+    const readout = () => {
+      const value = unit === 'm2' ? Math.round(area * 0.092903) : area;
+      if (num) num.textContent = fmt(value);
+      for (const u of units) u.hidden = u.dataset.areaUnit !== unit;
+      if (range) range.setAttribute('aria-valuetext', `${fmt(value)} ${unit === 'm2' ? 'm²' : 'sq ft'}`);
+    };
+    const render = () => {
+      const type = types.find(i => i.checked)?.value || 'industrial';
+      const commercial = type === 'commercial';
+      if (showroom) { showroom.disabled = commercial; if (commercial && showroom.checked) { showroom.checked = false; pkgs.find(i => i.value === 'plan-twin').checked = true; } }
+      if (reason) reason.hidden = !commercial;
+      const pkg = pkgs.find(i => i.checked)?.value || 'plan-twin';
+      const band = pkg === 'plan-twin' ? (area <= 25000 ? 'plan-twin-25k' : 'plan-twin-over') : (area <= 25000 ? 'showroom-25k' : area <= 80000 ? 'showroom-80k' : 'showroom-over');
+      for (const el of est.querySelectorAll('[data-est-band]')) el.hidden = el.dataset.estBand !== band;
+      for (const el of est.querySelectorAll('[data-est-includes]')) el.hidden = el.dataset.estIncludes !== pkg;
+      for (const chip of chips) chip.setAttribute('aria-pressed', String(Number(chip.dataset.area) === area));
+      readout();
+    };
+    for (const chip of chips) chip.addEventListener('click', () => { area = Number(chip.dataset.area); if (range) range.value = String(area); render(); });
+    if (range) range.addEventListener('input', () => { area = Number(range.value); render(); });
+    if (unitToggle) unitToggle.addEventListener('click', () => { unit = unit === 'sqft' ? 'm2' : 'sqft'; unitToggle.setAttribute('aria-pressed', String(unit === 'm2')); for (const w of unitToggle.querySelectorAll('[data-when-unit]')) w.hidden = w.dataset.whenUnit !== unit; readout(); });
+    for (const input of [...types, ...pkgs]) input.addEventListener('change', render);
+    render();
+  }
+  // The four-step process line draws itself once seen (CSS keeps it complete with reduced motion).
+  const steps = document.querySelector('[data-sg-steps]');
+  if (steps && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { steps.classList.add('is-seen'); io.disconnect(); } }), { threshold: .3 });
+    io.observe(steps);
+  } else if (steps) steps.classList.add('is-seen');
+})();

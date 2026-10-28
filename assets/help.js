@@ -40,8 +40,8 @@ export function matchHelpQuestion(question, topics = [], limit = 3) {
 
 const language = value => /^(ms|bm)(?:-|$)/i.test(value || '') ? 'ms' : 'en';
 const BOOT = {
-  en: { title: 'Idyra Help', close: 'Close help', loading: 'Loading published answers…', error: "The answers couldn't be loaded. You can still contact our team.", retry: 'Try loading again', contact: 'Contact Idyra', whatsapp: 'Ask our team on WhatsApp', reply: 'Our team personally reviews enquiries and replies the same working day.' },
-  ms: { title: 'Bantuan Idyra', close: 'Tutup bantuan', loading: 'Memuatkan jawapan yang diterbitkan…', error: 'Jawapan tidak dapat dimuatkan. Anda masih boleh menghubungi pasukan kami.', retry: 'Cuba muatkan semula', contact: 'Hubungi Idyra', whatsapp: 'Tanya pasukan kami di WhatsApp', reply: 'Pasukan kami menyemak sendiri pertanyaan dan membalas pada hari bekerja yang sama.' },
+  en: { title: 'Idyra Help', close: 'Close help', loading: 'Loading published answers…', error: "The answers couldn't be loaded. You can still contact our team.", retry: 'Try loading again', contact: 'Contact Idyra', brief: 'Start a project brief', email: 'Email hello@idyra.ai', reply: 'Invited preview: sending a brief needs an invited account. Anyone can email us.' },
+  ms: { title: 'Bantuan Idyra', close: 'Tutup bantuan', loading: 'Memuatkan jawapan yang diterbitkan…', error: 'Jawapan tidak dapat dimuatkan. Anda masih boleh menghubungi pasukan kami.', retry: 'Cuba muatkan semula', contact: 'Hubungi Idyra', brief: 'Mulakan ringkasan projek', email: 'E-mel hello@idyra.ai', reply: 'Pratonton jemputan: menghantar ringkasan memerlukan akaun jemputan. Sesiapa sahaja boleh menghantar e-mel kepada kami.' },
 };
 
 function mountHelp() {
@@ -97,10 +97,11 @@ function mountHelp() {
   contents.append(form, answer, relatedBox, topicsTitle, topicButtons);
   body.append(intro, status, retry, contents);
   const footer = el('div', 'idyra-help-footer');
-  const wa = el('a', 'idyra-help-wa'); wa.target = '_blank'; wa.rel = 'noopener noreferrer';
+  const brief = el('a', 'idyra-help-action idyra-help-brief'); brief.target = '_blank'; brief.rel = 'noopener noreferrer';
+  const email = el('a', 'idyra-help-email');
   const reply = el('p', 'idyra-help-reply');
   const handoffNote = el('p', 'idyra-help-note');
-  footer.append(wa, reply, handoffNote);
+  footer.append(brief, email, reply, handoffNote);
   panel.append(header, body, footer); root.append(launcher, panel); document.body.append(root);
 
   // On phones/tablets the launcher occupies its own header row, so it cannot cover demo or page controls.
@@ -108,7 +109,8 @@ function mountHelp() {
   const mobileLauncher = matchMedia('(max-width: 800px)');
   function placeLauncher() {
     const top = document.querySelector('.top');
-    const inHeader = mobileLauncher.matches && !!top;
+    // With the Signal bottom tab bar (26 Oct 2026) the launcher floats above the bar instead; it never covers content.
+    const inHeader = mobileLauncher.matches && !!top && !document.querySelector('.sg-tabbar');
     const target = inHeader ? top : root;
     const hadFocus = document.activeElement === launcher;
     launcher.classList.toggle('idyra-help-launcher--header', inHeader);
@@ -128,13 +130,13 @@ function mountHelp() {
     try { const u = new URL(value, document.baseURI); return u.origin === location.origin && /^https?:$/.test(u.protocol) ? u.href : null; }
     catch { return null; }
   };
+  // The brief route comes only from the reviewed dataset (the app's Create route); without it, the contact page.
+  const BRIEF = 'https://idyra-industrial-pilot.onrender.com/#/studio';
   function handoff() {
-    if (data) return `https://wa.me/${data.whatsappNumber}?text=${encodeURIComponent(data.handoff[lang])}`;
-    // If the dataset fails, reuse only the number from a reviewed existing page link, never visitor text.
-    const existing = [...document.querySelectorAll('a[href]')].find(a => /^https:\/\/wa\.me\/\d{8,15}(?:\?|$)/.test(a.href));
-    if (existing) return `https://wa.me/${new URL(existing.href).pathname.slice(1)}`;
+    if (data && data.briefUrl === BRIEF) return BRIEF;
     return lang === 'ms' ? 'ms-contact.html' : 'contact.html';
   }
+  const mailbox = () => data && /^[^\s@<>"]+@idyra\.ai$/.test(data.email || '') ? data.email : 'hello@idyra.ai';
   function topicButton(topic) {
     const b = button('idyra-help-topic', topic[lang].title);
     b.dataset.helpTopic = topic.id;
@@ -150,7 +152,8 @@ function mountHelp() {
     status.textContent = failed ? text('error') : loading ? text('loading') : text(statusKey);
     status.hidden = !status.textContent;
     retry.textContent = text('retry'); retry.hidden = !failed;
-    wa.href = handoff(); wa.textContent = text(/^https:\/\/wa\.me\//.test(wa.href) ? 'whatsapp' : 'contact');
+    brief.href = handoff(); brief.textContent = text(brief.href === BRIEF ? 'brief' : 'contact');
+    email.href = `mailto:${mailbox()}`; email.textContent = text('email');
     reply.textContent = text('reply');
     handoffNote.textContent = data ? text('handoffNote') : ''; handoffNote.hidden = !data;
     contents.hidden = !data;
@@ -175,11 +178,11 @@ function mountHelp() {
     if (activeTopic) [...topicButtons.children, ...relatedButtons.children].find(b => b.dataset.helpTopic === activeTopic)?.focus({ preventScroll: true });
   }
   function validate(value) {
-    if (value?.schemaVersion !== 1 || !/^\d{8,15}$/.test(value.whatsappNumber || '') || !Array.isArray(value.topics) || !value.topics.length || /\{\{[^}]*\}\}/.test(JSON.stringify(value))) throw new Error('Invalid help data');
-    const keys = ['title', 'intro', 'topics', 'question', 'placeholder', 'ask', 'privacy', 'suggested', 'matched', 'noMatch', 'empty', 'readMore', 'whatsapp', 'reply', 'handoffNote', 'close', 'loading', 'error', 'retry', 'contact'];
+    if (value?.schemaVersion !== 1 || value.briefUrl !== BRIEF || !/^[^\s@<>"]+@idyra\.ai$/.test(value.email || '') || !Array.isArray(value.topics) || !value.topics.length || /\{\{[^}]*\}\}/.test(JSON.stringify(value))) throw new Error('Invalid help data');
+    const keys = ['title', 'intro', 'topics', 'question', 'placeholder', 'ask', 'privacy', 'suggested', 'matched', 'noMatch', 'empty', 'readMore', 'brief', 'email', 'reply', 'handoffNote', 'close', 'loading', 'error', 'retry', 'contact'];
     const ids = new Set();
     for (const l of ['en', 'ms']) {
-      if (typeof value.handoff?.[l] !== 'string' || !keys.every(k => typeof value.ui?.[l]?.[k] === 'string')) throw new Error('Missing translation');
+      if (!keys.every(k => typeof value.ui?.[l]?.[k] === 'string')) throw new Error('Missing translation');
       for (const topic of value.topics) if (typeof topic[l]?.title !== 'string' || !Array.isArray(topic[l]?.answer) || !topic[l].answer.every(p => typeof p === 'string') || !safeLocalLink(topic[l]?.href)) throw new Error('Invalid topic');
     }
     for (const topic of value.topics) {

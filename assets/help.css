@@ -47,8 +47,8 @@
 .idyra-help-source { display: inline-block; padding-block: 7px; color: #ffbd91; text-decoration: underline; text-underline-offset: 3px; font-size: 12px !important; }
 .idyra-help-related { margin-bottom: 18px; }
 .idyra-help-footer { flex: 0 0 auto; padding: 13px 16px 16px; border-top: 1px solid #50483d; background: #211e19; }
-.idyra-help-wa { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 13px; border: 1px solid #57b878; border-radius: 7px; color: #fff !important; background: #176d38; font-size: 13px !important; font-weight: 650; line-height: 1.3; text-align: center; text-decoration: none; }
-.idyra-help-wa:hover { background: #207f44; }
+.idyra-help-action { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 13px; border: 1px solid #57b878; border-radius: 7px; color: #fff !important; background: #176d38; font-size: 13px !important; font-weight: 650; line-height: 1.3; text-align: center; text-decoration: none; }
+.idyra-help-action:hover { background: #207f44; }
 .idyra-help-reply { margin-top: 9px !important; color: #e0d4c6; font-size: 12px; }
 .idyra-help-footer .idyra-help-note { margin-top: 6px; }
 @media (max-width: 800px) {
@@ -69,5 +69,10 @@
   .idyra-help-footer { padding-block: 9px; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .idyra-help-launcher, .idyra-help button, .idyra-help-wa { transition: background-color .15s, border-color .15s; }
+  .idyra-help-launcher, .idyra-help button, .idyra-help-action { transition: background-color .15s, border-color .15s; }
 }
+/* Prelaunch (27 Oct 2026): the handoff is the project-brief route (Idyra red, the primary action), plus the live mailbox. */
+.idyra-help-brief { border-color: #FF4F45; color: #1A1A1A !important; background: #FF4F45; }
+.idyra-help-brief:hover { background: #FF6B62; }
+.idyra-help-email { display: block; margin-top: 8px; text-align: center; color: #f2e9de !important; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.idyra-help-email:focus-visible, .idyra-help-brief:focus-visible { outline: 3px solid #FF4F45; outline-offset: 2px; }

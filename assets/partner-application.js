@@ -1,17 +1,17 @@
-// Prepared WhatsApp interest or verified private intake. No storage or transmission
-// happens on page load, and a WhatsApp draft is never reported as an application.
+// Verified private intake, or (if the intake is off) an email draft the visitor sends themselves. No storage or
+// transmission happens on page load, and an email draft is never reported as an application.
 const form = document.querySelector('[data-partner-application]');
 if (form) {
   const bm = document.documentElement.lang.toLowerCase().startsWith('ms');
   const copy = bm ? {
-    prepare: 'Sediakan permohonan WhatsApp', continue: 'Teruskan dengan selamat', send: 'Hantar permohonan', saving: 'Menyimpan permohonan…',
+    prepare: 'Sediakan permohonan e-mel', continue: 'Teruskan dengan selamat', send: 'Hantar permohonan', saving: 'Menyimpan permohonan…',
     focus: 'Pilih sekurang-kurangnya satu jenis ruang.', invalid: 'Semak medan yang ditandakan sebelum meneruskan.',
-    prepared: 'Draf sedia untuk disemak. Belum dihantar atau disimpan oleh Idyra. Buka WhatsApp, semak mesej dan tekan Hantar di sana.',
+    prepared: 'Draf sedia untuk disemak. Belum dihantar atau disimpan oleh Idyra. Buka aplikasi e-mel anda, semak mesej dan tekan Hantar di sana.',
     ready: 'Pengesahan selesai. Tekan Hantar permohonan untuk menghantar maklumat anda.',
     verify: 'Lengkapkan pengesahan keselamatan di bawah sebelum menghantar.',
-    verifyFailed: 'Pengesahan tidak dapat diselesaikan. Cuba lagi atau hubungi kami melalui WhatsApp.',
-    unavailable: 'Simpanan belum disahkan. Maklumat anda kekal dalam borang ini. Cuba lagi atau gunakan pautan WhatsApp di bawah.',
-    limited: 'Terlalu banyak percubaan. Sila tunggu sebelum mencuba lagi, atau hubungi kami melalui WhatsApp.',
+    verifyFailed: 'Pengesahan tidak dapat diselesaikan. Cuba lagi atau hantar e-mel kepada kami di hello@idyra.ai.',
+    unavailable: 'Simpanan belum disahkan. Maklumat anda kekal dalam borang ini. Cuba lagi atau gunakan pautan e-mel di bawah.',
+    limited: 'Terlalu banyak percubaan. Sila tunggu sebelum mencuba lagi, atau hantar e-mel kepada kami di hello@idyra.ai.',
     received: 'Permohonan diterima. Rujukan: ', receivedNote: ' Kami akan menghubungi anda tentang minat anda. Ini bukan pengesahan pelantikan atau terma komisen.',
     draftTitle: 'Hai Idyra, saya berminat dengan program rakan kongsi perintis.',
     labels: { name: 'Nama', email: 'E-mel', phone: 'Telefon', city: 'Kawasan', focus: 'Jenis ruang', language: 'Bahasa pilihan', message: 'Pengenalan' },
@@ -19,14 +19,14 @@ if (form) {
     languages: { ms: 'Bahasa Melayu', en: 'Bahasa Inggeris', both: 'Bahasa Melayu dan Inggeris' },
     permission: 'Saya bersetuju Idyra menghubungi saya tentang minat ini. Saya faham terma program perlu dipersetujui secara berasingan.',
   } : {
-    prepare: 'Prepare WhatsApp application', continue: 'Continue securely', send: 'Send application', saving: 'Saving application…',
+    prepare: 'Prepare email application', continue: 'Continue securely', send: 'Send application', saving: 'Saving application…',
     focus: 'Choose at least one kind of space.', invalid: 'Check the highlighted fields before continuing.',
-    prepared: 'Your draft is ready to review. It has not been sent or saved by Idyra. Open WhatsApp, review the message and press Send there.',
+    prepared: 'Your draft is ready to review. It has not been sent or saved by Idyra. Open your email app, review the message and press Send there.',
     ready: 'Verification complete. Press Send application to send your details.',
     verify: 'Complete the security check below before sending.',
-    verifyFailed: 'The security check could not finish. Try again or contact us through WhatsApp.',
-    unavailable: 'The save has not been confirmed. Your details remain in this form. Try again or use the WhatsApp link below.',
-    limited: 'There have been too many attempts. Please wait before trying again, or contact us through WhatsApp.',
+    verifyFailed: 'The security check could not finish. Try again or email us at hello@idyra.ai.',
+    unavailable: 'The save has not been confirmed. Your details remain in this form. Try again or use the email link below.',
+    limited: 'There have been too many attempts. Please wait before trying again, or email us at hello@idyra.ai.',
     received: 'Application received. Reference: ', receivedNote: ' We will contact you about your interest. This is not confirmation of appointment or commission terms.',
     draftTitle: 'Hi Idyra, I am interested in the referral partner pilot.',
     labels: { name: 'Name', email: 'Email', phone: 'Phone', city: 'Area', focus: 'Spaces', language: 'Preferred language', message: 'Introduction' },
@@ -79,7 +79,7 @@ if (form) {
     for (const element of form.elements) element.setCustomValidity?.('');
     if (!draft.hidden) { draft.hidden = true; panel.querySelector('[data-pa-send]').removeAttribute('href'); }
   });
-  function prepareWhatsApp(data) {
+  function prepareEmail(data) {
     const rows = [copy.draftTitle, ''];
     for (const key of ['name', 'email', 'phone', 'city', 'focus', 'language', 'message']) {
       const value = key === 'focus' ? data.focus.map(v => copy.sectors[v]).join(', ') : key === 'language' ? copy.languages[data[key]] : data[key];
@@ -88,7 +88,7 @@ if (form) {
     rows.push('', copy.permission);
     const text = rows.join('\n');
     panel.querySelector('[data-pa-preview]').value = text;
-    panel.querySelector('[data-pa-send]').href = `https://wa.me/${form.dataset.paWa}?text=${encodeURIComponent(text)}`;
+    panel.querySelector('[data-pa-send]').href = `mailto:${form.dataset.paEmail}?subject=${encodeURIComponent(copy.draftTitle)}&body=${encodeURIComponent(text)}`;
     draft.hidden = false;
     announce(copy.prepared, false, true);
   }
@@ -124,7 +124,7 @@ if (form) {
     if (sending) return;
     const data = values();
     if (!valid(data)) return;
-    if (!api) { prepareWhatsApp(data); return; }
+    if (!api) { prepareEmail(data); return; }
     if (Date.now() < retryUntil) { announce(copy.limited, true, true); return; }
     if (!token) { await ensureChallenge(); return; }
     if (!crypto.randomUUID) { announce(copy.unavailable, true, true); return; }
