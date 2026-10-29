@@ -1,0 +1,8 @@
+/* Isolated chrome adaptation for the historical model document, without editing its scene or bundle. */
+:root[data-idyra-typography="viewer"] { --display: var(--idyra-font); --body: var(--idyra-font); --mono: var(--idyra-font); }
+[data-idyra-typography="viewer"] body { font-family: var(--idyra-font); font-size: 14px; line-height: 20px; }
+[data-idyra-typography="viewer"] :is(.tb-no,.tb-desc,.tb-grid dt,.panel-h,.place-zone,.pl-group,.sel-group,.caption small,.measure-label small,.ld-figs,.ld-step,.idy-prov) { font-family: var(--idyra-font); font-size: 12px; line-height: 18px; letter-spacing: 0; }
+[data-idyra-typography="viewer"] :is(.seg-b,.mode,.sheet-tabs button,.export,.place,.layer) { font-family: var(--idyra-font); font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0; text-transform: none; white-space: normal; }
+[data-idyra-typography="viewer"] :is(input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea) { font: 400 16px/24px var(--idyra-font); }
+[data-idyra-typography="viewer"] :is(code,pre,kbd) { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+@media(max-width:800px) { [data-idyra-typography="viewer"] :is(.seg-b,.mode,.sheet-tabs button) { min-height: 44px; } }

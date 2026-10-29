@@ -8,9 +8,9 @@
 .brand-illustration .pill,.hero-illustration .pill {background:transparent;color:var(--muted);border-color:var(--line-strong)}
 .space-card > figure {margin:0 0 22px;display:block;gap:0}
 .space-card > figure img {width:100%;aspect-ratio:1.55;object-fit:cover;border-radius:12px}
-.space-card > figure figcaption {display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:11px;line-height:1.5;margin-top:10px;padding:0}
+.space-card > figure figcaption {display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:12px;line-height:18px;margin-top:10px;padding:0}
 .space-card > figure figcaption>span:not(.pill) {display:none}
-.space-card > figure .pill {font-size:11px;color:var(--muted);border-color:var(--line);background:transparent;white-space:normal}
+.space-card > figure .pill {font-size:12px;color:var(--muted);border-color:var(--line);background:transparent;white-space:normal}
 .space-card > figure .fig-media {margin:0;border:0;overflow:hidden;border-radius:12px}
 .space-card > figure .fig-media >.pill {background:#153d35e8;color:#fffdf8;max-width:calc(100% - 20px)}
 .delivery-timeline {padding-block:0 54px}

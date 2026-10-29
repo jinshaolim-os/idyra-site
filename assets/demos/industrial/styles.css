@@ -7,7 +7,7 @@
   --terra: #b85c38;
   --soft: #e7e1d4;
   color-scheme: light;
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: var(--idyra-font);
   color: var(--ink);
   background: var(--cream);
 }
@@ -35,12 +35,12 @@ a { color: inherit; }
 button[aria-pressed="true"] { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 .intro { display: flex; justify-content: space-between; gap: 24px; align-items: end; padding: 8px 0 18px; }
 .eyebrow { margin: 0 0 8px; letter-spacing: 0.16em; font-size: 0.72rem; }
-h1, h2, h3 { font-family: Palatino, "Palatino Linotype", Georgia, serif; font-weight: 500; letter-spacing: -0.03em; }
-h1 { margin: 0; font-size: clamp(2.6rem, 5vw, 4.4rem); line-height: 0.95; }
+h1, h2, h3 { font-family: var(--idyra-font); font-weight:600; letter-spacing:-.025em; }
+h1 { margin: 0; font-size:var(--type-page); line-height:var(--type-page-leading); }
 h1 em { font-style: italic; color: var(--terra); }
-.lede { max-width: 40rem; font-size: 1.05rem; line-height: 1.45; color: var(--muted); }
+.lede { max-width: 40rem; font-size:16px; line-height:24px; color: var(--muted); }
 .dimensions { display: flex; gap: 18px; align-items: end; }
-.dimensions strong { font-family: Palatino, Georgia, serif; font-size: 2.4rem; font-weight: 500; }
+.dimensions strong { font-family: var(--idyra-font); font-size: 2.4rem; font-weight: 500; }
 .area-split small { display: block; }
 .studio { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start; }
 .viewport {
@@ -67,7 +67,7 @@ h1 em { font-style: italic; color: var(--terra); }
   line-height: 1.25;
 }
 .view-name {
-  padding: 2px 8px 3px; font-family: Palatino, Georgia, serif; font-size: 1.35rem;
+  padding: 2px 8px 3px; font-family: var(--idyra-font); font-size: 1.35rem;
 }
 .model-disclosure { padding: 3px 8px; font-size: 0.75rem; }
 .loading, .fallback {
@@ -112,7 +112,7 @@ h1 em { font-style: italic; color: var(--terra); }
 .gesture { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 0.85rem; }
 .gesture svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.4; flex: none; }
 .controls { width: 280px; background: var(--paper); border: 1px solid var(--line); padding: 14px; }
-.controls h2 { margin: 0 0 12px; font-size: 1.55rem; line-height: 1.1; }
+.controls h2 { margin: 0 0 12px; font-size:var(--type-section); line-height:var(--type-section-line); }
 details { border-top: 1px solid var(--line); padding: 8px 0; }
 details summary { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; letter-spacing: 0.08em; font-size: 0.78rem; list-style: none; }
 details summary::-webkit-details-marker { display: none; }
@@ -126,7 +126,7 @@ details[open] summary::after { transform: translateY(2px) rotate(225deg); }
 .control-block { border-top: 1px solid var(--line); padding: 8px 0 12px; }
 .control-block h3 {
   margin: 0 0 8px; min-height: 44px; display: flex; align-items: center;
-  letter-spacing: 0.08em; font-family: "Avenir Next", "Segoe UI", sans-serif;
+  letter-spacing: 0.08em; font-family: var(--idyra-font);
   font-size: 0.78rem; font-weight: 600;
 }
 .choice, .zones { display: grid; gap: 8px; }
@@ -156,7 +156,7 @@ details[open] summary::after { transform: translateY(2px) rotate(225deg); }
 .detail-cards article, .facts dl div { border-top: 1px solid var(--line); padding-top: 10px; }
 .facts dl { margin: 0; }
 .facts dt { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.facts dd { margin: 4px 0 0; font-family: Palatino, Georgia, serif; font-size: 1.2rem; }
+.facts dd { margin: 4px 0 0; font-family: var(--idyra-font); font-size: 1.2rem; }
 .cta, .solid { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; background: var(--ink); color: var(--cream); text-decoration: none; border: 0; }
 .limits { color: var(--muted); line-height: 1.5; }
 .facts a { display: inline-flex; min-height: 44px; align-items: center; margin-right: 16px; }
@@ -181,7 +181,7 @@ dialog::backdrop { background: rgba(21, 61, 53, 0.35); }
   .dimensions { width: 100%; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; }
   .area-total, .area-split { white-space: nowrap; }
   .dimensions strong { font-size: 1.85rem; }
-  h1 { font-size: clamp(2.15rem, 9vw, 3.1rem); }
+  h1 { font-size:var(--type-page); }
 }
 @media (prefers-reduced-motion: reduce) {
   .loader { animation: none; }
@@ -195,7 +195,7 @@ dialog::backdrop { background: rgba(21, 61, 53, 0.35); }
 .brand, .wordmark { color: #f4f2ee; }
 .brand svg { color: #B85A58; }
 .brand .brand-dimension { width: 28px; height: 28px; flex: none; }
-h1, h2, h3, .dimensions strong, .facts dd, .view-name { font-family: "Avenir Next", "Segoe UI", sans-serif; }
+h1, h2, h3, .dimensions strong, .facts dd, .view-name { font-family: var(--idyra-font); }
 h1 em { font-style: normal; }
 :focus-visible, .toggle input:focus-visible + .toggle-ui { outline-color: #f4f2ee; }
 button[aria-pressed="true"], .cta, .solid { background: #B85A58; color: #000; border-color: #B85A58; }
@@ -213,3 +213,10 @@ button[aria-pressed="true"], .cta, .solid { background: #B85A58; color: #000; bo
 dialog { background: #101010; color: #f4f2ee; border-color: #565656; }
 dialog::backdrop { background: rgb(0 0 0 / .78); }
 .noscript { background: #181818; color: #f4f2ee; }
+
+/* Shared Inter roles for the interactive demo chrome; scene geometry is unchanged. */
+body{font-family:var(--idyra-font);font-size:16px;line-height:24px}
+h1,h2,h3{font-family:var(--idyra-font);font-weight:600;letter-spacing:-.025em;overflow-wrap:break-word;text-transform:none}
+h1 em{font-style:normal}
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),select,textarea{font:400 16px/24px var(--idyra-font)}
+@media(max-width:800px){.cta,.solid,.minor-actions button,.view{min-height:44px}}
