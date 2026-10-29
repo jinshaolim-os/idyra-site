@@ -72,7 +72,8 @@ function mountHelp() {
   const root = el('div', 'idyra-help'); root.id = 'idyra-help';
   const launcher = button('idyra-help-launcher');
   launcher.setAttribute('aria-haspopup', 'dialog'); launcher.setAttribute('aria-controls', 'idyra-help-panel'); launcher.setAttribute('aria-expanded', 'false');
-  const mark = el('span', 'idyra-help-mark', '?'); mark.setAttribute('aria-hidden', 'true');
+  const mark = el('span', 'idyra-help-mark'); mark.setAttribute('aria-hidden', 'true');
+  const markImage = el('img'); markImage.src = new URL('./brand-icon-32.png', import.meta.url).href; markImage.alt = ''; markImage.width = 23; markImage.height = 23; mark.append(markImage);
   const launchLabel = el('span'); launcher.append(mark, launchLabel);
   const panel = el('dialog', 'idyra-help-panel'); panel.id = 'idyra-help-panel';
   panel.setAttribute('aria-labelledby', 'idyra-help-title'); panel.setAttribute('aria-modal', 'true');

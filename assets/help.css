@@ -14,6 +14,7 @@
 .idyra-help-launcher, .idyra-help-launcher * { box-sizing: border-box; }
 .idyra-help-launcher:hover { background: #383028; border-color: #b4a595; }
 .idyra-help-mark { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid #bc9b80; border-radius: 50%; color: #ffbd91; font-weight: 700; }
+.idyra-help-mark img { display: block; width: 23px; height: 23px; border-radius: inherit; }
 .idyra-help-panel {
   position: fixed; inset: auto max(18px, env(safe-area-inset-right)) calc(var(--idyra-help-bottom) + env(safe-area-inset-bottom, 0px)) auto;
   margin: 0; padding: 0; width: 410px; max-width: calc(100vw - 24px); max-height: min(760px, calc(100dvh - 48px));

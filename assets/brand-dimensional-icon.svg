@@ -1,37 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Idyra">
-  <title>Idyra</title>
-  <rect width="512" height="512" fill="#000000"/>
-  <g transform="translate(6 16) scale(10)">
-    <g fill="#512529" transform="translate(1.9 2.1)">
-      <path d="M5 15 23 4l20 11-10 6-10-6-8 5v22L5 36Z"/>
-      <path d="m33 23 10-6v19l-10 6Z"/>
-      <path d="m18 22 6-4 6 4v15l-6 4-6-4Z"/>
-    </g>
-    <g>
-      <polygon points="43,15 33,21 34.9,23.1 44.9,17.1" fill="#6B3034"/>
-      <polygon points="33,21 23,15 24.9,17.1 34.9,23.1" fill="#843E41"/>
-      <polygon points="23,15 15,20 16.9,22.1 24.9,17.1" fill="#6B3034"/>
-      <polygon points="15,20 15,42 16.9,44.1 16.9,22.1" fill="#6B3034"/>
-      <polygon points="15,42 5,36 6.9,38.1 16.9,44.1" fill="#843E41"/>
-      <polygon points="43,17 43,36 44.9,38.1 44.9,19.1" fill="#6B3034"/>
-      <polygon points="43,36 33,42 34.9,44.1 44.9,38.1" fill="#6B3034"/>
-      <polygon points="30,22 30,37 31.9,39.1 31.9,24.1" fill="#6B3034"/>
-      <polygon points="30,37 24,41 25.9,43.1 31.9,39.1" fill="#6B3034"/>
-      <polygon points="24,41 18,37 19.9,39.1 25.9,43.1" fill="#843E41"/>
-    </g>
-    <g fill="#B85A58">
-      <path d="M5 15 23 4l20 11-10 6-10-6-8 5v22L5 36Z"/>
-      <path d="m33 23 10-6v19l-10 6Z"/>
-      <path d="m18 22 6-4 6 4v15l-6 4-6-4Z"/>
-    </g>
-    <polygon points="5,15 23,4 43,15 33,21 23,15 15,20" fill="#C46D68"/>
-    <polygon points="33,23 43,17 43,36 33,42" fill="#AA4F51"/>
-    <polygon points="18,22 24,18 30,22 24,26" fill="#C97871"/>
-    <polygon points="24,26 30,22 30,37 24,41" fill="#A94E51"/>
-    <g fill="none" stroke="#DE978E" stroke-width=".2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="5.16,15.07 23,4.16 42.65,15"/>
-      <polyline points="18.17,22 24,18.16 29.68,21.94"/>
-      <line x1="5.14" y1="15.35" x2="5.14" y2="35.86"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Idyra Merchant — Folded Portal"><title>Idyra Merchant — Folded Portal</title><path fill="#0F1113" d="M0 0H512V512H0Z"/><g transform="translate(-43 -43) scale(1.17)"><defs>
+ <linearGradient id="face" x1=".04" y1=".05" x2=".96" y2=".9"><stop stop-color="#F7F3EB"/><stop offset=".34" stop-color="#D9D2C6"/><stop offset=".67" stop-color="#B6ADA0"/><stop offset="1" stop-color="#E1D9CB"/></linearGradient>
+ <linearGradient id="side" x1="0" x2="1"><stop stop-color="#9B9286"/><stop offset="1" stop-color="#4B4843"/></linearGradient>
+ <linearGradient id="well" x1="0" x2="1"><stop stop-color="#512624"/><stop offset=".45" stop-color="#171616"/><stop offset="1" stop-color="#0F1113"/></linearGradient>
+ <linearGradient id="fold" x1="0" x2="1"><stop stop-color="#EAE4D9"/><stop offset=".46" stop-color="#BEB3A4"/><stop offset="1" stop-color="#8D8070"/></linearGradient>
+ <linearGradient id="edge" x1="0" x2="1"><stop stop-color="#EEBAB1"/><stop offset=".35" stop-color="#B85A58"/><stop offset="1" stop-color="#512624"/></linearGradient>
+ </defs>
+ <path fill="#060707" opacity=".3" d="M121 389L357 421L387 402L145 371Z"/>
+ <path fill="url(#side)" d="M359 74L381 90V397L359 414Z"/>
+ <path fill="#E1DACC" d="M119 112L141 105L381 90L359 74Z"/>
+ <path fill="url(#well)" d="M213 146L306 131V359L213 348Z"/>
+ <path fill="url(#face)" fill-rule="evenodd" d="M119 112L359 74V414L119 385Z M219 151V342L298 351V139Z"/>
+ <path fill="none" stroke="#FFF9EB" stroke-opacity=".53" stroke-width="2" d="M120 384V113L358 75"/>
+ <path fill="none" stroke="#7C7163" stroke-width="2" d="M359 75V414L119 385"/>
+ <path fill="url(#edge)" d="M219 151L237 148V344L219 342Z"/>
+ <path fill="#B85A58" opacity=".82" d="M294 140L298 139V351L294 350Z"/>
+ <path fill="#554B40" d="M188 137L197 136L225 149L219 151Z"/>
+ <path fill="url(#fold)" d="M188 137L219 151V342L188 328Z"/>
+ <path fill="none" stroke="#F4EBDD" stroke-width="2" d="M188 327V137L218 151"/>
+ <path fill="#EEBAB1" d="M217 152L220 151V342L217 341Z"/>
+ <path fill="#83776A" d="M188 328L219 342L225 341L193 326Z"/></g></svg>
