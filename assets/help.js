@@ -38,7 +38,14 @@ export function matchHelpQuestion(question, topics = [], limit = 3) {
     .slice(0, Math.max(0, Math.min(3, limit))).map(({ id, score }) => ({ id, score }));
 }
 
-const language = value => /^(ms|bm)(?:-|$)/i.test(value || '') ? 'ms' : 'en';
+// English-only public presentation; both authored answer catalogues remain in source.
+const PUBLIC_ENGLISH_ONLY = true;
+const language = value => PUBLIC_ENGLISH_ONLY ? 'en' : /^(ms|bm)(?:-|$)/i.test(value || '') ? 'ms' : 'en';
+const BRIEF = 'https://idyra-industrial-pilot.onrender.com/#/studio';
+export function helpBriefHref(data, lang) {
+  if (data?.briefUrl === BRIEF) return `https://idyra-industrial-pilot.onrender.com/?lang=${language(lang) === 'ms' ? 'bm' : 'en'}#/studio`;
+  return language(lang) === 'ms' ? 'ms-contact.html' : 'contact.html';
+}
 const BOOT = {
   en: { title: 'Idyra Help', close: 'Close help', loading: 'Loading published answers…', error: "The answers couldn't be loaded. You can still contact our team.", retry: 'Try loading again', contact: 'Contact Idyra', brief: 'Start a project brief', email: 'Email hello@idyra.ai', reply: 'Invited preview: sending a brief needs an invited account. Anyone can email us.' },
   ms: { title: 'Bantuan Idyra', close: 'Tutup bantuan', loading: 'Memuatkan jawapan yang diterbitkan…', error: 'Jawapan tidak dapat dimuatkan. Anda masih boleh menghubungi pasukan kami.', retry: 'Cuba muatkan semula', contact: 'Hubungi Idyra', brief: 'Mulakan ringkasan projek', email: 'E-mel hello@idyra.ai', reply: 'Pratonton jemputan: menghantar ringkasan memerlukan akaun jemputan. Sesiapa sahaja boleh menghantar e-mel kepada kami.' },
@@ -131,11 +138,7 @@ function mountHelp() {
     catch { return null; }
   };
   // The brief route comes only from the reviewed dataset (the app's Create route); without it, the contact page.
-  const BRIEF = 'https://idyra-industrial-pilot.onrender.com/#/studio';
-  function handoff() {
-    if (data && data.briefUrl === BRIEF) return BRIEF;
-    return lang === 'ms' ? 'ms-contact.html' : 'contact.html';
-  }
+  function handoff() { return helpBriefHref(data, lang); }
   const mailbox = () => data && /^[^\s@<>"]+@idyra\.ai$/.test(data.email || '') ? data.email : 'hello@idyra.ai';
   function topicButton(topic) {
     const b = button('idyra-help-topic', topic[lang].title);
@@ -152,7 +155,7 @@ function mountHelp() {
     status.textContent = failed ? text('error') : loading ? text('loading') : text(statusKey);
     status.hidden = !status.textContent;
     retry.textContent = text('retry'); retry.hidden = !failed;
-    brief.href = handoff(); brief.textContent = text(brief.href === BRIEF ? 'brief' : 'contact');
+    brief.href = handoff(); brief.textContent = text(data?.briefUrl === BRIEF ? 'brief' : 'contact');
     email.href = `mailto:${mailbox()}`; email.textContent = text('email');
     reply.textContent = text('reply');
     handoffNote.textContent = data ? text('handoffNote') : ''; handoffNote.hidden = !data;

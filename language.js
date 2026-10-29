@@ -1,33 +1,16 @@
-// Language preference only. No analytics, geolocation or network lookup.
+// Founder direction: English-only public experience. Legacy aliases preserve their destination.
+// Translation catalogues remain in source; no browser language or saved choice switches the public UI.
 (() => {
-  const links = [...document.querySelectorAll('[data-site-language]')];
-  if (!links.length) return;
-  const current = document.documentElement.lang === 'ms' ? 'ms' : 'en';
-  const key = 'idyra.language';
-  const valid = value => ['en', 'ms'].includes(value) ? value : null;
-  const remember = value => { try { localStorage.setItem(key, value); } catch {} };
+  document.documentElement.lang = 'en';
   const url = new URL(location.href);
-  const explicit = valid(url.searchParams.get('lang'));
-  let saved = null;
-  try { saved = valid(localStorage.getItem(key)); } catch {}
-  // A direct BM page or explicit language link takes priority over a saved preference.
-  const preferred = explicit || (current === 'ms' ? 'ms' : saved) || (/^ms\b/i.test(navigator.language || '') ? 'ms' : 'en');
-  if (explicit || current === 'ms') remember(preferred);
-  const targetFor = lang => {
-    const link = links.find(link => link.dataset.siteLanguage === lang);
-    if (!link) return null;
-    const target = new URL(link.href);
-    for (const [name, value] of url.searchParams) if (name !== 'lang') target.searchParams.set(name, value);
-    target.hash = url.hash;
-    return target;
-  };
-  for (const link of links) {
-    const target = targetFor(link.dataset.siteLanguage);
-    if (target) link.href = target.href;
-    link.addEventListener('click', () => remember(link.dataset.siteLanguage));
-  }
-  if (preferred !== current) {
-    const target = targetFor(preferred);
-    if (target && target.origin === location.origin) location.replace(target.href);
+  const previous = url.href;
+  const demo = /\/assets\/demos\/(?:home|merchant|industrial)\/index\.html$/.test(url.pathname);
+  url.pathname = url.pathname.replace(/\/ms-([^/]+\.html)$/, '/$1').replace(/\/privasi\.html$/, '/privacy.html');
+  if (url.searchParams.has('lang') || demo) url.searchParams.set('lang', 'en');
+  if (url.pathname.endsWith('/privacy.html') && url.hash === '#bm') url.hash = '#pv-en-h';
+  try { localStorage.setItem('idyra.language', 'en'); } catch {}
+  if (url.href !== previous) {
+    if (demo) history.replaceState(history.state, '', url.href);
+    else location.replace(url.href);
   }
 })();
